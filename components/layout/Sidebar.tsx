@@ -20,6 +20,11 @@ const COMMON_NAV = [
 ]
 
 const SUBJECT_EXTRA_NAV: Record<string, { href: string; label: string }[]> = {
+  'korean': [
+    { href: '/korean/areas',        label: '영역별 학습' },
+    { href: '/korean/exam-mapping', label: '회차 매핑' },
+    { href: '/korean/checklist',    label: '시험 직전 체크' },
+  ],
   'korean-history': [
     { href: '/korean-history/timeline',             label: '왕조 연표' },
     { href: '/korean-history/historical-figures',   label: '인물 사전' },

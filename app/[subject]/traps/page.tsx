@@ -1,8 +1,18 @@
 import { notFound } from 'next/navigation'
+import { readFileSync, existsSync } from 'fs'
+import { resolve } from 'path'
 import { AlertTriangle } from 'lucide-react'
 import { SUBJECT_KEYS, SUBJECT_META, type SubjectKey } from '@/lib/utils'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
+import { TrapCard } from '@/components/common/TrapCard'
+import { normalizeTrapData } from '@/lib/traps'
+
+const DIR_MAP: Record<SubjectKey, string> = {
+  'korean':           'korean',
+  'english':          'english',
+  'korean-history':   'korean_history',
+  'computer-general': 'computer_general',
+  'infosec':          'infosec',
+}
 
 interface Props {
   params: Promise<{ subject: string }>
@@ -13,40 +23,51 @@ export default async function TrapsPage({ params }: Props) {
   if (!SUBJECT_KEYS.includes(subject as SubjectKey)) notFound()
 
   const meta = SUBJECT_META[subject as SubjectKey]
+  const dir = DIR_MAP[subject as SubjectKey]
+  const filePath = resolve(`data/${dir}/요약노트_JSON.json`)
+
+  if (!existsSync(filePath)) {
+    return (
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-xl font-bold mb-4">{meta.label} 함정 패턴</h1>
+        <p className="text-muted-foreground">데이터 파일을 찾을 수 없습니다.</p>
+      </div>
+    )
+  }
+
+  const json = JSON.parse(readFileSync(filePath, 'utf-8'))
+  const traps = normalizeTrapData(subject, json)
+
+  const understood = 0
+  const total = traps.length
 
   return (
     <div className="max-w-3xl mx-auto space-y-4">
-      <div className="flex items-center gap-2">
-        <AlertTriangle className="h-5 w-5" style={{ color: meta.color }} />
-        <h1 className="text-xl font-bold">{meta.label} 함정 패턴 TOP 15</h1>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <AlertTriangle className="h-5 w-5" style={{ color: meta.color }} />
+          <h1 className="text-xl font-bold">{meta.label} 함정 패턴 TOP {total}</h1>
+        </div>
+        <span className="text-sm text-muted-foreground">{understood}/{total} 완료</span>
       </div>
 
-      <div className="rounded-lg border p-4 text-sm text-muted-foreground bg-muted">
-        데이터를 적재하면 함정 패턴이 표시됩니다. (<code>npm run seed</code> 실행 후 새로고침)
+      {/* 진도 바 */}
+      <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
+        <div
+          className="h-full rounded-full transition-all"
+          style={{ width: `${total ? (understood / total) * 100 : 0}%`, backgroundColor: meta.color }}
+        />
       </div>
 
-      {/* 함정 카드 플레이스홀더 */}
-      {Array.from({ length: 3 }).map((_, i) => (
-        <Card key={i} className="opacity-40">
-          <CardHeader className="pb-2">
-            <div className="flex items-center gap-2">
-              <Badge variant="outline">#{i + 1}</Badge>
-              <CardTitle className="text-sm">함정 패턴 {i + 1}</CardTitle>
-            </div>
-          </CardHeader>
-          <CardContent className="space-y-2 text-sm">
-            <div className="rounded bg-red-50 dark:bg-red-950 text-red-700 dark:text-red-300 px-3 py-2">
-              ❌ 잘못된 형태 — 예시
-            </div>
-            <div className="rounded bg-green-50 dark:bg-green-950 text-green-700 dark:text-green-300 px-3 py-2">
-              ✅ 올바른 형태 — 예시
-            </div>
-            <div className="rounded bg-yellow-50 dark:bg-yellow-950 text-yellow-700 dark:text-yellow-300 px-3 py-2">
-              💡 회피법 — 예시
-            </div>
-          </CardContent>
-        </Card>
-      ))}
+      {traps.length === 0 ? (
+        <p className="text-muted-foreground text-sm">함정 패턴 데이터가 없습니다.</p>
+      ) : (
+        <div className="space-y-3">
+          {traps.map(trap => (
+            <TrapCard key={trap.rank} trap={trap} accentColor={meta.color} />
+          ))}
+        </div>
+      )}
     </div>
   )
 }
