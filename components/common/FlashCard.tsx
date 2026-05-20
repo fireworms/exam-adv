@@ -30,15 +30,16 @@ export function FlashCard({
 
   const handleFlip = () => {
     if (state === 'idle') { setFlipped(true); setState('flipped') }
+    else if (state === 'flipped') { setFlipped(false); setState('idle') }
   }
 
   const handleRate = (q: 0 | 1 | 2) => {
     setState('rated')
+    setFlipped(false)
     setTimeout(() => {
-      onRate(q)
-      setFlipped(false)
       setState('idle')
-    }, 350)
+      onRate(q)
+    }, 450)
   }
 
   return (
@@ -63,7 +64,9 @@ export function FlashCard({
             <div className="flex items-center gap-2">
               <div className="text-center">{front}</div>
               {showTTS && ttsText && (
-                <TTSButton text={ttsText} lang={ttsLang} />
+                <div onClick={e => e.stopPropagation()}>
+                  <TTSButton text={ttsText} lang={ttsLang} />
+                </div>
               )}
             </div>
             {examMeta && (
@@ -82,6 +85,7 @@ export function FlashCard({
             style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)', borderColor: accentColor }}
           >
             <div className="text-center w-full">{back}</div>
+            <p className="absolute bottom-3 right-4 text-xs text-muted-foreground">탭하여 돌아가기</p>
           </div>
         </motion.div>
       </div>
