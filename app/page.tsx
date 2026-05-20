@@ -3,6 +3,7 @@ import { BookOpen, BookMarked } from 'lucide-react'
 import { DDayBanner } from '@/components/common/DDayBanner'
 import { SubjectProgressCard } from '@/components/common/SubjectProgressCard'
 import { ReviewQueue } from '@/components/common/ReviewQueue'
+import { ExamDayPanel } from '@/components/common/ExamDayPanel'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { SUBJECT_KEYS, SUBJECT_META } from '@/lib/utils'
 
@@ -10,6 +11,7 @@ export default function DashboardPage() {
   return (
     <div className="max-w-5xl mx-auto space-y-6">
       <DDayBanner />
+      <ExamDayPanel />
 
       <section>
         <h2 className="text-lg font-semibold mb-3">과목별 학습 진도</h2>

@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { Moon, Sun, BookOpen, Menu } from 'lucide-react'
+import { usePathname, useRouter } from 'next/navigation'
+import { Moon, Sun, BookOpen, Menu, Search } from 'lucide-react'
 import { useTheme } from 'next-themes'
+import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { SUBJECT_META, SUBJECT_KEYS, type SubjectKey } from '@/lib/utils'
 
@@ -14,8 +15,18 @@ interface HeaderProps {
 export function Header({ onMenuToggle }: HeaderProps) {
   const { theme, setTheme } = useTheme()
   const pathname = usePathname()
+  const router = useRouter()
+  const [searchQ, setSearchQ] = useState('')
 
   const currentSubject = SUBJECT_KEYS.find(k => pathname.startsWith(`/${k}`))
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!searchQ.trim()) return
+    const target = currentSubject ? `/${currentSubject}/search?q=${encodeURIComponent(searchQ)}` : `/korean/search?q=${encodeURIComponent(searchQ)}`
+    router.push(target)
+    setSearchQ('')
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -55,7 +66,21 @@ export function Header({ onMenuToggle }: HeaderProps) {
           })}
         </nav>
 
-        <div className="ml-auto flex items-center gap-2">
+        {/* 통합 검색 (데스크탑) */}
+        <form onSubmit={handleSearch} className="hidden md:flex items-center ml-auto">
+          <div className="relative">
+            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+            <input
+              value={searchQ}
+              onChange={e => setSearchQ(e.target.value)}
+              placeholder="검색..."
+              aria-label="전체 검색"
+              className="pl-8 pr-3 py-1.5 text-sm rounded-md border bg-background w-44 focus:w-56 transition-all focus:outline-none focus:ring-1 focus:ring-ring"
+            />
+          </div>
+        </form>
+
+        <div className="flex items-center gap-2">
           <Button
             variant="ghost"
             size="icon"

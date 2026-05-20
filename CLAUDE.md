@@ -45,9 +45,19 @@ NEXT_PUBLIC_QUIZ_APP_URL=...             (없으면 딥링크 비활성)
 | Week 5 | 국어 + 전 과목 함정 패턴 + 통합 검색 + 기출 메타 주입 |
 | Week 6 | D-7 시험 직전 모드, QA, Vercel 배포 |
 
-## 현재 git 상태
-- `master` 브랜치: 초기 커밋 (data 파일 전체 포함)
-- 앱 코드 아직 없음 → Week 1 작업 시작 전
+## 현재 git 상태 (Week 6 완료)
+- `master` 브랜치: Week 1~6 전체 구현 완료
+- 배포: `vercel.json` 준비됨 (Vercel 대시보드에서 env 설정 필요)
+
+## 주요 구현 현황
+| 과목 | 특화 페이지 |
+|------|-----------|
+| 국어 | /korean/areas, /exam-mapping, /checklist |
+| 영어 | /english/vocabulary, /grammar-patterns, /idioms |
+| 한국사 | /korean-history/timeline, /historical-figures, /historical-documents |
+| 컴퓨터일반 | /computer-general/flashcards, /algorithms, /code-trace |
+| 정보보호론 | /infosec/crypto-lab, /law-explorer, /ismsp-tree, /access-control-sim, /new-trends |
+| 공통 | /[subject]/traps, /[subject]/search, /[subject]/notes/{master,table,json} |
 
 ## 과목별 주의사항 요약
 - **국어/영어**: 트렌드분석.md 없음 → 해당 페이지 "준비 중" 처리
