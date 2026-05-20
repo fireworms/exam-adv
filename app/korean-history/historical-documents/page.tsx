@@ -10,6 +10,7 @@ interface Document {
   author?: string
   country?: string
   feature: string
+  excerpt?: string
 }
 
 interface DocumentGroups {
@@ -69,6 +70,11 @@ export default function HistoricalDocumentsPage() {
                     )}
                   </div>
                   <p className="text-xs text-muted-foreground leading-relaxed">{doc.feature}</p>
+                  {doc.excerpt && (
+                    <div className="mt-2 rounded bg-muted px-3 py-2 text-xs leading-relaxed whitespace-pre-line border-l-2 border-korean-history">
+                      {doc.excerpt}
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             ))}
