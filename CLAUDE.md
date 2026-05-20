@@ -63,4 +63,4 @@ NEXT_PUBLIC_QUIZ_APP_URL=...             (없으면 딥링크 비활성)
 - **국어/영어**: 트렌드분석.md 없음 → 해당 페이지 "준비 중" 처리
 - **한국사**: BC 연대 = 음수 저장, 지도 GeoJSON = 공개 데이터만
 - **컴일**: KaTeX formula 필드는 raw LaTeX ($$래핑 없음), SVG 애니메이션은 핵심 5~6개만
-- **정보보호론**: RSA BigInt API 사용, ISMS-P 총 102개 항목
+- **정보보호론**: RSA BigInt API 사용, ISMS-P 총 101개 항목
