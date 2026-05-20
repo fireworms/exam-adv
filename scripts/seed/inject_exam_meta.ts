@@ -9,7 +9,7 @@ import { resolve, join } from 'path'
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
+  process.env.SUPABASE_SECRET_KEY!
 )
 
 const META_REGEX = /\[관련 기출:\s*([^\]\/]+?)(?:\s*\/\s*핵심 개념:\s*([^\]]+))?\]/g

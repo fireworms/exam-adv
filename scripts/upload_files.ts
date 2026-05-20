@@ -1,6 +1,6 @@
 /**
  * md/pdf 파일을 Supabase Storage 'notes' 버킷에 업로드
- * 실행: npm run upload-files (SUPABASE_SERVICE_ROLE_KEY 필요)
+ * 실행: npm run upload-files (SUPABASE_SECRET_KEY 필요)
  */
 import { createClient } from '@supabase/supabase-js'
 import { readFileSync } from 'fs'
@@ -8,7 +8,7 @@ import { resolve } from 'path'
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
+  process.env.SUPABASE_SECRET_KEY!
 )
 
 const FILES = [

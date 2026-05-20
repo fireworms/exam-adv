@@ -23,6 +23,15 @@ data/{korean,english,korean_history,computer_general,infosec}/
   set1~3.json          ← 메타 추출 전용
 ```
 
+## 환경변수 (.env.local)
+```
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=...  (대시보드 "Publishable key")
+SUPABASE_SECRET_KEY=...                   (대시보드 "Secret key", 시드 스크립트 전용)
+EXAM_DATE=2026-06-20
+NEXT_PUBLIC_QUIZ_APP_URL=...             (없으면 딥링크 비활성)
+```
+
 ## 시험일
 `EXAM_DATE=2026-06-20` (D-7부터 시험 직전 모드 자동 활성화)
 
