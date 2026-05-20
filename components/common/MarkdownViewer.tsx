@@ -1,17 +1,17 @@
 'use client'
 
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { cn } from '@/lib/utils'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Button } from '@/components/ui/button'
-import { Rows3 } from 'lucide-react'
+import { Rows3, ChevronDown } from 'lucide-react'
 
-interface TocItem {
+interface Section {
   id: string
-  text: string
-  level: number
+  heading: string
+  content: string
 }
 
 function slugify(text: string) {
@@ -22,22 +22,55 @@ function slugify(text: string) {
     .toLowerCase()
 }
 
-function extractToc(markdown: string): TocItem[] {
+function parseSections(markdown: string): { preamble: string; sections: Section[] } {
   const lines = markdown.split('\n')
-  const items: TocItem[] = []
+  const sections: Section[] = []
+  let current: { id: string; heading: string; lines: string[] } | null = null
+  const preambleLines: string[] = []
   const seen: Record<string, number> = {}
 
   for (const line of lines) {
-    const m = line.match(/^(#{2,3})\s+(.+)/)
-    if (!m) continue
-    const level = m[1].length
-    const text = m[2].trim()
-    const base = slugify(text)
-    seen[base] = (seen[base] ?? 0) + 1
-    const id = seen[base] > 1 ? `${base}-${seen[base]}` : base
-    items.push({ id, text, level })
+    const m = line.match(/^#{2}\s+(.+)/)
+    if (m) {
+      if (current) sections.push({ ...current, content: current.lines.join('\n') })
+      const text = m[1].trim()
+      const base = slugify(text)
+      seen[base] = (seen[base] ?? 0) + 1
+      const id = seen[base] > 1 ? `${base}-${seen[base]}` : base
+      current = { id, heading: text, lines: [line] }
+    } else {
+      if (current) current.lines.push(line)
+      else preambleLines.push(line)
+    }
   }
-  return items
+  if (current) sections.push({ ...current, content: current.lines.join('\n') })
+
+  return { preamble: preambleLines.join('\n').trim(), sections }
+}
+
+const mdComponents = {
+  table: ({ children, ...props }: React.ComponentPropsWithoutRef<'table'>) => (
+    <div className="overflow-x-auto my-4">
+      <table
+        className="min-w-full border-collapse text-sm"
+        {...props}
+      >
+        {children}
+      </table>
+    </div>
+  ),
+  thead: ({ children, ...props }: React.ComponentPropsWithoutRef<'thead'>) => (
+    <thead className="bg-muted" {...props}>{children}</thead>
+  ),
+  th: ({ children, ...props }: React.ComponentPropsWithoutRef<'th'>) => (
+    <th className="border border-border px-3 py-2 text-left font-semibold" {...props}>{children}</th>
+  ),
+  td: ({ children, ...props }: React.ComponentPropsWithoutRef<'td'>) => (
+    <td className="border border-border px-3 py-2 align-top" {...props}>{children}</td>
+  ),
+  tr: ({ children, ...props }: React.ComponentPropsWithoutRef<'tr'>) => (
+    <tr className="even:bg-muted/40" {...props}>{children}</tr>
+  ),
 }
 
 interface MarkdownViewerProps {
@@ -46,12 +79,11 @@ interface MarkdownViewerProps {
   pdfUrl?: string
 }
 
-export function MarkdownViewer({ subject, type, pdfUrl }: MarkdownViewerProps) {
+export function MarkdownViewer({ subject, type }: MarkdownViewerProps) {
   const [content, setContent] = useState<string | null>(null)
   const [error, setError] = useState(false)
   const [tableHighlight, setTableHighlight] = useState(false)
-  const [activeId, setActiveId] = useState<string | null>(null)
-  const contentRef = useRef<HTMLDivElement>(null)
+  const [openId, setOpenId] = useState<string | null>(null)
 
   useEffect(() => {
     fetch(`/api/notes/${subject}/${type}`)
@@ -62,16 +94,6 @@ export function MarkdownViewer({ subject, type, pdfUrl }: MarkdownViewerProps) {
       .then(setContent)
       .catch(() => setError(true))
   }, [subject, type])
-
-  const toc = content ? extractToc(content) : []
-
-  const scrollTo = useCallback((id: string) => {
-    const el = document.getElementById(id)
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      setActiveId(id)
-    }
-  }, [])
 
   if (error) {
     return (
@@ -98,34 +120,40 @@ export function MarkdownViewer({ subject, type, pdfUrl }: MarkdownViewerProps) {
     )
   }
 
+  const { preamble, sections } = parseSections(content)
+
+  const proseClass = cn(
+    'prose prose-sm dark:prose-invert max-w-none',
+    tableHighlight && '[&_p]:opacity-40 [&_ul]:opacity-40 [&_ol]:opacity-40 [&_blockquote]:opacity-40',
+  )
+
   return (
     <div className="flex gap-6 relative">
       {/* 목차 사이드바 */}
-      {toc.length > 0 && (
+      {sections.length > 0 && (
         <nav className="hidden md:flex flex-col gap-1 w-52 shrink-0 sticky top-20 self-start max-h-[calc(100vh-6rem)] overflow-y-auto pr-2">
           <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">목차</p>
-          {toc.map(item => (
+          {sections.map(s => (
             <button
-              key={item.id}
-              onClick={() => scrollTo(item.id)}
+              key={s.id}
+              onClick={() => setOpenId(prev => prev === s.id ? null : s.id)}
               className={cn(
-                'text-left text-xs py-1 rounded transition-colors hover:text-foreground truncate',
-                item.level === 3 ? 'pl-4' : 'pl-1',
-                activeId === item.id
-                  ? 'text-foreground font-medium'
-                  : 'text-muted-foreground'
+                'text-left text-xs py-1.5 px-2 rounded transition-colors hover:text-foreground whitespace-normal break-words leading-snug',
+                openId === s.id
+                  ? 'text-foreground font-medium bg-accent'
+                  : 'text-muted-foreground hover:bg-accent/50'
               )}
             >
-              {item.text}
+              {s.heading}
             </button>
           ))}
         </nav>
       )}
 
       {/* 본문 */}
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 min-w-0 space-y-2">
         {type === 'table' && (
-          <div className="flex items-center justify-end mb-4">
+          <div className="flex items-center justify-end mb-2">
             <Button
               variant={tableHighlight ? 'default' : 'outline'}
               size="sm"
@@ -138,38 +166,42 @@ export function MarkdownViewer({ subject, type, pdfUrl }: MarkdownViewerProps) {
           </div>
         )}
 
-        <div
-          ref={contentRef}
-          className={cn(
-            'prose prose-sm dark:prose-invert max-w-none',
-            tableHighlight && '[&_p]:opacity-40 [&_ul]:opacity-40 [&_ol]:opacity-40 [&_blockquote]:opacity-40',
-            '[&_table]:overflow-x-auto [&_table]:block',
-            '[&_h2]:scroll-mt-20 [&_h3]:scroll-mt-20'
-          )}
-        >
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            components={{
-              h2: ({ children, ...props }) => {
-                const text = String(children)
-                const id = slugify(text)
-                return <h2 id={id} {...props}>{children}</h2>
-              },
-              h3: ({ children, ...props }) => {
-                const text = String(children)
-                const id = slugify(text)
-                return <h3 id={id} {...props}>{children}</h3>
-              },
-              table: ({ children, ...props }) => (
-                <div className="overflow-x-auto">
-                  <table className="min-w-full" {...props}>{children}</table>
-                </div>
-              ),
-            }}
-          >
-            {content}
-          </ReactMarkdown>
-        </div>
+        {/* 헤더 앞 서문 */}
+        {preamble && (
+          <div className={proseClass}>
+            <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
+              {preamble}
+            </ReactMarkdown>
+          </div>
+        )}
+
+        {/* 아코디언 섹션 */}
+        {sections.map(s => (
+          <div key={s.id} className="border rounded-lg overflow-hidden">
+            <button
+              onClick={() => setOpenId(prev => prev === s.id ? null : s.id)}
+              className={cn(
+                'w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-left transition-colors',
+                openId === s.id
+                  ? 'bg-accent text-foreground'
+                  : 'hover:bg-accent/50 text-foreground'
+              )}
+            >
+              {s.heading}
+              <ChevronDown
+                className={cn('h-4 w-4 shrink-0 transition-transform', openId === s.id && 'rotate-180')}
+              />
+            </button>
+
+            {openId === s.id && (
+              <div className={cn(proseClass, 'px-4 py-4 border-t')}>
+                <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
+                  {s.content}
+                </ReactMarkdown>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   )
