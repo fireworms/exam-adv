@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
-  LayoutDashboard, FileText, AlertTriangle, Search, BarChart2,
+  LayoutDashboard, FileText, AlertTriangle, Search,
   BookMarked, Home,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -16,7 +16,6 @@ const COMMON_NAV = [
   { href: '/notes/json',   label: 'JSON 트리',  icon: FileText },
   { href: '/traps',        label: '함정 패턴',  icon: AlertTriangle },
   { href: '/search',       label: '검색',       icon: Search },
-  { href: '/stats',        label: '통계',       icon: BarChart2 },
 ]
 
 const SUBJECT_EXTRA_NAV: Record<string, { href: string; label: string }[]> = {
