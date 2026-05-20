@@ -1,0 +1,364 @@
+{
+  "metadata": {
+    "title": "9급 컴퓨터일반 요약노트 (구조화 JSON)",
+    "exam_target": "2026년 6월 20일 9급 지방직 컴퓨터일반",
+    "version": "1.0",
+    "based_on_exams": ["2022~2026 국가직 5회차", "2022~2025 지방직 4회차"],
+    "total_analyzed_questions": 180,
+    "domain_distribution": {
+      "컴퓨터구조": {"count": 44, "ratio": 0.244, "priority": 1},
+      "운영체제": {"count": 28, "ratio": 0.156, "priority": 2},
+      "네트워크": {"count": 25, "ratio": 0.139, "priority": 3},
+      "프로그래밍": {"count": 19, "ratio": 0.106, "priority": 4},
+      "데이터베이스": {"count": 14, "ratio": 0.078, "priority": 5},
+      "소프트웨어공학": {"count": 13, "ratio": 0.072, "priority": 6},
+      "자료구조": {"count": 12, "ratio": 0.067, "priority": 7},
+      "신기술": {"count": 12, "ratio": 0.067, "priority": 8},
+      "알고리즘": {"count": 7, "ratio": 0.039, "priority": 9},
+      "멀티미디어": {"count": 4, "ratio": 0.022, "priority": 10},
+      "보안": {"count": 1, "ratio": 0.006, "priority": 11}
+    }
+  },
+  "key_concepts": {
+    "2의_보수": {
+      "definition": "음수 표현 방식 중 현 컴퓨터 표준. n비트로 -2^(n-1) ~ +(2^(n-1)-1) 표현, 0이 1개.",
+      "calculation": "절댓값 → 1의 보수(비트 반전) → +1",
+      "example": "8비트 -18: 18=0001 0010 → 1110 1101 → +1 → 1110 1110",
+      "exam_frequency": 7,
+      "trap": "최저 음수는 -(2^(n-1))이지 -(2^(n-1)-1)이 아님"
+    },
+    "캐시_메모리": {
+      "definition": "CPU와 주기억장치 사이의 고속 SRAM 메모리",
+      "principles": ["시간 지역성", "공간 지역성", "순차 지역성"],
+      "mapping_methods": ["직접 사상", "연관 사상", "집합 연관 사상"],
+      "write_policies": ["Write-Through", "Write-Back"],
+      "trap": "DRAM·SRAM 모두 휘발성. SRAM이 비휘발성 X"
+    },
+    "CPU_스케줄링": {
+      "non_preemptive": ["FCFS", "SJF", "HRN", "Priority(비선점 버전)"],
+      "preemptive": ["RR", "SRT", "MLFQ", "Priority(선점 버전)"],
+      "exam_frequency": 6,
+      "trap": "HRN은 비선점, SRT는 선점"
+    },
+    "페이지_교체": {
+      "algorithms": {
+        "FIFO": "가장 먼저 들어온 페이지 교체. Belady 이상 현상 발생",
+        "LRU": "가장 오래 안 쓴 페이지 교체. 스택 알고리즘",
+        "LFU": "사용 빈도 최저 페이지 교체",
+        "Optimal": "미래 가장 안 쓸 페이지 교체. 이론적 최저 폴트, 구현 불가",
+        "2nd Chance": "FIFO + 참조 비트 검사"
+      },
+      "exam_frequency": 5
+    },
+    "OSI_7계층": {
+      "layers": {
+        "7_응용": {"pdu": "Data", "protocols": ["HTTP", "FTP", "SMTP", "DNS", "Telnet"], "device": "게이트웨이"},
+        "6_표현": {"pdu": "Data", "protocols": ["SSL/TLS", "JPEG", "MPEG"]},
+        "5_세션": {"pdu": "Data", "protocols": ["NetBIOS", "RPC"]},
+        "4_전송": {"pdu": "Segment", "protocols": ["TCP", "UDP", "SCTP"]},
+        "3_네트워크": {"pdu": "Packet", "protocols": ["IP", "ICMP", "ARP", "IGMP"], "device": "라우터"},
+        "2_데이터링크": {"pdu": "Frame", "protocols": ["Ethernet", "PPP", "HDLC"], "device": "스위치/브리지"},
+        "1_물리": {"pdu": "Bit", "protocols": ["RS-232"], "device": "리피터/허브"}
+      },
+      "exam_frequency": 5,
+      "trap": "ARP/ICMP는 네트워크 계층 (응용 X)"
+    },
+    "정규화": {
+      "1NF": "원자 값만",
+      "2NF": "1NF + 완전 함수 종속 (부분 종속 제거)",
+      "3NF": "2NF + 이행 함수 종속 제거",
+      "BCNF": "모든 결정자가 슈퍼키 (3NF 강화)",
+      "4NF": "BCNF + 다치 종속 제거",
+      "5NF": "4NF + 조인 종속 제거"
+    },
+    "결합도": {
+      "weak_to_strong": ["자료(Data)", "스탬프(Stamp)", "제어(Control)", "외부(External)", "공통(Common)", "내용(Content)"],
+      "principle": "낮을수록 좋음",
+      "trap": "내용 결합도가 가장 강함"
+    },
+    "응집도": {
+      "weak_to_strong": ["우연적", "논리적", "시간적", "절차적", "통신적", "순차적", "기능적"],
+      "principle": "높을수록 좋음",
+      "trap": "기능적 응집도가 가장 강함"
+    },
+    "교착상태": {
+      "necessary_conditions": ["상호 배제", "점유와 대기", "비선점", "순환 대기"],
+      "trap": "'선점'이 아니라 '비선점'이 조건",
+      "solutions": ["예방", "회피(은행원 알고리즘)", "탐지·복구", "무시"]
+    },
+    "TCP_UDP": {
+      "TCP": {
+        "type": "연결 지향",
+        "reliability": "보장",
+        "header": "20-60바이트",
+        "uses": ["HTTP", "FTP", "SMTP", "Telnet"]
+      },
+      "UDP": {
+        "type": "비연결",
+        "reliability": "보장 안 함",
+        "header": "8바이트 (고정)",
+        "uses": ["DNS", "DHCP", "SNMP", "VoIP", "게임", "스트리밍"]
+      }
+    },
+    "트랜잭션_ACID": {
+      "Atomicity": "원자성 - 전부 또는 전무",
+      "Consistency": "일관성 - 무결성 제약 유지",
+      "Isolation": "고립성 - 동시 트랜잭션 격리",
+      "Durability": "지속성 - 커밋된 결과 영구 보존"
+    },
+    "디자인_패턴": {
+      "생성_5": ["싱글톤", "팩토리 메소드", "추상 팩토리", "빌더", "프로토타입"],
+      "구조_7": ["어댑터", "브리지", "컴포지트", "데코레이터", "퍼사드", "플라이웨이트", "프록시"],
+      "행위_11": ["옵저버", "전략", "템플릿 메소드", "이터레이터", "커맨드", "책임 연쇄", "메멘토", "상태", "방문자", "중재자", "인터프리터"],
+      "trap": "옵저버는 행위 패턴 (생성 X)"
+    }
+  },
+  "algorithms_data_structures": {
+    "정렬": {
+      "n_squared_group": {
+        "algorithms": ["버블", "선택", "삽입"],
+        "complexity": {"avg": "O(n²)", "worst": "O(n²)", "best": "O(n) (버블·삽입), O(n²) (선택)"},
+        "stable": {"버블": true, "선택": false, "삽입": true}
+      },
+      "n_logn_group": {
+        "algorithms": ["퀵", "병합", "힙"],
+        "complexity": {
+          "퀵": {"avg": "O(n log n)", "worst": "O(n²)", "space": "O(log n)", "stable": false},
+          "병합": {"avg": "O(n log n)", "worst": "O(n log n)", "space": "O(n)", "stable": true},
+          "힙": {"avg": "O(n log n)", "worst": "O(n log n)", "space": "O(1)", "stable": false}
+        }
+      },
+      "linear_group": {
+        "algorithms": ["기수", "계수", "버킷"],
+        "complexity": "O(n) 가능 (조건부)"
+      }
+    },
+    "탐색": {
+      "BFS": {
+        "data_structure": "큐",
+        "use_cases": ["최단 경로 (가중치 없음)", "레벨 순서"],
+        "complexity": "O(V+E)"
+      },
+      "DFS": {
+        "data_structure": "스택 또는 재귀",
+        "use_cases": ["사이클 검사", "위상 정렬", "백트래킹"],
+        "complexity": "O(V+E)"
+      },
+      "이진_탐색": {
+        "complexity": "O(log n)",
+        "requirement": "정렬된 배열"
+      }
+    },
+    "최단_경로": {
+      "다익스트라": {"complexity": "O((V+E) log V)", "constraint": "음수 가중치 없음"},
+      "벨만_포드": {"complexity": "O(VE)", "feature": "음수 가중치 OK"},
+      "플로이드_워셜": {"complexity": "O(V³)", "feature": "모든 쌍 최단 경로"}
+    },
+    "최소_신장_트리": {
+      "크루스칼": "간선 정렬, 사이클 없이 추가 (그리디)",
+      "프림": "정점에서 시작, 최소 간선 추가 (그리디)",
+      "complexity": "O(E log V)"
+    },
+    "자료구조": {
+      "스택": {"order": "LIFO", "uses": ["함수 호출", "후위 표기식", "괄호 매칭", "DFS"]},
+      "큐": {"order": "FIFO", "uses": ["스케줄링", "BFS", "프린터 큐"]},
+      "트리": {
+        "순회": {
+          "전위": "루트 → 왼쪽 → 오른쪽",
+          "중위": "왼쪽 → 루트 → 오른쪽 (BST는 정렬)",
+          "후위": "왼쪽 → 오른쪽 → 루트",
+          "레벨": "BFS, 큐 사용"
+        }
+      },
+      "힙": {"type": ["최대 힙", "최소 힙"], "complexity": "삽입·삭제 O(log n)"},
+      "해시": {
+        "충돌_해결": ["선형 조사", "이차 조사", "이중 해싱", "체이닝"],
+        "복잡도": "평균 O(1)"
+      }
+    },
+    "설계_기법": {
+      "분할_정복": {"examples": ["병합 정렬", "퀵 정렬", "이진 탐색"]},
+      "동적_계획법": {
+        "조건": ["중복 부분 문제", "최적 부분 구조"],
+        "방법": ["메모이제이션 (top-down)", "타뷸레이션 (bottom-up)"],
+        "examples": ["피보나치", "LCS", "0/1 배낭", "LIS"]
+      },
+      "그리디": {
+        "optimal_guarantee": ["MST (Kruskal·Prim)", "다익스트라", "활동 선택", "분할 배낭", "허프만"],
+        "no_guarantee": ["0/1 배낭", "TSP"]
+      },
+      "백트래킹": {"examples": ["N-Queen", "미로 탐색", "부분 집합 합"]}
+    }
+  },
+  "protocols_standards": {
+    "주요_포트": {
+      "FTP": {"port": "20/21", "protocol": "TCP"},
+      "SSH": {"port": 22, "protocol": "TCP"},
+      "Telnet": {"port": 23, "protocol": "TCP"},
+      "SMTP": {"port": 25, "protocol": "TCP", "use": "메일 송신"},
+      "DNS": {"port": 53, "protocol": "UDP+TCP", "use": "도메인 변환"},
+      "DHCP": {"port": "67/68", "protocol": "UDP", "use": "IP 자동 할당"},
+      "HTTP": {"port": 80, "protocol": "TCP"},
+      "POP3": {"port": 110, "protocol": "TCP", "use": "메일 수신"},
+      "IMAP": {"port": 143, "protocol": "TCP", "use": "메일 수신"},
+      "SNMP": {"port": "161/162", "protocol": "UDP", "use": "네트워크 관리"},
+      "HTTPS": {"port": 443, "protocol": "TCP"},
+      "SMB": {"port": 445, "protocol": "TCP"}
+    },
+    "IPv4_클래스": {
+      "A": {"first_bit_pattern": "0xxx", "range": "0~127", "network_bits": 8, "host_bits": 24},
+      "B": {"first_bit_pattern": "10xx", "range": "128~191", "network_bits": 16, "host_bits": 16},
+      "C": {"first_bit_pattern": "110x", "range": "192~223", "network_bits": 24, "host_bits": 8},
+      "D": {"first_bit_pattern": "1110", "range": "224~239", "type": "멀티캐스트"},
+      "E": {"first_bit_pattern": "1111", "range": "240~255", "type": "예약"}
+    },
+    "CIDR": {
+      "/24": {"mask": "255.255.255.0", "hosts": 254},
+      "/25": {"mask": "255.255.255.128", "hosts": 126},
+      "/26": {"mask": "255.255.255.192", "hosts": 62},
+      "/27": {"mask": "255.255.255.224", "hosts": 30},
+      "/28": {"mask": "255.255.255.240", "hosts": 14},
+      "/29": {"mask": "255.255.255.248", "hosts": 6},
+      "/30": {"mask": "255.255.255.252", "hosts": 2}
+    },
+    "IPv6": {
+      "length": "128비트 (16바이트)",
+      "header_size": "40바이트 (고정, IPv4보다 큼)",
+      "notation": "16진수 8그룹 콜론 표기 (예: 2001:0db8:85a3::8a2e:0370:7334)",
+      "features": ["IPSec 기본 지원", "헤더 단순화", "자동 주소 설정(SLAAC)", "브로드캐스트 없음 (멀티캐스트로 대체)"]
+    },
+    "암호화": {
+      "대칭키": ["DES (취약)", "3DES", "AES (현 표준)", "SEED", "ARIA", "IDEA"],
+      "비대칭키": ["RSA", "ECC", "ElGamal", "DSA", "Diffie-Hellman"],
+      "해시": ["MD5 (취약)", "SHA-1 (취약)", "SHA-256", "SHA-3"],
+      "trap": "RSA는 비대칭키 (AES·SEED는 대칭키)"
+    },
+    "IoT_프로토콜": ["MQTT (발행/구독)", "CoAP (REST 기반)", "AMQP", "ZigBee", "BLE", "LoRaWAN", "NB-IoT"],
+    "5G_3특징": {
+      "eMBB": "초고속 광대역 (4K/8K, VR)",
+      "URLLC": "초저지연 신뢰성 (자율주행, 원격수술, 1ms 이내)",
+      "mMTC": "대규모 IoT 연결 (km²당 100만 기기)"
+    },
+    "클라우드_서비스": {
+      "IaaS": {"제공": "인프라 (가상머신, 스토리지, 네트워크)", "예": ["AWS EC2", "Azure VM", "GCP Compute"]},
+      "PaaS": {"제공": "플랫폼 (OS, 런타임, 미들웨어)", "예": ["Heroku", "GAE", "AWS Elastic Beanstalk"]},
+      "SaaS": {"제공": "완성된 SW", "예": ["Gmail", "Office365", "Salesforce"]},
+      "FaaS": {"제공": "함수 실행 (서버리스)", "예": ["AWS Lambda", "Azure Functions"]}
+    },
+    "OWASP_TOP10_2021": [
+      "접근 통제 실패",
+      "암호화 실패",
+      "인젝션 (SQL/Command/LDAP)",
+      "안전하지 않은 설계",
+      "보안 구성 오류",
+      "취약한 구성요소",
+      "식별·인증 실패",
+      "SW·데이터 무결성 실패",
+      "보안 로깅·모니터링 실패",
+      "SSRF"
+    ]
+  },
+  "code_patterns_formulas": {
+    "포인터_배열": {
+      "C": "*(p+i) ≡ p[i] (등가)",
+      "예시": "int *p = arr; *(p+2) == arr[2]"
+    },
+    "swap_포인터": {
+      "code": "void swap(int *a, int *b) { int t = *a; *a = *b; *b = t; }",
+      "trap": "Call by Value는 swap 안 됨 (C는 기본 값 호출)"
+    },
+    "재귀_팩토리얼": {
+      "code": "int fact(int n) { return n<=1 ? 1 : n * fact(n-1); }",
+      "trace": "fact(5) = 5*4*3*2*1 = 120"
+    },
+    "재귀_피보나치_DP": {
+      "code": "int fib(int n) { if(n<=1) return n; if(dp[n]) return dp[n]; return dp[n] = fib(n-1)+fib(n-2); }",
+      "values": {"f0": 0, "f1": 1, "f2": 1, "f3": 2, "f4": 3, "f5": 5, "f6": 8, "f7": 13, "f8": 21, "f9": 34, "f10": 55}
+    },
+    "비트_연산": {
+      "AND": "둘 다 1일 때만 1 (예: 1101 & 1011 = 1001)",
+      "OR": "하나라도 1이면 1 (예: 1101 | 1011 = 1111)",
+      "XOR": "다를 때만 1 (예: 1101 ^ 1011 = 0110)",
+      "NOT": "비트 반전 (예: ~1101 = ...0010 부호 있는 정수)",
+      "left_shift": "<<n = ×2^n",
+      "right_shift": ">>n = ÷2^n (산술은 부호 유지, 논리는 0 채움)"
+    },
+    "Python_리스트_참조": {
+      "trap_1": "y = x → 같은 객체 참조 (append 시 양쪽 변경)",
+      "trap_2": "x = x + [5] → 새 객체 생성 (y는 영향 없음)",
+      "trap_3": "x += [5] → in-place 수정 (append와 동일)"
+    },
+    "Java_static": {
+      "code_pattern": "static int x = 10; static { x += 5; }",
+      "behavior": "클래스 로딩 시 1번 실행, 모든 인스턴스가 x 공유"
+    },
+    "공식": {
+      "캐시_평균_접근시간": "h × Tc + (1-h) × (Tc + Tm)",
+      "캐시_적중률_역산": "h = 1 - (평균 - Tc) / Tm",
+      "페이지_접근_시간": "h × Tm + (1-h) × (Tm + 디스크 접근 시간)",
+      "서브넷_호스트": "2^호스트비트 - 2",
+      "이진_트리_최대_노드": "2^(높이+1) - 1",
+      "이진_트리_최대_레벨": "log2(n)",
+      "순환_복잡도": "E - N + 2 (E=간선, N=노드)",
+      "암달의_법칙": "1 / ((1-P) + P/S) (P=병렬화 비율, S=속도 향상)",
+      "RAID_5_용량": "(n-1)/n × 단일 디스크 용량",
+      "RAID_6_용량": "(n-2)/n × 단일 디스크 용량"
+    },
+    "SQL_실행_순서": "FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY",
+    "후위_표기": {
+      "중위_to_후위": "A + B → AB+, A + B * C → ABC*+, (A+B)*C → AB+C*",
+      "tip": "피연산자 먼저, 연산자 마지막"
+    }
+  },
+  "common_traps": {
+    "DRAM_SRAM": "둘 다 휘발성",
+    "SNMP_DNS_DHCP": "모두 UDP 기반",
+    "ICMP_ARP": "네트워크 계층 (3계층)",
+    "RAID_5_vs_6": "RAID 6이 더 느림 (이중 패리티)",
+    "교착상태_4조건": "'비선점'이 조건 (선점 X)",
+    "HRN": "비선점",
+    "SRT": "선점",
+    "BCNF_3NF": "BCNF가 더 강함 (BCNF → 3NF 만족)",
+    "Optimal_페이지": "이론적, 실제 구현 불가",
+    "RSA": "비대칭키",
+    "옵저버_패턴": "행위 패턴 (생성 X)",
+    "경계값_분석": "블랙박스 (화이트박스 X)",
+    "OAuth_2": "인증 X, 권한 위임",
+    "Python_y_equals_x": "참조 복사 (같은 객체)",
+    "C_swap_value_call": "Call by Value로 swap 안 됨"
+  },
+  "study_priority": {
+    "must_study": [
+      "2의 보수·진법 변환",
+      "CPU 스케줄링 (선점/비선점)",
+      "페이지 교체 알고리즘",
+      "OSI 7계층 · TCP/IP 4계층",
+      "IPv4 클래스·서브넷팅",
+      "TCP vs UDP",
+      "C 포인터·재귀",
+      "SQL JOIN·정규화",
+      "결합도·응집도"
+    ],
+    "should_study": [
+      "캐시 메모리 사상·적중률",
+      "디스크 스케줄링",
+      "RAID 레벨",
+      "디자인 패턴 23종",
+      "테스트 (화이트/블랙박스)",
+      "이진 트리 순회",
+      "해시 충돌 해결",
+      "클라우드 IaaS/PaaS/SaaS",
+      "암호화 (대칭/비대칭)"
+    ],
+    "nice_to_study": [
+      "양자 컴퓨팅",
+      "메타버스",
+      "DevOps·CI/CD",
+      "MSA",
+      "5G 3특징",
+      "빅데이터 5V",
+      "OWASP TOP 10",
+      "OAuth 2.0"
+    ]
+  }
+}

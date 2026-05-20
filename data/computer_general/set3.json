@@ -1,0 +1,233 @@
+{
+  "exam": {
+    "year": 2026,
+    "month": 5,
+    "day": 22,
+    "subject": "컴퓨터일반",
+    "grade": "9급",
+    "region": "지방직",
+    "source_file": "AI예상문제_2026_9급지방직컴퓨터일반_세트3"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "question_text": "다음 중 강화 학습(Reinforcement Learning)에 대한 설명으로 옳은 것은?",
+      "choices": [
+        {"number": 1, "text": "에이전트가 환경과 상호작용하며 보상을 최대화하는 정책을 학습한다.", "is_correct": true},
+        {"number": 2, "text": "정답이 주어진 데이터로 입력과 출력 간의 매핑을 학습한다.", "is_correct": false},
+        {"number": 3, "text": "정답 없는 데이터에서 군집이나 패턴을 발견한다.", "is_correct": false},
+        {"number": 4, "text": "소량의 정답 데이터와 대량의 비정답 데이터를 함께 활용한다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 2026년 국가직 3번 / 핵심 개념: 강화 학습] 정답은 ①번. 강화 학습은 에이전트가 환경에서 행동을 선택하고 그 결과로 받는 보상(reward)을 통해 최적 정책을 학습한다. 대표 알고리즘: Q-learning, DQN, 정책 경사법, AlphaGo. ②번은 지도 학습, ③번은 비지도 학습, ④번은 준지도 학습(semi-supervised)이다."
+    },
+    {
+      "number": 2,
+      "question_text": "클라우드 컴퓨팅 서비스 모델 중 IaaS, PaaS, SaaS에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "IaaS는 가상 머신, 스토리지, 네트워크 등 인프라를 제공한다.", "is_correct": false},
+        {"number": 2, "text": "PaaS는 사용자가 OS 및 미들웨어를 직접 설치하고 관리해야 한다.", "is_correct": true},
+        {"number": 3, "text": "SaaS는 소프트웨어를 인터넷으로 바로 사용하는 서비스다.", "is_correct": false},
+        {"number": 4, "text": "사용자 관리 범위는 IaaS > PaaS > SaaS 순으로 줄어든다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 2024년 국가직 5번 / 핵심 개념: 클라우드 서비스 모델] 정답은 ②번. PaaS(Platform as a Service)는 OS·미들웨어·런타임·DB 등 플랫폼이 제공되며 사용자는 애플리케이션과 데이터만 관리한다. OS·미들웨어를 직접 관리하는 것은 IaaS의 영역. 관리 책임 범위: IaaS(OS부터 위까지 모두 관리) > PaaS(앱과 데이터만) > SaaS(데이터 일부만, 거의 사용만). 대표 예: IaaS=AWS EC2, PaaS=Heroku/GAE, SaaS=Gmail/Office365."
+    },
+    {
+      "number": 3,
+      "question_text": "대칭키 암호화와 비대칭키(공개키) 암호화에 대한 비교 설명으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "대칭키는 암호화와 복호화에 동일한 키를 사용한다.", "is_correct": false},
+        {"number": 2, "text": "비대칭키는 공개키로 암호화하면 개인키로 복호화한다.", "is_correct": false},
+        {"number": 3, "text": "대칭키 방식은 키 분배 문제가 있으나 처리 속도가 빠르다.", "is_correct": false},
+        {"number": 4, "text": "AES, RSA, SEED는 모두 대칭키 알고리즘이다.", "is_correct": true}
+      ],
+      "explanation": "[관련 기출: 2024년 국가직 3번 / 핵심 개념: 대칭키 vs 비대칭키] 정답은 ④번. RSA는 비대칭키(공개키) 알고리즘이다. 대칭키 알고리즘: DES, 3DES, AES, SEED, ARIA, IDEA, RC4. 비대칭키 알고리즘: RSA, ECC(타원곡선), ElGamal, DSA(전자서명), Diffie-Hellman(키 교환). 비대칭키는 키 분배 문제는 해결하지만 연산이 복잡해 대칭키보다 느리다. 실무에서는 비대칭키로 대칭키를 안전하게 교환한 후 대칭키로 본문을 암호화하는 하이브리드 방식을 주로 쓴다(SSL/TLS)."
+    },
+    {
+      "number": 4,
+      "question_text": "다음 Java 프로그램에서 출력 결과는?\n\n```java\nclass A {\n    static int x = 10;\n    int y = 20;\n    static { x += 5; }\n    A() { y += 5; }\n}\npublic class Test {\n    public static void main(String[] args) {\n        A a = new A();\n        A b = new A();\n        System.out.println(A.x + \" \" + a.y + \" \" + b.y);\n    }\n}\n```",
+      "choices": [
+        {"number": 1, "text": "15 25 25", "is_correct": true},
+        {"number": 2, "text": "25 25 25", "is_correct": false},
+        {"number": 3, "text": "15 30 25", "is_correct": false},
+        {"number": 4, "text": "20 25 30", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 2026년 국가직 16번 / 핵심 개념: Java static 블록·인스턴스 변수] 정답은 ①번. 단계별 분석:\n- 클래스 로딩 시: static int x=10 초기화 후 static 블록 실행 → x=10+5=15 (단 1번만 실행)\n- `new A()` 첫 번째: y=20 초기화 후 생성자 실행 → a.y = 20+5 = 25\n- `new A()` 두 번째: 새 인스턴스의 y=20 초기화 후 생성자 → b.y = 25 (a와 별개)\n- static x는 클래스 변수로 모든 인스턴스가 공유. static 블록은 클래스 로딩 시 1번만 실행 → x는 여전히 15\n결과: 15 25 25."
+    },
+    {
+      "number": 5,
+      "question_text": "다음 중 메타버스(Metaverse) 기술에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "가상 세계에서 사회·경제·문화 활동을 할 수 있는 디지털 공간이다.", "is_correct": false},
+        {"number": 2, "text": "VR(가상현실), AR(증강현실), MR(혼합현실) 기술이 함께 활용된다.", "is_correct": false},
+        {"number": 3, "text": "NFT는 메타버스 내 디지털 자산의 소유권 증명에 활용된다.", "is_correct": false},
+        {"number": 4, "text": "물리적 현실과 완전히 분리되어 동작하며 외부 기기 연동은 불가능하다.", "is_correct": true}
+      ],
+      "explanation": "[관련 기출: 2025년 지방직 10번 / 핵심 개념: 메타버스] 정답은 ④번. 메타버스는 현실 세계와 디지털을 연결·확장하는 개념으로, 물리적 기기(VR 헤드셋, 컨트롤러, IoT 센서 등)와 연동되며 현실 활동과도 연계된다(예: 가상 회의실에서 실제 결제, 가상 부동산 거래). 메타버스의 4가지 유형(ASF 분류): 증강현실(AR), 라이프로깅, 거울세계, 가상세계. NFT는 디지털 자산 소유권 증명에 활용되어 메타버스 경제 생태계의 핵심 기술 중 하나다."
+    },
+    {
+      "number": 6,
+      "question_text": "다음 중 빅데이터의 5V(특성)에 해당하지 않는 것은?",
+      "choices": [
+        {"number": 1, "text": "Volume (규모)", "is_correct": false},
+        {"number": 2, "text": "Velocity (속도)", "is_correct": false},
+        {"number": 3, "text": "Visualization (시각화)", "is_correct": true},
+        {"number": 4, "text": "Variety (다양성)", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 2022년 지방직 2번 / 핵심 개념: 빅데이터 5V] 정답은 ③번. 빅데이터의 5V: Volume(대규모 데이터), Velocity(생성·처리 속도), Variety(정형·반정형·비정형 다양성), Veracity(정확성·신뢰성), Value(가치). Visualization은 빅데이터 분석 결과를 표현하는 방법이지 빅데이터 자체의 특성은 아니다. 초기에는 3V(Volume·Velocity·Variety)였으나 Veracity와 Value가 추가되어 5V로 확장됐다."
+    },
+    {
+      "number": 7,
+      "question_text": "다음 C 프로그램의 출력 결과는?\n\n```c\n#include <stdio.h>\nint dp[10] = {0};\nint fib(int n) {\n    if (n <= 1) return n;\n    if (dp[n]) return dp[n];\n    return dp[n] = fib(n-1) + fib(n-2);\n}\nint main() {\n    printf(\"%d\", fib(7));\n    return 0;\n}\n```",
+      "choices": [
+        {"number": 1, "text": "13", "is_correct": true},
+        {"number": 2, "text": "21", "is_correct": false},
+        {"number": 3, "text": "8", "is_correct": false},
+        {"number": 4, "text": "5", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 2024년 국가직 20번 / 핵심 개념: 동적 계획법 (메모이제이션)] 정답은 ①번. 피보나치 수열 (메모이제이션으로 최적화): F(0)=0, F(1)=1, F(2)=1, F(3)=2, F(4)=3, F(5)=5, F(6)=8, F(7)=13. dp 배열로 이미 계산한 값을 저장하여 중복 계산을 피한다(O(2^n) → O(n)). 단계별: fib(7) = fib(6)+fib(5) = 8+5 = 13."
+    },
+    {
+      "number": 8,
+      "question_text": "다음 중 IoT(사물인터넷) 통신 프로토콜로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "MQTT", "is_correct": false},
+        {"number": 2, "text": "SMTP", "is_correct": true},
+        {"number": 3, "text": "CoAP", "is_correct": false},
+        {"number": 4, "text": "ZigBee", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: IoT 프로토콜] 정답은 ②번. SMTP(Simple Mail Transfer Protocol)는 이메일 송신 프로토콜이지 IoT용이 아니다. 주요 IoT 프로토콜: MQTT(저전력 발행/구독 모델), CoAP(REST 기반 경량 프로토콜), AMQP(엔터프라이즈 메시징), Bluetooth/BLE(근거리), ZigBee(저전력 메시 네트워크), LoRaWAN(장거리 저전력), NB-IoT(셀룰러 기반)."
+    },
+    {
+      "number": 9,
+      "question_text": "5G 이동통신 기술의 3대 특징에 해당하지 않는 것은?",
+      "choices": [
+        {"number": 1, "text": "초고속 데이터 전송 (eMBB)", "is_correct": false},
+        {"number": 2, "text": "초저지연 통신 (URLLC)", "is_correct": false},
+        {"number": 3, "text": "초연결 IoT (mMTC)", "is_correct": false},
+        {"number": 4, "text": "초장거리 통신 (xLRC)", "is_correct": true}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: 5G 3대 특징] 정답은 ④번. 5G의 3대 핵심 서비스 시나리오: eMBB(enhanced Mobile Broadband, 초고속 광대역), URLLC(Ultra-Reliable Low-Latency Communications, 초저지연 신뢰성, 1ms 이내), mMTC(massive Machine-Type Communications, 대규모 IoT 연결, km²당 100만 기기). xLRC는 5G 표준 용어가 아니다. 5G의 기술적 특징: 네트워크 슬라이싱, 엣지 컴퓨팅, 빔포밍, Massive MIMO."
+    },
+    {
+      "number": 10,
+      "question_text": "다음 SQL 쿼리가 반환하는 결과에 대한 설명으로 옳은 것은?\n\n```sql\nSELECT 학번, COUNT(*) AS 과목수\nFROM 수강\nWHERE 성적 >= 80\nGROUP BY 학번\nHAVING COUNT(*) >= 3;\n```",
+      "choices": [
+        {"number": 1, "text": "성적이 80 이상이고 그런 과목이 3개 이상인 학생들의 학번과 과목 수", "is_correct": true},
+        {"number": 2, "text": "전체 학생의 학번과 성적이 80 이상인 과목 수", "is_correct": false},
+        {"number": 3, "text": "모든 과목의 성적이 80 이상인 학생들의 학번과 과목 수", "is_correct": false},
+        {"number": 4, "text": "성적이 80 이상이거나 과목이 3개 이상인 학생들의 학번과 과목 수", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: SQL GROUP BY + HAVING] 정답은 ①번. SQL 실행 순서: ①FROM(테이블 선택) → ②WHERE(행 필터링: 성적 ≥ 80) → ③GROUP BY(학번별 그룹화) → ④HAVING(그룹 필터링: 그룹의 행 수 ≥ 3) → ⑤SELECT(컬럼 선택). 즉 '성적 80 이상인 과목이 3개 이상인 학생'만 결과에 포함된다. WHERE는 행 단위 필터(GROUP 전), HAVING은 그룹 단위 필터(GROUP 후)라는 차이를 기억할 것."
+    },
+    {
+      "number": 11,
+      "question_text": "도커(Docker)와 가상머신(VM)에 대한 비교 설명으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "도커 컨테이너는 호스트 OS의 커널을 공유한다.", "is_correct": false},
+        {"number": 2, "text": "VM은 하이퍼바이저를 통해 게스트 OS를 별도로 실행한다.", "is_correct": false},
+        {"number": 3, "text": "도커는 VM보다 부팅 속도가 빠르고 리소스 사용이 적다.", "is_correct": false},
+        {"number": 4, "text": "VM이 도커보다 격리성이 약하고 보안이 취약하다.", "is_correct": true}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: 컨테이너 vs 가상머신] 정답은 ④번. VM은 도커보다 격리성이 더 강하고 보안 측면에서 유리하다. VM은 게스트 OS를 별도로 실행해 완전한 OS 수준의 격리를 제공하지만, 컨테이너는 호스트 OS 커널을 공유해 격리성이 약하고 커널 취약점에 노출될 수 있다. 다만 컨테이너는 가볍고 빨라서 마이크로서비스에 적합하다. 오케스트레이션 도구: 컨테이너=Kubernetes/Docker Swarm, VM=VMware vSphere/OpenStack."
+    },
+    {
+      "number": 12,
+      "question_text": "다음 그래프에서 다익스트라 알고리즘으로 정점 A에서 정점 E까지의 최단 경로 길이는?\n\n간선: (A,B)=4, (A,C)=2, (B,C)=1, (B,D)=5, (C,D)=8, (C,E)=10, (D,E)=2",
+      "choices": [
+        {"number": 1, "text": "11", "is_correct": false},
+        {"number": 2, "text": "10", "is_correct": true},
+        {"number": 3, "text": "12", "is_correct": false},
+        {"number": 4, "text": "8", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: 다익스트라 최단 경로] 정답은 ②번. 다익스트라 단계별 (방문 후보=거리):\n- 시작: A=0, 나머지=∞\n- A 처리: B=4, C=2 (C가 가장 짧음)\n- C 처리: B=min(4, 2+1)=3, D=2+8=10, E=2+10=12\n- B 처리: D=min(10, 3+5)=8\n- D 처리: E=min(12, 8+2)=10\n- E 처리: 완료\n최단 경로: A→C→B→D→E = 2+1+5+2 = 10. 직접 A→C→E=12보다 짧다."
+    },
+    {
+      "number": 13,
+      "question_text": "OWASP TOP 10에 포함되는 대표적인 웹 보안 취약점이 아닌 것은?",
+      "choices": [
+        {"number": 1, "text": "SQL Injection", "is_correct": false},
+        {"number": 2, "text": "XSS (Cross-Site Scripting)", "is_correct": false},
+        {"number": 3, "text": "버퍼 오버플로 (Buffer Overflow)", "is_correct": true},
+        {"number": 4, "text": "CSRF (Cross-Site Request Forgery)", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: OWASP TOP 10] 정답은 ③번. 버퍼 오버플로는 시스템·네트워크 레벨의 취약점으로, OWASP TOP 10은 '웹 애플리케이션 보안'에 초점을 둔다. OWASP TOP 10 2021 주요 항목: ①접근 통제 실패(Broken Access Control), ②암호화 실패, ③인젝션(SQL/Command/LDAP), ④안전하지 않은 설계, ⑤보안 구성 오류, ⑥취약한 구성요소, ⑦식별·인증 실패, ⑧소프트웨어·데이터 무결성 실패, ⑨로깅·모니터링 실패, ⑩SSRF. XSS·CSRF는 인젝션·접근 통제 카테고리에 포함된다."
+    },
+    {
+      "number": 14,
+      "question_text": "다음 중 마이크로서비스 아키텍처(MSA)에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "각 서비스는 독립적으로 배포·확장·갱신이 가능하다.", "is_correct": false},
+        {"number": 2, "text": "서비스 간 통신은 주로 REST API나 메시지 큐를 사용한다.", "is_correct": false},
+        {"number": 3, "text": "전체 시스템을 하나의 통합된 코드베이스로 관리한다.", "is_correct": true},
+        {"number": 4, "text": "각 서비스는 자체적인 데이터베이스를 가질 수 있다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: 마이크로서비스 아키텍처] 정답은 ③번. 하나의 통합된 코드베이스로 관리하는 것은 모놀리식(Monolithic) 아키텍처의 특징이다. MSA는 시스템을 작은 독립 서비스로 분리하여 각각 배포·운영한다. MSA 장점: 독립 배포·확장, 기술 스택 자유, 장애 격리. 단점: 분산 시스템 복잡성, 트랜잭션 관리 어려움, 네트워크 오버헤드. 관련 기술: API Gateway, Service Mesh(Istio), Circuit Breaker(Hystrix), Container Orchestration(Kubernetes)."
+    },
+    {
+      "number": 15,
+      "question_text": "양자 컴퓨팅에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "큐비트(qubit)는 0과 1의 중첩 상태를 가질 수 있다.", "is_correct": false},
+        {"number": 2, "text": "얽힘(entanglement) 현상을 활용해 병렬 계산이 가능하다.", "is_correct": false},
+        {"number": 3, "text": "쇼어(Shor) 알고리즘으로 RSA 암호 해독을 효율화할 수 있다.", "is_correct": false},
+        {"number": 4, "text": "현재 양자 컴퓨터는 모든 분야에서 고전 컴퓨터를 완전히 대체하였다.", "is_correct": true}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: 양자 컴퓨팅] 정답은 ④번. 현재 양자 컴퓨터는 NISQ(Noisy Intermediate-Scale Quantum) 단계로 특정 문제(소인수분해, 양자 시뮬레이션, 최적화)에서만 우위가 있고 대다수 일반 작업에서는 고전 컴퓨터가 우세하다. 큐비트는 중첩(0과 1 동시 존재)과 얽힘(상관 관계) 특성으로 병렬성을 제공한다. 쇼어 알고리즘은 RSA 기반 공개키 암호를 효율적으로 깰 수 있어 양자 내성 암호(PQC) 연구가 활발하다."
+    },
+    {
+      "number": 16,
+      "question_text": "다음 중 컴파일러와 인터프리터에 대한 비교 설명으로 옳은 것은?",
+      "choices": [
+        {"number": 1, "text": "컴파일러는 전체 코드를 한 번에 번역하고, 인터프리터는 한 줄씩 실행한다.", "is_correct": true},
+        {"number": 2, "text": "인터프리터는 컴파일러보다 일반적으로 실행 속도가 빠르다.", "is_correct": false},
+        {"number": 3, "text": "Python과 Java는 모두 순수 컴파일러 언어이다.", "is_correct": false},
+        {"number": 4, "text": "컴파일 오류는 실행 도중 발견된다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 2025년 국가직 5번 / 핵심 개념: 컴파일러 vs 인터프리터] 정답은 ①번. 컴파일러는 소스 코드 전체를 기계어로 한 번에 번역하여 실행 파일을 생성하므로 컴파일 시점에 오류 발견 가능, 실행 속도가 빠르다. 인터프리터는 한 줄씩 번역·실행하여 컴파일 단계 없이 바로 실행 가능, 디버깅 용이하나 속도는 느리다. Python은 인터프리터, Java는 하이브리드(소스→바이트코드 컴파일→JVM 인터프리트), C/C++/Go는 컴파일러 언어다."
+    },
+    {
+      "number": 17,
+      "question_text": "다음 중 그리디(Greedy) 알고리즘으로 항상 최적해를 보장하는 문제는?",
+      "choices": [
+        {"number": 1, "text": "0/1 배낭 문제(0/1 Knapsack)", "is_correct": false},
+        {"number": 2, "text": "최소 신장 트리 (MST: Kruskal·Prim)", "is_correct": true},
+        {"number": 3, "text": "외판원 문제(TSP)", "is_correct": false},
+        {"number": 4, "text": "최장 공통 부분 수열(LCS)", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: 알고리즘 설계 기법] 정답은 ②번. 최소 신장 트리(MST)는 그리디로 최적해를 보장한다(Kruskal: 간선 정렬 후 사이클 없이 추가, Prim: 정점에서 시작해 최소 간선 추가). 그리디로 최적해를 보장하는 다른 문제: 분할 가능 배낭, 활동 선택, 다익스트라, 허프만 코딩. 그리디로 최적해를 보장하지 않는 문제: 0/1 배낭(DP 필요), TSP(NP-hard), LCS(DP 필요). 0/1 배낭과 분할 가능 배낭의 차이를 구분하는 것이 중요."
+    },
+    {
+      "number": 18,
+      "question_text": "다음 중 OAuth 2.0에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "사용자 인증보다는 권한 위임(authorization)을 위한 프로토콜이다.", "is_correct": false},
+        {"number": 2, "text": "Access Token을 발급받아 보호된 리소스에 접근한다.", "is_correct": false},
+        {"number": 3, "text": "Authorization Code, Client Credentials 등의 인증 흐름(flow)을 지원한다.", "is_correct": false},
+        {"number": 4, "text": "사용자의 비밀번호를 제3자 애플리케이션에 직접 전달하는 방식이다.", "is_correct": true}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: OAuth 2.0] 정답은 ④번. OAuth 2.0의 핵심 가치는 비밀번호를 제3자에게 노출하지 않고 권한을 위임하는 것이다. 사용자가 서비스 제공자(Google, Facebook 등)에서 직접 로그인하고, 권한 동의 후 발급되는 Access Token만 제3자 앱이 받는다. OAuth는 인증(Authentication)이 아닌 인가/권한 위임(Authorization) 프로토콜이라는 점에 주의(인증은 OpenID Connect로 OAuth 2.0 위에 구축됨). 주요 Grant Types: Authorization Code, Implicit, Resource Owner Password Credentials, Client Credentials."
+    },
+    {
+      "number": 19,
+      "question_text": "다음 파이썬 코드의 출력 결과는?\n\n```python\ndef apply(func, lst):\n    return [func(x) for x in lst if x % 2 == 0]\n\nresult = apply(lambda x: x ** 2, [1, 2, 3, 4, 5])\nprint(sum(result))\n```",
+      "choices": [
+        {"number": 1, "text": "20", "is_correct": true},
+        {"number": 2, "text": "55", "is_correct": false},
+        {"number": 3, "text": "30", "is_correct": false},
+        {"number": 4, "text": "9", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: Python 람다·리스트 컴프리헨션·필터] 정답은 ①번. 단계별 분석:\n- `apply` 함수: lst의 원소 중 짝수만 필터링(`x % 2 == 0`) 후 func 적용\n- 짝수만 추출: [2, 4]\n- 람다 `x**2` 적용: [4, 16]\n- result = [4, 16]\n- sum(result) = 4 + 16 = 20\n핵심: 리스트 컴프리헨션 `[표현식 for 변수 in 시퀀스 if 조건]` 구조. 1+4+9+16+25=55(전체 제곱합), 2+4+6+8+10=30(짝수의 2배), 1+3+5=9(홀수합) 등은 모두 함정 계산."
+    },
+    {
+      "number": 20,
+      "question_text": "DevOps와 CI/CD 파이프라인에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "CI는 지속적 통합으로 코드 변경을 자주 메인 브랜치에 병합한다.", "is_correct": false},
+        {"number": 2, "text": "CD는 지속적 배포 또는 지속적 전달을 의미할 수 있다.", "is_correct": false},
+        {"number": 3, "text": "Jenkins, GitLab CI, GitHub Actions 등은 CI/CD 도구의 예이다.", "is_correct": false},
+        {"number": 4, "text": "DevOps는 개발(Dev)과 운영(Ops)을 분리하여 책임을 명확히 나누는 방식이다.", "is_correct": true}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: DevOps·CI/CD] 정답은 ④번. DevOps는 개발과 운영을 분리하는 게 아니라 통합·협업하여 빠른 배포 주기와 안정성을 동시에 추구하는 문화·방법론이다. CI(Continuous Integration)=잦은 통합 및 자동 빌드/테스트, CD=Continuous Delivery(스테이징까지 자동, 운영 배포는 수동) 또는 Continuous Deployment(운영까지 완전 자동). 주요 도구: Jenkins, GitLab CI, GitHub Actions, CircleCI, ArgoCD, Spinnaker. 관련 개념: IaC(Terraform), 컨테이너(Docker/K8s), 모니터링(Prometheus/Grafana)."
+    }
+  ]
+}

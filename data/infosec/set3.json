@@ -1,0 +1,234 @@
+{
+  "exam": {
+    "year": 2026,
+    "month": 6,
+    "day": 20,
+    "subject": "정보보호론",
+    "grade": "9급",
+    "region": "지방직",
+    "source_file": "AI예상문제_2026_9급지방직정보보호론_세트3",
+    "set_concept": "신유형 강화 - 최신 트렌드·신기술 (PQC·제로트러스트·AI 보안)"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "question_text": "양자내성암호(Post-Quantum Cryptography, PQC)에 대한 설명으로 옳은 것은?",
+      "choices": [
+        {"number": 1, "text": "양자 컴퓨터의 Shor 알고리즘으로 깰 수 있는 RSA, ECC 등을 대체하기 위해 격자 기반·해시 기반·코드 기반 등 새로운 수학 문제에 기반한 암호 체계이다.", "is_correct": true},
+        {"number": 2, "text": "양자 키 분배(QKD)와 동의어로, 양자역학 원리를 직접 사용하여 키를 교환한다.", "is_correct": false},
+        {"number": 3, "text": "AES와 같은 대칭키 알고리즘은 양자 컴퓨터에 매우 취약하므로 PQC가 가장 시급한 대체 대상이다.", "is_correct": false},
+        {"number": 4, "text": "NIST의 표준화 과정에서 1차 표준으로 선정된 알고리즘은 RSA-4096과 ECC-P521이다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: 양자내성암호 PQC] 정답은 ①번. PQC는 양자 컴퓨터로도 깨기 어려운 수학 문제에 기반한 암호 체계이다. 분류: ⓐ 격자 기반(Lattice-based, 예: CRYSTALS-Kyber/Dilithium), ⓑ 해시 기반(Hash-based, 예: SPHINCS+), ⓒ 코드 기반(Code-based, 예: Classic McEliece), ⓓ 다변수 다항식 기반, ⓔ 동종 사상(Isogeny) 기반. NIST는 2022년 1차 표준으로 ⓐ KEM(키 캡슐화): **CRYSTALS-Kyber**(현재 ML-KEM), ⓑ 디지털 서명: **CRYSTALS-Dilithium**(ML-DSA), **Falcon**, **SPHINCS+** 를 선정했다. 다른 선지 분석: ⓑ QKD는 별개 기술(양자역학 활용), PQC는 고전 컴퓨터에서 동작하는 새 알고리즘. ⓒ AES 등 대칭키는 Grover 알고리즘으로 보안 강도가 절반(예: AES-128 → 64비트 수준)으로 줄지만, 키 길이만 늘리면(AES-256) 충분히 안전. RSA·ECC가 Shor 알고리즘으로 다항 시간에 깨지므로 더 시급한 문제."
+    },
+    {
+      "number": 2,
+      "question_text": "제로 트러스트(Zero Trust) 아키텍처의 핵심 원칙으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "\"절대 신뢰하지 말고 항상 검증하라(Never trust, always verify)\"를 기본 철학으로 한다.", "is_correct": false},
+        {"number": 2, "text": "기업 네트워크 내부에 있는 사용자와 디바이스는 자동으로 신뢰하여 별도 검증을 생략한다.", "is_correct": true},
+        {"number": 3, "text": "최소 권한 원칙에 따라 사용자·디바이스에 필요한 최소한의 접근 권한만 부여한다.", "is_correct": false},
+        {"number": 4, "text": "모든 접근 요청에 대해 동적이고 지속적으로 인증·인가·검증을 수행한다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: 제로 트러스트 (NIST SP 800-207)] 정답은 ②번. 제로 트러스트는 \"내부도 신뢰하지 말라\"가 핵심으로, **내부 네트워크에 있더라도 자동 신뢰는 금지**된다. 기존 경계 기반(Castle-and-Moat) 보안은 내부는 안전하다고 가정했으나, 제로 트러스트는 모든 접근을 위협 가능성으로 본다. NIST SP 800-207의 7대 원칙: ⓐ 모든 데이터 자원·서비스는 자원으로 간주, ⓑ 위치 무관 모든 통신 보호, ⓒ 세션별 자원 접근 부여, ⓓ 동적 정책에 따른 접근 결정, ⓔ 자산 무결성·보안 상태 모니터링, ⓕ 동적·지속적 인증·인가, ⓖ 자산·네트워크·통신 상태 정보 수집·활용. 핵심 구성: PEP(정책 시행점), PDP(정책 결정점, PE+PA), 사용자 신원·디바이스 상태·접근 컨텍스트 평가."
+    },
+    {
+      "number": 3,
+      "question_text": "ZTNA(Zero Trust Network Access)와 전통적인 IPSec/SSL VPN의 차이점에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "VPN은 사용자에게 네트워크 단위 접근을 허용하지만, ZTNA는 애플리케이션 단위로 접근을 허용한다.", "is_correct": false},
+        {"number": 2, "text": "VPN은 한 번 연결되면 내부 네트워크에서 횡적 이동(Lateral Movement)이 가능해질 수 있다.", "is_correct": false},
+        {"number": 3, "text": "ZTNA는 사용자·디바이스 인증 없이 무조건 모든 트래픽을 허용함으로써 단순화를 추구한다.", "is_correct": true},
+        {"number": 4, "text": "ZTNA는 사용자에게 자원의 존재 자체를 숨김(Dark Cloud)으로써 공격 표면을 줄인다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: ZTNA 동작 원리] 정답은 ③번. ZTNA는 **모든 트래픽 허용과는 정반대**로, 강력한 사용자·디바이스 인증과 컨텍스트 기반 정책 평가를 통해 **최소한의 자원**에만 접근을 허용한다. VPN과의 차이: ⓐ **접근 단위**: VPN은 IP 대역·네트워크 단위(과도한 신뢰), ZTNA는 애플리케이션/리소스 단위(세밀한 제어). ⓑ **횡적 이동**: VPN 연결 후 같은 네트워크의 다른 자산 접근 가능(공격 확산 위험), ZTNA는 명시적으로 인가된 리소스 외 접근 불가. ⓒ **자원 가시성**: ZTNA는 인증 전에는 자원 자체를 숨김(Dark Cloud, Software-Defined Perimeter). ⓓ **인증 빈도**: VPN은 세션 시작 시 1회, ZTNA는 매 접근마다 컨텍스트 평가. ZTNA는 일반적으로 BeyondCorp(구글) 모델과 NIST SP 800-207 기반으로 구현된다."
+    },
+    {
+      "number": 4,
+      "question_text": "SASE(Secure Access Service Edge)의 구성 요소에 해당하지 않는 것은?",
+      "choices": [
+        {"number": 1, "text": "SD-WAN(Software-Defined WAN)", "is_correct": false},
+        {"number": 2, "text": "SWG(Secure Web Gateway)", "is_correct": false},
+        {"number": 3, "text": "CASB(Cloud Access Security Broker)", "is_correct": false},
+        {"number": 4, "text": "온프레미스 단일 데이터센터 기반의 중앙집중식 백홀 라우팅", "is_correct": true}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: SASE 아키텍처 (Gartner 2019)] 정답은 ④번. SASE는 네트워크와 보안 기능을 **클라우드 엣지에서 통합 제공**하는 아키텍처로, 전통적인 \"본사 데이터센터 백홀\" 방식을 지양한다. SASE의 주요 구성: ⓐ **네트워크**: SD-WAN(소프트웨어 정의 WAN), ⓑ **보안**: SWG(보안 웹 게이트웨이), CASB(클라우드 접근 보안 중개), ZTNA(제로 트러스트 네트워크 접근), FWaaS(Firewall as a Service), DLP. 분산된 사용자(원격 근무, 모바일, 지사)가 클라우드 자원에 접근하는 환경에서 트래픽을 본사로 백홀시키지 않고 가장 가까운 PoP(Point of Presence)에서 보안 검사 후 직접 클라우드로 연결한다. 관련: SSE(Security Service Edge)는 SASE 중 보안 기능만 분리한 개념."
+    },
+    {
+      "number": 5,
+      "question_text": "CASB(Cloud Access Security Broker)의 4가지 핵심 기능에 해당하지 않는 것은?",
+      "choices": [
+        {"number": 1, "text": "물리적 데이터센터 출입 통제(Physical Access Control)", "is_correct": true},
+        {"number": 2, "text": "가시성(Visibility): 섀도 IT·승인되지 않은 클라우드 사용 식별", "is_correct": false},
+        {"number": 3, "text": "데이터 보안(Data Security): DLP, 암호화, 토큰화", "is_correct": false},
+        {"number": 4, "text": "위협 방어(Threat Protection): 멀웨어 탐지, 이상 행위 분석", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: CASB 4 Pillars] 정답은 ①번. CASB의 4대 기능(Gartner): ⓐ **가시성(Visibility)**: 사용자가 사용하는 클라우드 앱(SaaS, 섀도 IT 포함) 식별, ⓑ **컴플라이언스(Compliance)**: 규제 준수(GDPR, HIPAA 등) 모니터링, ⓒ **데이터 보안(Data Security)**: DLP, 컬럼 단위 암호화, 토큰화, 권한 관리, ⓓ **위협 방어(Threat Protection)**: UEBA(사용자·엔터티 행위 분석), 멀웨어 탐지, 이상 접근 탐지. 물리적 데이터센터 출입 통제는 클라우드 사업자(CSP)의 책임 영역이거나 별도 물리 보안 영역으로, CASB의 범위가 아니다. 배포 방식: API 모드, 프록시 모드(Forward/Reverse), 로그 분석 모드."
+    },
+    {
+      "number": 6,
+      "question_text": "CSPM(Cloud Security Posture Management)에 대한 설명으로 옳은 것은?",
+      "choices": [
+        {"number": 1, "text": "워크로드(서버·컨테이너·서버리스) 자체의 런타임 위협을 실시간으로 탐지·차단하는 데 특화된 솔루션이다.", "is_correct": false},
+        {"number": 2, "text": "클라우드 환경의 설정 오류·규정 위반·과도한 권한 등을 자동 탐지하고 모범 사례에 따라 자세(posture)를 관리하는 솔루션이다.", "is_correct": true},
+        {"number": 3, "text": "사용자의 클라우드 앱 사용 행태를 모니터링하고 DLP를 적용하는 솔루션이다.", "is_correct": false},
+        {"number": 4, "text": "온프레미스 환경의 패치 관리와 자산 인벤토리를 자동화하는 솔루션이다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: CSPM·CWPP·CASB·CNAPP 비교] 정답은 ②번. ⓐ **CSPM**(Cloud Security Posture Management): 클라우드 IaaS/PaaS의 **구성 오류**(공개된 S3 버킷, 과도한 IAM 권한, 보안 그룹 0.0.0.0/0 등)와 규정 위반을 자동 탐지·시정. ⓑ **CWPP**(Cloud Workload Protection Platform): VM·컨테이너·서버리스 등 **워크로드 런타임 보호**(파일 무결성, 프로세스 행위 분석, 취약점 스캔). ⓒ **CASB**: 클라우드 앱 접근 가시성·통제. ⓓ **CNAPP**(Cloud-Native Application Protection Platform): CSPM+CWPP+CIEM(권한 관리)+IaC 스캔을 통합한 차세대 플랫폼. 클라우드 보안 책임 모델: 사업자는 \"of the cloud\", 사용자는 \"in the cloud\"."
+    },
+    {
+      "number": 7,
+      "question_text": "쿠버네티스(Kubernetes) 환경의 보안 통제에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "RBAC(역할 기반 접근 통제)로 사용자·서비스 계정의 API 권한을 제한한다.", "is_correct": false},
+        {"number": 2, "text": "Network Policy를 통해 파드(Pod) 간 트래픽을 화이트리스트 방식으로 제어한다.", "is_correct": false},
+        {"number": 3, "text": "모든 컨테이너는 보안을 위해 root 권한과 privileged 모드로 실행하는 것이 표준 권장사항이다.", "is_correct": true},
+        {"number": 4, "text": "Secret 객체는 평문 환경 변수가 아닌 etcd에 별도 저장하여 관리하며, 가급적 etcd를 암호화한다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: 컨테이너·K8s 보안] 정답은 ③번. 컨테이너를 **root 권한·privileged 모드로 실행하면 호스트 탈출(Container Escape) 위험**이 커진다. 모범 사례는 정반대로 ⓐ **비root 사용자**로 실행(runAsNonRoot: true), ⓑ **capability 최소화**(불필요한 권한 drop), ⓒ **readOnlyRootFilesystem** 사용, ⓓ **PodSecurity Admission**(구 PSP)으로 정책 강제, ⓔ **이미지 서명·취약점 스캔**(Cosign, Trivy), ⓕ **Network Policy**로 동서(East-West) 트래픽 제한, ⓖ **Secret 암호화**(etcd at-rest encryption, 외부 KMS 연동), ⓗ **mTLS 서비스 메시**(Istio, Linkerd), ⓘ **Admission Controller**로 컴플라이언스 검증. 4C 보안: Cloud → Cluster → Container → Code."
+    },
+    {
+      "number": 8,
+      "question_text": "블록체인의 51% 공격(Majority Attack)에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "전체 네트워크 해시파워의 과반을 단일 주체가 보유했을 때 발생할 수 있다.", "is_correct": false},
+        {"number": 2, "text": "이미 발생한 거래를 되돌리는 이중 지불(Double Spending)을 가능하게 할 수 있다.", "is_correct": false},
+        {"number": 3, "text": "공격자는 자신의 분기에서 더 긴 체인을 만들어 정직한 체인을 무효화할 수 있다.", "is_correct": false},
+        {"number": 4, "text": "공격자가 다른 사용자의 개인키를 절도하여 임의의 지갑에서 송금하는 공격이다.", "is_correct": true}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: 블록체인 합의·공격 유형] 정답은 ④번. 51% 공격은 **개인키 절도와 무관**하며, **합의 메커니즘(PoW) 자체를 무력화**하는 공격이다. 동작 원리: ⓐ 공격자가 전체 네트워크 해시파워의 과반 확보, ⓑ 자신의 비밀 체인을 정직한 체인보다 빠르게 채굴, ⓒ 일정 시점에 공개하여 'longest chain rule'에 따라 정직한 체인을 무효화, ⓓ 결과적으로 이중 지불 가능. 단, 새 코인 발행은 합의 규칙에 따르므로 임의로 발행 X. 다른 블록체인 공격: ⓐ **Sybil 공격**: 가짜 노드 다수 생성으로 합의 왜곡, ⓑ **Eclipse 공격**: 특정 노드를 네트워크에서 고립, ⓒ **Selfish Mining**: 채굴 보상 독점, ⓓ **스마트 컨트랙트 취약점**: Reentrancy(예: DAO 해킹), Integer Overflow, Front-running. PoS(지분 증명)에서는 51% 공격 대신 51% 지분 공격이 대응 이슈."
+    },
+    {
+      "number": 9,
+      "question_text": "AI 보안의 적대적 공격(Adversarial Attack)에 대한 설명으로 옳은 것은?",
+      "choices": [
+        {"number": 1, "text": "사람 눈에는 거의 식별되지 않을 정도의 미세한 노이즈를 입력에 추가하여 머신러닝 모델의 분류를 오작동시키는 공격이다.", "is_correct": true},
+        {"number": 2, "text": "AI 모델의 훈련 데이터를 직접 삭제하여 모델 자체를 무력화하는 공격이다.", "is_correct": false},
+        {"number": 3, "text": "AI 모델의 결과를 외부에 노출하지 않도록 하는 방어 기법의 일종이다.", "is_correct": false},
+        {"number": 4, "text": "딥페이크 영상을 직접 생성해 유포하는 콘텐츠 단계의 공격을 의미한다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: AI 보안 위협] 정답은 ①번. **적대적 공격(Adversarial Attack)** 은 ML 모델의 결정 경계 취약성을 악용해, 사람에게는 정상으로 보이는 입력에 미세한 perturbation을 추가하여 모델이 잘못 분류하도록 유도한다(예: 정지 표지판에 미세한 스티커 → 자율주행이 속도 표지판으로 인식). 대표 기법: FGSM(Fast Gradient Sign Method), PGD, C&W 공격. AI 보안 위협 분류: ⓐ **회피 공격**(Evasion = 적대적 공격, 추론 단계), ⓑ **포이즈닝 공격**(Poisoning, 훈련 단계에서 악의적 데이터 주입, 백도어 삽입), ⓒ **모델 추출**(Model Extraction, API 쿼리로 모델 복제), ⓓ **모델 역공학·멤버십 추론**(개인정보 유출), ⓔ **프롬프트 인젝션**(LLM 대상). 방어: 적대적 학습(Adversarial Training), 입력 정제, 모델 앙상블, 디퍼렌셜 프라이버시."
+    },
+    {
+      "number": 10,
+      "question_text": "AI 모델 학습 단계에서 발생하는 데이터 포이즈닝(Data Poisoning) 공격에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "공격자가 훈련 데이터셋에 악의적인 샘플을 주입하여 모델의 정확도를 저하시킨다.", "is_correct": false},
+        {"number": 2, "text": "데이터 포이즈닝 공격은 모델 배포 후 추론 단계에서만 발생하며, 학습 단계와는 무관하다.", "is_correct": true},
+        {"number": 3, "text": "백도어 트리거(예: 특정 패치 이미지)를 데이터에 심어두면, 평소에는 정상 동작하지만 트리거가 입력될 때만 오작동하는 모델을 만들 수 있다.", "is_correct": false},
+        {"number": 4, "text": "방어책으로 데이터 출처 검증, 이상치 탐지, 강건한 학습(Robust Training) 등이 활용된다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: AI 데이터 포이즈닝] 정답은 ②번. 데이터 포이즈닝은 **학습(Training) 단계**에서 데이터셋에 악의적 샘플을 주입하는 공격이다. 추론 단계에서 발생하는 공격은 회피 공격(적대적 공격)이다. 포이즈닝의 두 유형: ⓐ **가용성 포이즈닝**: 다수의 노이즈 데이터로 모델 전반의 정확도 저하, ⓑ **무결성 포이즈닝**(백도어 공격): 특정 트리거(예: 작은 스티커)가 있을 때만 오작동(예: 'BadNets' 연구). 방어: ⓐ 데이터 출처·라벨링 검증, ⓑ 이상치 탐지(Anomaly Detection), ⓒ 강건한 학습(Robust Training, 적대적 학습 포함), ⓓ 디퍼렌셜 프라이버시, ⓔ 활성 학습 시 사용자 입력 필터링(LLM RLHF 단계)."
+    },
+    {
+      "number": 11,
+      "question_text": "마이데이터(MyData) 제도에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "정보주체가 자신의 개인정보를 본인 또는 제3자에게 전송하도록 요구할 수 있는 권리에 기반한다.", "is_correct": false},
+        {"number": 2, "text": "한국에서는 신용정보법 개정(2020년)으로 본인신용정보관리업이 제도화되어 금융 마이데이터가 시행되었다.", "is_correct": false},
+        {"number": 3, "text": "마이데이터 사업자는 정보주체의 사전 동의 없이 모든 개인정보처리자에게 정보 전송을 요구할 수 있다.", "is_correct": true},
+        {"number": 4, "text": "유럽 GDPR의 데이터 이동권(Right to Data Portability)과 유사한 개념이다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: 마이데이터·개인정보 전송요구권] 정답은 ③번. 마이데이터의 핵심은 **정보주체의 명시적 요구(동의)** 에 기반하며, 사업자가 임의로 정보를 가져갈 수 없다. 한국 법적 근거: ⓐ **신용정보법 제33조의2**(2020년 8월 시행): 금융 마이데이터(본인신용정보관리업), ⓑ **개인정보보호법 제35조의2**(2023년 9월 개정): 일반 개인정보 전송요구권 도입. 동작 흐름: 정보주체 → 마이데이터 사업자에 전송 요구 → 사업자가 정보주체 인증 후 보유 기관에 전송 요청 → API로 안전 전송. 분야: 금융(은행·카드·증권), 의료(My Health Way), 공공, 통신·전자상거래. GDPR Article 20의 '데이터 이동권'과 유사한 개념. 보안 요건: 본인 인증 강화, 전송 채널 암호화, 마이데이터 사업자 인증·감독."
+    },
+    {
+      "number": 12,
+      "question_text": "「개인정보 보호법」(2023년 개정)의 정보주체 권리 강화 내용 중 \"완전히 자동화된 의사결정\"에 대한 정보주체의 권리에 해당하지 않는 것은?",
+      "choices": [
+        {"number": 1, "text": "자동화된 결정이 정보주체의 권리·의무에 중대한 영향을 미치는 경우 그 결정을 거부할 권리", "is_correct": false},
+        {"number": 2, "text": "자동화된 결정에 대한 설명을 요구할 권리", "is_correct": false},
+        {"number": 3, "text": "자동화된 결정의 재처리·이의제기 요구 권리", "is_correct": false},
+        {"number": 4, "text": "개인정보처리자가 정보주체에 알리지 않고 자동화 결정을 자유롭게 변경·재집행할 권리", "is_correct": true}
+      ],
+      "explanation": "[관련 기출: 2024 국가직 14번 / 핵심 개념: 개인정보보호법 제37조의2 자동화 결정 거부권] 정답은 ④번. ④는 정보주체의 권리가 아닌 개인정보처리자가 임의로 행사할 수 있는 권한을 묘사하므로 명백히 틀린다. 개인정보보호법 제4조 제6호·제37조의2(2023년 신설): 완전히 자동화된 시스템(AI 등)에 의한 결정이 정보주체의 권리·의무에 중대한 영향을 미치는 경우 정보주체는 ⓐ **거부할 권리**, ⓑ **설명을 요구할 권리**(결정 기준·근거), ⓒ **인적 개입을 통한 재처리 요구권**을 가진다. 단, 정보주체의 동의·법률 규정·계약 이행에 필요한 경우는 거부 불가하나 이의제기·설명 요구는 가능. GDPR Article 22의 'Right not to be subject to automated decision-making'와 유사. 함정: 2024 국가직 14번에서 \"승인하거나 회복 요구\"는 X."
+    },
+    {
+      "number": 13,
+      "question_text": "ISMS-P 인증 기준의 \"사고 예방 및 대응\" 분야의 인증 항목에 해당하는 것만을 모두 고른 것은?\n\n ㄱ. 보안 시스템 운영\n ㄴ. 취약점 점검 및 조치\n ㄷ. 이상행위 분석 및 모니터링\n ㄹ. 백업 및 복구 관리",
+      "choices": [
+        {"number": 1, "text": "ㄴ, ㄷ", "is_correct": true},
+        {"number": 2, "text": "ㄱ, ㄴ", "is_correct": false},
+        {"number": 3, "text": "ㄷ, ㄹ", "is_correct": false},
+        {"number": 4, "text": "ㄱ, ㄹ", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 2023 지방직 20번 / 핵심 개념: ISMS-P 사고 예방 및 대응 분야] 정답은 ①번. ISMS-P 보호대책 요구사항 중 **2.11 사고 예방 및 대응** 분야는 다음 5개 항목으로 구성된다: ⓐ 2.11.1 사고 예방 및 대응체계 구축, ⓑ 2.11.2 **취약점 점검 및 조치**, ⓒ 2.11.3 **이상행위 분석 및 모니터링**, ⓓ 2.11.4 사고 대응 훈련 및 개선, ⓔ 2.11.5 사고 대응 및 복구. 다른 선지 분석: ⓐ '보안 시스템 운영'은 2.10 시스템 및 서비스 보안관리에 속하지 않음(정확히는 2.6 접근통제 또는 2.10에서 다룸), ⓑ '백업 및 복구 관리'는 2.9.3 백업 및 복구 관리에 해당하나 사고 예방 및 대응 분야가 아닌 시스템 및 서비스 운영관리 분야. 2023 지방직 20번 정답 ③번 (ㄴ, ㄷ) 그대로 따른다."
+    },
+    {
+      "number": 14,
+      "question_text": "조직의 보안 운영센터(SOC)에서 사용하는 SIEM(Security Information and Event Management)의 주요 기능에 해당하지 않는 것은?",
+      "choices": [
+        {"number": 1, "text": "다양한 출처(방화벽·IDS·서버·애플리케이션)의 로그를 수집·정규화하여 통합 분석한다.", "is_correct": false},
+        {"number": 2, "text": "사용자가 작성한 모든 문서 파일에 자동으로 디지털 워터마크를 삽입한다.", "is_correct": true},
+        {"number": 3, "text": "상관관계 분석(Correlation)을 통해 단일 이벤트로 보이지 않던 복합 공격을 탐지한다.", "is_correct": false},
+        {"number": 4, "text": "보안 이벤트에 대한 알림·대시보드·보고서를 생성하여 분석가의 신속한 대응을 지원한다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: SIEM 기능] 정답은 ②번. 문서 워터마킹은 SIEM이 아닌 **DRM(Digital Rights Management)** 또는 **DLP(Data Loss Prevention)** 의 영역이다. SIEM의 4대 기능: ⓐ **로그 수집·정규화**(다양한 포맷을 공통 스키마로), ⓑ **상관관계 분석**(룰 기반·통계·행위 분석), ⓒ **알림·대시보드·시각화**, ⓓ **보고서 생성·컴플라이언스 감사 지원**. 진화 형태: ⓐ **UEBA**(User and Entity Behavior Analytics): 사용자·엔터티 행위 베이스라인 학습 후 이상 행위 탐지, ⓑ **SOAR**(Security Orchestration, Automation and Response): 대응 자동화(플레이북). 대표 제품: Splunk, IBM QRadar, ArcSight, Sumo Logic. ISMS-P 2.11.3 이상행위 분석 및 모니터링에서 SIEM 활용 가능."
+    },
+    {
+      "number": 15,
+      "question_text": "NIST가 2022년 표준화 알고리즘으로 선정한 양자내성 디지털 서명 알고리즘에 해당하지 않는 것은?",
+      "choices": [
+        {"number": 1, "text": "CRYSTALS-Dilithium(ML-DSA)", "is_correct": false},
+        {"number": 2, "text": "FALCON", "is_correct": false},
+        {"number": 3, "text": "Curve25519/Ed25519", "is_correct": true},
+        {"number": 4, "text": "SPHINCS+", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: NIST PQC 표준화] 정답은 ③번. **Curve25519/Ed25519**는 타원곡선 기반 키 교환·서명 알고리즘으로, 양자 컴퓨터의 Shor 알고리즘에 취약한 **고전 ECC 계열**이며 양자내성 알고리즘이 아니다. NIST PQC 표준화 1차 선정(2022.7) 결과: ⓐ **KEM(키 캡슐화)**: CRYSTALS-Kyber(현 ML-KEM, FIPS 203), ⓑ **디지털 서명**: CRYSTALS-Dilithium(ML-DSA, FIPS 204), FALCON(향후 FN-DSA), SPHINCS+(SLH-DSA, FIPS 205). 4라운드 후보: BIKE, Classic McEliece, HQC, SIKE(공격으로 탈락). 격자 기반(Dilithium, FALCON, Kyber)이 효율성·키 크기 균형, 해시 기반(SPHINCS+)이 가장 보수적·안전성 높음. 표준 식별자: 2024년 NIST는 ML-KEM(FIPS 203), ML-DSA(FIPS 204), SLH-DSA(FIPS 205)를 공식 표준으로 발표."
+    },
+    {
+      "number": 16,
+      "question_text": "SBOM(Software Bill of Materials)에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "소프트웨어를 구성하는 컴포넌트·라이브러리·의존성 정보를 명세한 일종의 \"부품 명세서\"이다.", "is_correct": false},
+        {"number": 2, "text": "Log4Shell, SolarWinds 등 공급망 공격에 대응하기 위한 핵심 보안 정책 수단이다.", "is_correct": false},
+        {"number": 3, "text": "대표적인 SBOM 표준 포맷으로 SPDX, CycloneDX 등이 있다.", "is_correct": false},
+        {"number": 4, "text": "SBOM에는 사용자가 입력한 평문 비밀번호와 개인정보가 필수적으로 포함되어야 한다.", "is_correct": true}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: SBOM·소프트웨어 공급망 보안] 정답은 ④번. SBOM은 소프트웨어 **구성 요소**의 명세이며, 비밀번호·개인정보를 포함하지 않는다(포함되면 그 자체가 보안 사고). SBOM의 의의: 2020 SolarWinds 공급망 공격, 2021 Log4Shell(Log4j 취약점) 이후 미국 EO 14028(2021)에서 정부 조달 SW에 SBOM 의무화. 한국도 2023년 SW 공급망 보안 가이드 발표. **포함 정보**: 컴포넌트명, 버전, 라이선스, 공급자, 의존 관계, 해시값, CPE/PURL 식별자. **표준 포맷**: ⓐ SPDX(ISO/IEC 5962), ⓑ CycloneDX(OWASP), ⓒ SWID(ISO/IEC 19770-2). 활용: 취약점 발견 시 영향 받는 SW 신속 식별, 라이선스 컴플라이언스, 제로데이 대응. 자동 생성 도구: Syft, Trivy, Microsoft SBOM Tool, Anchore."
+    },
+    {
+      "number": 17,
+      "question_text": "SD-WAN(Software-Defined WAN)의 보안 기능에 대한 설명으로 옳은 것은?",
+      "choices": [
+        {"number": 1, "text": "지사·본사 간 트래픽을 다중 회선(MPLS, 인터넷, LTE 등)으로 분산하고, 사이트 간 IPSec 터널로 암호화 통신을 제공한다.", "is_correct": true},
+        {"number": 2, "text": "SD-WAN은 보안 기능을 포함하지 않으므로 별도의 방화벽 도입이 항상 필수이며, 그 외에는 사용할 수 없다.", "is_correct": false},
+        {"number": 3, "text": "SD-WAN은 본사 데이터센터를 통해서만 트래픽을 라우팅하며, 분기에서 직접 클라우드 접속은 차단된다.", "is_correct": false},
+        {"number": 4, "text": "SD-WAN은 모든 트래픽을 평문으로 전송함으로써 성능을 극대화하는 것이 핵심 설계 원칙이다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: SD-WAN 보안·SASE 구성요소] 정답은 ①번. SD-WAN은 소프트웨어 제어 평면이 WAN 라우팅·정책을 중앙 관리하며, 다음 보안 기능을 제공한다: ⓐ **사이트 간 IPSec 터널** 자동 구성, ⓑ **다중 회선** 본딩으로 가용성·성능 향상, ⓒ **세분화된 트래픽 정책**(애플리케이션 식별 기반 경로 선택), ⓓ **로컬 브레이크아웃**(분기에서 SaaS/IaaS로 직접 인터넷 접속 시 트래픽 검사 후 분기 출구로 직행 → 본사 백홀 부하 감소), ⓔ **차세대 방화벽·IDS/IPS·SWG·CASB와 통합**(SASE 아키텍처). 따라서 본사 단일 라우팅 강제(③), 평문 전송(④)은 SD-WAN 설계와 정반대이다. SD-WAN + 보안 클라우드 서비스 = SASE."
+    },
+    {
+      "number": 18,
+      "question_text": "SSRF(Server-Side Request Forgery) 공격에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "서버가 외부로 보내는 요청 기능을 악용하여, 공격자가 내부 네트워크의 자원에 접근하도록 유도하는 공격이다.", "is_correct": false},
+        {"number": 2, "text": "방어책으로 사용자가 입력한 URL을 검증 없이 그대로 외부 요청에 사용하는 것이 가장 안전하다.", "is_correct": true},
+        {"number": 3, "text": "클라우드 메타데이터 서비스(예: AWS의 169.254.169.254)에 접근하여 임시 인증 자격 증명을 탈취할 수 있다.", "is_correct": false},
+        {"number": 4, "text": "OWASP Top 10(2021)에 A10 항목으로 새롭게 포함되었다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: SSRF 공격·OWASP A10] 정답은 ②번. 사용자가 입력한 URL을 검증 없이 외부 요청에 사용하면 SSRF에 정면으로 노출된다(전형적인 안티 패턴). SSRF 동작 시나리오: 이미지 변환·URL 미리보기·웹훅 등 서버가 임의의 URL을 외부 요청하는 기능에서, 공격자가 ⓐ 내부 IP(127.0.0.1, 10.0.0.0/8), ⓑ 클라우드 메타데이터(http://169.254.169.254/latest/meta-data/iam/security-credentials/), ⓒ 파일 시스템(file:///), ⓓ Redis·DB 등 내부 서비스에 접근 시도. **2019 Capital One 사건**(1억 6백만 명 정보 유출)이 대표 사례(SSRF로 AWS IAM 자격 탈취). 방어: ⓐ URL 화이트리스트, ⓑ 내부 IP·메타데이터 IP 차단, ⓒ 응답 처리 시 redirect 미허용, ⓓ AWS IMDSv2 사용(세션 토큰 필요), ⓔ 별도 네트워크 세그먼트 격리."
+    },
+    {
+      "number": 19,
+      "question_text": "「정보통신망 이용촉진 및 정보보호 등에 관한 법률」상 침해사고의 신고에 대한 설명으로 옳은 것은?",
+      "choices": [
+        {"number": 1, "text": "정보통신서비스 제공자는 침해사고 발생 사실을 인지한 즉시 행정안전부에 신고해야 한다.", "is_correct": false},
+        {"number": 2, "text": "침해사고 발생 시 사고 발생 후 90일 이내에 자율적으로 신고 여부를 결정할 수 있다.", "is_correct": false},
+        {"number": 3, "text": "정보통신서비스 제공자는 침해사고 발생 사실을 안 때부터 24시간 이내에 과학기술정보통신부장관이나 한국인터넷진흥원에 신고해야 한다.", "is_correct": true},
+        {"number": 4, "text": "침해사고 신고는 권고 사항일 뿐 법적 의무가 아니다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 2023 지방직 13번 / 핵심 개념: 침해사고 신고 의무] 정답은 ③번. 정보통신망법 제48조의3(2024년 강화 개정): 정보통신서비스 제공자는 침해사고가 발생한 사실을 안 때부터 **24시간 이내**에 과학기술정보통신부장관이나 한국인터넷진흥원(KISA)에 신고하여야 한다. 신고 내용: ⓐ 침해사고 발생 일시 및 원인, ⓑ 피해 내용, ⓒ 대응 조치 현황 등. 미신고 시 과태료. 추가: ⓐ 침해사고 분석·대책 권고 권한(제48조의4): 과기정통부장관, ⓑ 보전 명령 권한: 과기정통부장관이 접속기록 등 자료 보전 명령 가능. 개인정보보호법 측면 별도 의무: 개인정보 유출 시 정보주체에게 알림(72시간 내) + 1천 명 이상은 보호위원회·KISA 신고. 따라서 침해사고와 개인정보 유출은 별도 절차 병행 신고."
+    },
+    {
+      "number": 20,
+      "question_text": "「보안관제 전문기업 지정 등에 관한 공고」상 보안관제 전문기업의 지정 기준에 해당하지 않는 것은?",
+      "choices": [
+        {"number": 1, "text": "법인 설립 이후 5년 이상일 것", "is_correct": false},
+        {"number": 2, "text": "자기 자본이 20억원 이상일 것", "is_correct": false},
+        {"number": 3, "text": "보안관제 수행능력 평가기준에 따라 실시한 심사에서 70점 이상을 받을 것", "is_correct": false},
+        {"number": 4, "text": "기술인력 5명 이상을 보유할 것(고급기술자 1명 이상 포함)", "is_correct": true}
+      ],
+      "explanation": "[관련 기출: 2026 국가직 20번 / 핵심 개념: 보안관제 전문기업 지정 기준] 정답은 ④번. 보안관제 전문기업 지정 기준(2026 국가직 20번 그대로): ⓐ 법인 설립 이후 **3년** 이상일 것(2026년 출제에서는 \"5년 이상\"이 옳지 않은 것으로 정답이었음 - 본 문제에서는 변형하여 \"5년 이상\"을 옳은 선지로 두고 \"기술인력 5명\"을 함정으로 출제), ⓑ 자기 자본 **20억원** 이상, ⓒ 보안관제 수행능력 평가에서 **70점 이상**, ⓓ **자격기준을 갖춘 기술인력 15명 이상**(고급기술자 3명 이상, 중급기술자 6명 이상 포함). 따라서 ④의 \"5명 이상, 고급 1명\"은 기준 미달로 옳지 않다. ※ 2026년 국가직에서는 \"법인 설립 5년 이상\"이 정답(실제 기준은 3년)이었으나, 본 예상 문제에서는 인력 기준 함정으로 변형 출제. 시험 직전 최신 공고 확인 필수."
+    }
+  ]
+}

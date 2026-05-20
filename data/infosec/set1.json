@@ -1,0 +1,234 @@
+{
+  "exam": {
+    "year": 2026,
+    "month": 6,
+    "day": 20,
+    "subject": "정보보호론",
+    "grade": "9급",
+    "region": "지방직",
+    "source_file": "AI예상문제_2026_9급지방직정보보호론_세트1",
+    "set_concept": "표준 예상 - 8회차 빈출 주제 위주"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "question_text": "다음 중 비대칭키 암호 알고리즘에 해당하는 것은?",
+      "choices": [
+        {"number": 1, "text": "RSA", "is_correct": true},
+        {"number": 2, "text": "SEED", "is_correct": false},
+        {"number": 3, "text": "ARIA", "is_correct": false},
+        {"number": 4, "text": "IDEA", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 2022 국가직 3번 / 핵심 개념: 대칭키·비대칭키 분류] 정답은 ①번. RSA는 큰 수의 소인수분해 어려움에 기반한 대표적인 공개키(비대칭키) 알고리즘이다. SEED·ARIA는 한국에서 개발된 대칭키 블록 암호이며, IDEA는 스위스에서 개발된 128비트 키 64비트 블록의 대칭키 알고리즘이다. 비대칭키에는 RSA·ECC·ElGamal·DSA·DH 등이 있고, 대칭키에는 DES·3DES·AES·SEED·ARIA·IDEA·LEA 등이 있다. 함정: Diffie-Hellman은 키 교환 프로토콜이지만 분류상 비대칭키에 속한다."
+    },
+    {
+      "number": 2,
+      "question_text": "암호학적 해시 함수의 특성으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "입력 데이터의 크기와 관계없이 고정된 크기의 해시값을 출력한다.", "is_correct": false},
+        {"number": 2, "text": "주어진 해시값 h에 대해 H(x) = h를 만족하는 x를 찾을 수 있어야 한다.", "is_correct": true},
+        {"number": 3, "text": "H(x) = H(y)를 만족하는 서로 다른 x, y를 찾는 것이 어려워야 한다.", "is_correct": false},
+        {"number": 4, "text": "입력의 작은 변화가 출력에 큰 변화를 일으키는 눈사태 효과를 가진다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 2024 지방직 5번 / 핵심 개념: 해시 함수 3대 특성] 정답은 ②번. 암호학적 해시 함수는 ⓐ 일방향성(역상 저항성): 주어진 h로부터 H(x)=h인 x를 찾는 것이 계산적으로 불가능, ⓑ 약한 충돌 저항성(제2 역상 저항성): 주어진 x에 대해 H(x)=H(y)인 다른 y를 찾기 어려움, ⓒ 강한 충돌 저항성: H(x)=H(y)인 서로 다른 (x,y) 쌍을 찾기 어려움을 만족해야 한다. ②는 역상을 쉽게 찾을 수 있다고 했으므로 일방향성에 정면으로 반한다. 대표 해시: MD5(128비트, 취약), SHA-1(160비트, 취약), SHA-256/512, SHA-3."
+    },
+    {
+      "number": 3,
+      "question_text": "사용자 A가 사용자 B에게 메시지에 대한 전자서명을 생성하여 전송할 때, 서명 생성과 검증에 사용되는 키를 바르게 연결한 것은?",
+      "choices": [
+        {"number": 1, "text": "서명 생성: B의 공개키 / 서명 검증: B의 개인키", "is_correct": false},
+        {"number": 2, "text": "서명 생성: A의 공개키 / 서명 검증: A의 개인키", "is_correct": false},
+        {"number": 3, "text": "서명 생성: A의 개인키 / 서명 검증: A의 공개키", "is_correct": true},
+        {"number": 4, "text": "서명 생성: B의 개인키 / 서명 검증: B의 공개키", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 2024 국가직 1번, 2025 국가직 9번 / 핵심 개념: 전자서명 키 사용] 정답은 ③번. 전자서명은 송신자(서명자) A가 자신의 개인키로 메시지의 해시값을 암호화(서명)하고, 검증자는 송신자 A의 공개키로 복호화하여 검증한다. 이를 통해 무결성·부인방지·인증을 보장한다(기밀성은 보장 X). 함정: 공개키 암호 방식에서 ⓐ 기밀성을 위한 메시지 암호화 → 수신자 공개키 사용, ⓑ 전자서명 → 송신자 개인키 사용이라는 두 가지 역할을 혼동하지 말 것."
+    },
+    {
+      "number": 4,
+      "question_text": "접근 통제 모델에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "DAC(임의적 접근 통제)는 객체의 소유자가 다른 사용자의 접근 권한을 임의로 부여한다.", "is_correct": false},
+        {"number": 2, "text": "MAC(강제적 접근 통제)는 시스템이 정한 정책에 따라 강제적으로 접근이 통제된다.", "is_correct": false},
+        {"number": 3, "text": "RBAC(역할 기반 접근 통제)는 사용자에게 직접 권한을 부여하지 않고 역할에 권한을 부여한다.", "is_correct": false},
+        {"number": 4, "text": "Bell-LaPadula 모델은 임의적 접근 통제(DAC)의 대표적인 무결성 모델이다.", "is_correct": true}
+      ],
+      "explanation": "[관련 기출: 2022 국가직 16번 / 핵심 개념: 접근 통제 모델 분류] 정답은 ④번. Bell-LaPadula(BLP) 모델은 임의적 접근 통제가 아닌 **강제적 접근 통제(MAC)** 의 대표적인 모델이며, 무결성이 아닌 **기밀성**을 목표로 한다(no read up, no write down 규칙). 무결성을 목표로 하는 강제적 접근 통제 모델은 Biba 모델(no read down, no write up)과 Clark-Wilson 모델이다. RBAC은 NIST에서 표준화한 모델로 대규모 조직에 적합하며, ABAC은 속성 기반으로 더 세밀한 통제를 제공한다."
+    },
+    {
+      "number": 5,
+      "question_text": "Biba 보안 모델의 무결성 보호 규칙으로 옳은 것은?",
+      "choices": [
+        {"number": 1, "text": "주체는 자신보다 낮은 무결성 수준의 객체를 읽을 수 없고(no read down), 자신보다 높은 무결성 수준의 객체에 쓸 수 없다(no write up).", "is_correct": true},
+        {"number": 2, "text": "주체는 자신보다 높은 보안 수준의 객체를 읽을 수 없고(no read up), 자신보다 낮은 보안 수준의 객체에 쓸 수 없다(no write down).", "is_correct": false},
+        {"number": 3, "text": "주체는 어떤 수준의 객체이든 읽을 수 있으나 같은 수준의 객체에만 쓸 수 있다.", "is_correct": false},
+        {"number": 4, "text": "주체와 객체에 무결성 라벨이 부여되지 않으며 소유자가 권한을 결정한다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 2023 국가직 11번, 2025 국가직 4번 / 핵심 개념: BLP vs Biba 비교] 정답은 ①번. Biba 모델은 **무결성**을 목표로 하며 BLP와 정반대 방향의 규칙을 가진다. ⓐ 단순 무결성 속성(Simple Integrity Property): no read down (낮은 무결성 데이터를 읽으면 자신의 무결성이 오염됨), ⓑ * 무결성 속성(Star Integrity Property): no write up (자신보다 높은 무결성 객체에 쓰면 그 객체의 무결성이 떨어짐). ②는 BLP(기밀성) 모델 규칙. 추가로 Clark-Wilson은 잘 정형화된 트랜잭션과 직무 분리, Chinese Wall은 이해 충돌 방지를 위한 정보 흐름 통제 모델."
+    },
+    {
+      "number": 6,
+      "question_text": "방화벽 유형에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "패킷 필터링 방화벽은 IP 헤더와 TCP/UDP 헤더의 정보를 기반으로 통과 여부를 결정한다.", "is_correct": false},
+        {"number": 2, "text": "상태 기반 검사(Stateful Inspection) 방화벽은 패킷의 정보 없이 무조건 모든 트래픽을 차단한다.", "is_correct": true},
+        {"number": 3, "text": "응용 계층 게이트웨이(프록시) 방화벽은 응용 프로토콜의 내용까지 검사할 수 있다.", "is_correct": false},
+        {"number": 4, "text": "차세대 방화벽(NGFW)은 IPS, 응용 식별, 사용자 식별 기능 등을 통합한다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: 방화벽 유형 비교] 정답은 ②번. 상태 기반 검사(Stateful Inspection) 방화벽은 TCP 연결 상태(SYN/ESTABLISHED 등)를 추적하여 정상적인 세션의 패킷만 통과시키는 방식으로, '무조건 차단'이 아니라 정상적인 연결의 응답 트래픽을 자동으로 허용한다. 패킷 필터링은 stateless(상태 없음)이고, 상태 기반은 stateful(연결 상태 추적)이라는 점이 핵심 차이다. 응용 계층 게이트웨이는 OSI 7계층까지 검사하여 SQL Injection, XSS 같은 페이로드 공격을 탐지할 수 있지만 성능은 낮다. NGFW는 응용 계층 검사 + IPS + 사용자/응용 식별을 통합한 형태이다."
+    },
+    {
+      "number": 7,
+      "question_text": "IPSec의 ESP(Encapsulating Security Payload)와 AH(Authentication Header)에 대한 설명으로 옳은 것은?",
+      "choices": [
+        {"number": 1, "text": "AH는 기밀성과 무결성을 모두 제공하지만 ESP는 무결성만 제공한다.", "is_correct": false},
+        {"number": 2, "text": "AH와 ESP는 모두 새로운 IP 헤더의 IP 주소를 암호화한다.", "is_correct": false},
+        {"number": 3, "text": "ESP는 기밀성과 무결성·인증을 제공하며, AH는 무결성·인증만을 제공한다.", "is_correct": true},
+        {"number": 4, "text": "ESP의 터널 모드는 게이트웨이 간에 사용하지 않고 호스트 간에만 사용한다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 2023 지방직 7번, 2026 국가직 17번 / 핵심 개념: IPSec AH vs ESP] 정답은 ③번. ESP는 데이터의 기밀성(암호화)과 무결성·인증을 모두 제공할 수 있고, AH는 기밀성 없이 무결성과 인증만 제공한다. ESP는 대칭키 암호 알고리즘(AES, 3DES 등)으로 페이로드를 암호화한다. 모드 비교: ⓐ 전송 모드(Transport): 호스트 간 통신, 원래 IP 헤더 유지, 페이로드만 보호. ⓑ 터널 모드(Tunnel): 게이트웨이 간 통신(VPN), 새 IP 헤더 추가, 원래 IP 패킷 전체를 보호. 단, 새 IP 헤더 자체는 암호화하지 않는다(라우팅 필요)."
+    },
+    {
+      "number": 8,
+      "question_text": "다음 중 VPN에서 사용하는 프로토콜이 아닌 것은?",
+      "choices": [
+        {"number": 1, "text": "IPSec", "is_correct": false},
+        {"number": 2, "text": "L2TP", "is_correct": false},
+        {"number": 3, "text": "PPTP", "is_correct": false},
+        {"number": 4, "text": "IGMP", "is_correct": true}
+      ],
+      "explanation": "[관련 기출: 2025 지방직 6번 / 핵심 개념: VPN 프로토콜 분류] 정답은 ④번. IGMP(Internet Group Management Protocol)는 IP 멀티캐스트 그룹 관리용 프로토콜로 VPN과는 무관하다. VPN에 사용되는 대표 프로토콜은 ⓐ IPSec(네트워크 계층, AH/ESP), ⓑ SSL/TLS VPN(전송 계층), ⓒ L2TP(데이터링크 계층, 보통 IPSec과 결합), ⓓ PPTP(레거시, 보안 취약), ⓔ OpenVPN, ⓕ WireGuard 등이다. PPTP는 보안 약점으로 인해 현재는 사용을 권장하지 않는다."
+    },
+    {
+      "number": 9,
+      "question_text": "OWASP Top 10(2021)에서 1위로 선정된 웹 애플리케이션 보안 위협은?",
+      "choices": [
+        {"number": 1, "text": "취약한 접근 통제(Broken Access Control)", "is_correct": true},
+        {"number": 2, "text": "암호화 실패(Cryptographic Failures)", "is_correct": false},
+        {"number": 3, "text": "인젝션(Injection)", "is_correct": false},
+        {"number": 4, "text": "안전하지 않은 설계(Insecure Design)", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: OWASP Top 10 2021] 정답은 ①번. OWASP Top 10 2021 버전에서 1위는 **A01: Broken Access Control(취약한 접근 통제)** 이다. 2017년에 5위에서 1위로 상승했다. 2021 순위: A01 취약한 접근 통제 > A02 암호화 실패 > A03 인젝션(SQL Injection·XSS 포함) > A04 안전하지 않은 설계 > A05 보안 설정 오류 > A06 취약하고 오래된 컴포넌트 > A07 식별·인증 실패 > A08 소프트웨어·데이터 무결성 실패 > A09 보안 로깅·모니터링 실패 > A10 SSRF. 2021 신규 항목: A04 안전하지 않은 설계, A08 데이터 무결성 실패, A10 SSRF."
+    },
+    {
+      "number": 10,
+      "question_text": "SQL Injection 공격에 대한 가장 효과적인 방어 방법은?",
+      "choices": [
+        {"number": 1, "text": "사용자 입력값에 대해 자바스크립트로 클라이언트 측에서만 검증한다.", "is_correct": false},
+        {"number": 2, "text": "매개변수화된 쿼리(Prepared Statement, Parameterized Query)를 사용한다.", "is_correct": true},
+        {"number": 3, "text": "데이터베이스에 모든 사용자에게 DBA 권한을 부여한다.", "is_correct": false},
+        {"number": 4, "text": "에러 메시지를 모든 사용자에게 상세히 노출하여 디버깅을 돕는다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 2024 지방직 9번 / 핵심 개념: SQL Injection 대응] 정답은 ②번. SQL Injection의 가장 근본적인 방어책은 **매개변수화 쿼리(Prepared Statement)** 로, 사용자 입력을 SQL 명령어가 아닌 데이터로 처리하여 구문 조작을 원천 차단한다. 추가 방어 기법: ⓐ 입력값 검증(화이트리스트 방식, 서버 측), ⓑ 저장 프로시저 사용, ⓒ 최소 권한 원칙(DBA 권한 X), ⓓ 에러 메시지 일반화(상세 정보 노출 X), ⓔ ORM 사용, ⓕ WAF 적용. 클라이언트 검증은 우회가 쉬워 단독으로는 부적절하다."
+    },
+    {
+      "number": 11,
+      "question_text": "ISMS-P(정보보호 및 개인정보보호 관리체계) 인증에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "관리체계 수립 및 운영, 보호대책 요구사항, 개인정보 처리단계별 요구사항의 3개 영역으로 구성된다.", "is_correct": false},
+        {"number": 2, "text": "관리체계 수립 및 운영은 PDCA(Plan-Do-Check-Act) 사이클을 따른다.", "is_correct": false},
+        {"number": 3, "text": "인증 통제항목은 총 80개로 관리체계 16개, 보호대책 50개, 개인정보 14개로 구성된다.", "is_correct": true},
+        {"number": 4, "text": "ISMS 인증 신청 가능 사유보다 ISMS-P는 개인정보 처리단계별 요구사항이 추가되어 있다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 2024 국가직 19번, 2025 국가직 12번, 2026 국가직 12·16번 / 핵심 개념: ISMS-P 구성] 정답은 ③번. ISMS-P 인증 통제항목은 총 **101개**로 구성된다: ⓐ 관리체계 수립 및 운영 **16개**(1.1 관리체계 기반 마련 + 1.2 위험 관리 + 1.3 관리체계 운영 + 1.4 관리체계 점검 및 개선), ⓑ 보호대책 요구사항 **64개**(2.1 정책·조직·자산 관리 ~ 2.12 재해복구), ⓒ 개인정보 처리단계별 요구사항 **21개**(3.1 수집 ~ 3.5 파기). PDCA 사이클: Plan(기반 마련) → Do(위험 관리·운영) → Check(점검) → Act(개선) - 2026 12번에서 정확히 출제됨."
+    },
+    {
+      "number": 12,
+      "question_text": "정량적 위험 분석에서 사용하는 연간 손실 예상(ALE)에 대한 설명으로 옳은 것은?",
+      "choices": [
+        {"number": 1, "text": "ALE = 자산 가치(AV) × 노출 계수(EF)", "is_correct": false},
+        {"number": 2, "text": "ALE = 연간 발생률(ARO) ÷ 단일 손실 예상(SLE)", "is_correct": false},
+        {"number": 3, "text": "ALE = 자산 가치(AV) × 연간 발생률(ARO)", "is_correct": false},
+        {"number": 4, "text": "ALE = 단일 손실 예상(SLE) × 연간 발생률(ARO)", "is_correct": true}
+      ],
+      "explanation": "[관련 기출: 2024 국가직 12번 / 핵심 개념: 정량적 위험 분석 공식] 정답은 ④번. **ALE(Annual Loss Expectancy) = SLE × ARO** 가 정량적 위험 분석의 핵심 공식이다. 세부: ⓐ SLE(Single Loss Expectancy, 단일 손실 예상) = AV(Asset Value) × EF(Exposure Factor, 노출 계수, 0~1), ⓑ ARO(Annual Rate of Occurrence, 연간 발생률) = 1년에 사건이 발생할 횟수. 예시: 자산 100만원, EF=0.4, ARO=0.5회/년 → SLE=40만원, ALE=20만원/년. 위험 처리 방법: 회피·감소·전가·수용. 정성적 기법: 델파이법, 시나리오법, 순위결정법, 브레인스토밍."
+    },
+    {
+      "number": 13,
+      "question_text": "「개인정보 보호법」 제15조에 따라 개인정보처리자가 정보주체의 동의 없이도 개인정보를 수집·이용할 수 있는 경우에 해당하지 않는 것은?",
+      "choices": [
+        {"number": 1, "text": "정보주체 또는 그 법정대리인의 의사에 반하여 광고성 정보를 전달하기 위해 필요한 경우", "is_correct": true},
+        {"number": 2, "text": "법률에 특별한 규정이 있거나 법령상 의무를 준수하기 위하여 불가피한 경우", "is_correct": false},
+        {"number": 3, "text": "공공기관이 법령 등에서 정하는 소관 업무의 수행을 위하여 불가피한 경우", "is_correct": false},
+        {"number": 4, "text": "정보주체와의 계약의 체결 및 이행을 위하여 불가피하게 필요한 경우", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 2023 국가직 18번 / 핵심 개념: 개인정보 수집·이용의 법적 근거] 정답은 ①번. 개인정보보호법 제15조 제1항은 정보주체의 **동의 없이** 수집·이용 가능한 경우를 6가지로 한정한다: ⓐ 동의를 받은 경우, ⓑ 법률에 특별한 규정/법령상 의무 준수, ⓒ 공공기관이 소관 업무 수행을 위해 불가피한 경우, ⓓ 정보주체와의 계약 체결·이행에 불가피한 경우, ⓔ 명백히 정보주체 또는 제3자의 급박한 생명·신체·재산 이익을 위해 필요, ⓕ 개인정보처리자의 정당한 이익 달성에 필요한 경우(정보주체의 권리보다 명백히 우선). 광고 전송은 정보주체 동의가 반드시 필요하다(정보통신망법 제50조 옵트인). 함정: '공공기관과의 계약'은 X, '정보주체와의 계약'은 O (2023 국가직 18번 함정 그대로)."
+    },
+    {
+      "number": 14,
+      "question_text": "「개인정보 보호법 시행령」에서 규정한 고유식별정보에 해당하지 않는 것은?",
+      "choices": [
+        {"number": 1, "text": "주민등록번호", "is_correct": false},
+        {"number": 2, "text": "건강에 관한 정보", "is_correct": true},
+        {"number": 3, "text": "여권번호", "is_correct": false},
+        {"number": 4, "text": "운전면허번호", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 2024 지방직 10번 / 핵심 개념: 고유식별정보 vs 민감정보] 정답은 ②번. **건강 정보는 민감정보**(개인정보보호법 제23조, 시행령 제18조)에 해당하며, 고유식별정보가 아니다. 고유식별정보(시행령 제19조)는 ⓐ 주민등록번호, ⓑ 여권번호, ⓒ 운전면허번호, ⓓ 외국인등록번호의 4가지로 한정된다. 민감정보(시행령 제18조): ⓐ 사상·신념, ⓑ 노동조합·정당 가입·탈퇴, ⓒ 정치적 견해, ⓓ 건강·성생활, ⓔ 유전정보, ⓕ 범죄경력자료, ⓖ 개인의 신체적·생리적·행동적 특징에 관한 정보로서 특정 개인을 알아볼 목적으로 일정한 기술적 수단을 통해 생성한 정보(예: 지문, 홍채), ⓗ 인종이나 민족에 관한 정보."
+    },
+    {
+      "number": 15,
+      "question_text": "RSA 알고리즘에서 p=7, q=11이고 공개키 e=13일 때, 개인키 d의 값은? (단, n=p×q이고 e·d ≡ 1 (mod φ(n)))",
+      "choices": [
+        {"number": 1, "text": "23", "is_correct": false},
+        {"number": 2, "text": "31", "is_correct": false},
+        {"number": 3, "text": "37", "is_correct": true},
+        {"number": 4, "text": "47", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 2023 국가직 14번, 2026 국가직 15번 / 핵심 개념: RSA 키 생성·곱셈 역원] 정답은 ③번. 풀이: ⓐ n = p × q = 7 × 11 = 77, ⓑ φ(n) = (p-1)(q-1) = 6 × 10 = 60, ⓒ e·d ≡ 1 (mod 60), 즉 13·d ≡ 1 (mod 60)을 만족하는 d를 구한다. ⓓ 확장 유클리드 알고리즘: 13·d = 60·k + 1 형태에서 d=37일 때 13×37 = 481 = 60×8 + 1, 481 mod 60 = 1 ✓. 다른 선지 검증: 13×23=299, 299 mod 60=59 ✗; 13×31=403, 403 mod 60=43 ✗; 13×47=611, 611 mod 60=11 ✗. RSA 안전성은 큰 n의 소인수분해 어려움에 기반(이산로그 X)."
+    },
+    {
+      "number": 16,
+      "question_text": "다음 악성코드에 대한 설명으로 옳지 않은 것은?",
+      "choices": [
+        {"number": 1, "text": "랜섬웨어는 사용자의 파일을 암호화한 뒤 복호화 키를 대가로 금전을 요구한다.", "is_correct": false},
+        {"number": 2, "text": "루트킷은 시스템 깊숙이 숨어 관리자 권한으로 자신과 다른 악성코드를 은폐한다.", "is_correct": false},
+        {"number": 3, "text": "스파이웨어는 사용자 동의 없이 설치되어 정보를 수집·전송하는 악성코드이다.", "is_correct": false},
+        {"number": 4, "text": "트로이 목마는 정상적인 프로그램으로 위장하지만, 자체적인 복제·전파 능력이 핵심 특징이다.", "is_correct": true}
+      ],
+      "explanation": "[관련 기출: 2025 지방직 4·5번 / 핵심 개념: 악성코드 분류] 정답은 ④번. 트로이 목마는 정상 프로그램으로 위장하여 사용자가 직접 실행하도록 유도하는 악성코드이며, **자체 복제·전파 능력은 없다**. 자체 복제·전파 능력은 ⓐ 바이러스(파일 감염, 사용자 행위 필요)와 ⓑ 웜(독립 실행, 네트워크 통해 자가 전파)의 특징이다. 추가: 봇(C&C 서버 명령에 따라 DDoS 등 수행), 백도어(은밀한 우회 접근 통로), 논리 폭탄(조건 충족 시 트리거), 키로거(키입력 가로채기), 애드웨어(광고 표시), GPCode(2006년경 랜섬웨어 초기 형태)."
+    },
+    {
+      "number": 17,
+      "question_text": "다음에서 설명하는 DoS/DDoS 공격은?\n\n - TCP 연결의 3-way handshake를 악용한다.\n - 다수의 SYN 패킷을 보내 ACK를 응답하지 않는다.\n - 서버의 연결 큐(backlog)를 가득 차게 만든다.",
+      "choices": [
+        {"number": 1, "text": "SYN Flooding", "is_correct": true},
+        {"number": 2, "text": "Smurf 공격", "is_correct": false},
+        {"number": 3, "text": "Teardrop 공격", "is_correct": false},
+        {"number": 4, "text": "Slowloris 공격", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 2022 국가직 2번, 2024 지방직 2번, 2026 국가직 13번 / 핵심 개념: DDoS 공격 유형] 정답은 ①번. SYN Flooding은 TCP의 3-way handshake(SYN → SYN+ACK → ACK)에서 마지막 ACK를 보내지 않아 서버의 연결 큐(backlog queue)를 고갈시키는 공격이다. 대응: SYN Cookie, 큐 크기 증가, 짧은 timeout. 다른 공격: ⓐ Smurf: 위조된 출발지 IP(피해자)로 ICMP Echo를 브로드캐스트해 응답 트래픽 집중, ⓑ Teardrop: 단편화된 IP 패킷의 오프셋을 조작해 재조립 오류 유발, ⓒ Slowloris: 응용 계층에서 HTTP 요청을 천천히 보내 연결을 유지하며 자원 고갈, ⓓ LAND: 출발지=목적지 IP로 전송, ⓔ Ping of Death: 비정상적으로 큰 ICMP 패킷."
+    },
+    {
+      "number": 18,
+      "question_text": "XSS(Cross-Site Scripting)와 CSRF(Cross-Site Request Forgery)에 대한 설명으로 옳은 것은?",
+      "choices": [
+        {"number": 1, "text": "XSS는 사용자의 인증 정보를 위조하여 서버에 요청을 보내는 공격이다.", "is_correct": false},
+        {"number": 2, "text": "XSS는 악성 스크립트를 웹페이지에 삽입해 다른 사용자의 브라우저에서 실행하는 공격이다.", "is_correct": true},
+        {"number": 3, "text": "CSRF는 입력 검증 미흡으로 인해 데이터베이스에 임의의 SQL 명령을 실행하는 공격이다.", "is_correct": false},
+        {"number": 4, "text": "CSRF는 서버 측 스크립트를 이용한 공격으로 클라이언트와는 무관하다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 2023 지방직 6번, 2025 국가직 14번 / 핵심 개념: XSS vs CSRF 구분] 정답은 ②번. ⓐ **XSS**: 공격자가 악성 스크립트를 웹페이지에 삽입(Stored, Reflected, DOM 기반)하여 **다른 사용자의 브라우저에서 실행**되도록 한다. 사용자의 쿠키·세션 탈취 등이 가능하며, 대응책은 출력 인코딩(HTML escape), CSP(Content Security Policy), HttpOnly 쿠키. ⓑ **CSRF**: **이미 인증된 사용자의 권한을 도용**하여 사용자의 의지와 무관하게 서버에 요청을 보내는 공격(예: 송금, 비밀번호 변경). 대응책: CSRF 토큰, SameSite 쿠키, Referer 검사, 재인증 요구. 핵심: XSS는 클라이언트 스크립트 실행, CSRF는 인증된 사용자 위조 요청."
+    },
+    {
+      "number": 19,
+      "question_text": "BCP(업무 연속성 계획)와 DRP(재해 복구 계획)에서 사용하는 RTO와 RPO에 대한 설명으로 옳은 것은?",
+      "choices": [
+        {"number": 1, "text": "RTO는 데이터 손실을 허용할 수 있는 최대 시간이고, RPO는 시스템 복구에 걸리는 목표 시간이다.", "is_correct": false},
+        {"number": 2, "text": "RTO와 RPO는 모두 백업 데이터의 크기를 결정하는 지표이다.", "is_correct": false},
+        {"number": 3, "text": "RTO는 시스템 복구까지의 목표 시간이고, RPO는 데이터 손실을 허용할 수 있는 최대 시점(시간)이다.", "is_correct": true},
+        {"number": 4, "text": "RTO는 항상 RPO보다 작아야 하며, 둘 다 0초여야 BCP가 완성된다.", "is_correct": false}
+      ],
+      "explanation": "[관련 기출: 신유형 / 핵심 개념: BCP·DRP 핵심 지표] 정답은 ③번. ⓐ **RTO(Recovery Time Objective, 복구 시간 목표)**: 재해 발생 후 시스템·서비스를 정상 가동까지 복구하는 데 허용되는 **최대 시간**. 예) RTO=4시간이면 4시간 이내 복구해야 함. ⓑ **RPO(Recovery Point Objective, 복구 시점 목표)**: 데이터 손실을 허용할 수 있는 **최대 시점**. 예) RPO=1시간이면 마지막 1시간 데이터까지만 손실 허용. RPO가 짧을수록 백업 주기 짧음(연속 백업·미러링 필요). 추가 지표: MTD(Maximum Tolerable Downtime, 최대 허용 중단 시간), WRT(Work Recovery Time)."
+    },
+    {
+      "number": 20,
+      "question_text": "「개인정보 보호법」 제4조에서 규정하고 있는 정보주체의 권리에 해당하지 않는 것은?",
+      "choices": [
+        {"number": 1, "text": "개인정보의 처리에 관한 정보를 제공받을 권리", "is_correct": false},
+        {"number": 2, "text": "개인정보의 처리에 관한 동의 여부 및 범위 등을 선택하고 결정할 권리", "is_correct": false},
+        {"number": 3, "text": "개인정보의 처리 정지, 정정·삭제 및 파기를 요구할 권리", "is_correct": false},
+        {"number": 4, "text": "개인정보처리자에게 다른 개인정보처리자의 위법 행위에 대해 손해배상을 직접 청구할 권리", "is_correct": true}
+      ],
+      "explanation": "[관련 기출: 2024 국가직 14번 / 핵심 개념: 정보주체의 권리 (개인정보보호법 제4조)] 정답은 ④번. 개인정보보호법 제4조가 규정한 정보주체의 권리: ⓐ 개인정보 처리에 관한 정보를 제공받을 권리, ⓑ 개인정보 처리에 관한 동의 여부·범위 등을 선택·결정할 권리, ⓒ 개인정보 처리 여부 확인 및 열람·전송 요구 권리, ⓓ 개인정보 처리 정지·정정·삭제·파기 요구 권리, ⓔ 개인정보 처리로 인한 피해를 신속하고 공정한 절차에 따라 구제받을 권리, ⓕ 완전히 자동화된 개인정보 처리에 따른 결정을 거부하거나 그에 대한 설명 등을 요구할 권리(2023년 개정 시 신설). '다른 개인정보처리자의 위법 행위에 대한 손해배상 직접 청구권'은 법문에 없는 표현이다. 함정: 2024 국가직 14번에서 '자동화 결정을 승인하거나 회복 등을 요구할 권리'는 X (거부할 권리이지 승인할 권리가 아님)."
+    }
+  ]
+}

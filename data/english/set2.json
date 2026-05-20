@@ -1,0 +1,553 @@
+{
+  "exam": {
+    "year": 2026,
+    "month": 5,
+    "day": 21,
+    "subject": "영어",
+    "grade": "9급",
+    "region": "지방직",
+    "source_file": "AI예상문제_2026_9급지방직영어_세트2"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "question_text": "밑줄 친 부분에 들어갈 말로 가장 적절한 것을 고르시오.\n\nDespite the firm's outward appearance of stability, internal documents revealed that its financial situation was far more _____________ than executives had publicly admitted.",
+      "choices": [
+        {
+          "number": 1,
+          "text": "precarious",
+          "is_correct": true
+        },
+        {
+          "number": 2,
+          "text": "lucrative",
+          "is_correct": false
+        },
+        {
+          "number": 3,
+          "text": "tranquil",
+          "is_correct": false
+        },
+        {
+          "number": 4,
+          "text": "robust",
+          "is_correct": false
+        }
+      ],
+      "explanation": "[관련 기출: 2025년 지방직 1번 / 핵심 개념: 어휘 빈칸 - 양보 구조(Despite) 안에서 반대 의미 추론] 정답은 ①번. 'Despite the firm's outward appearance of stability(겉으로는 안정적이지만)'와 'far more ~ than executives had publicly admitted(임원들이 공개적으로 인정한 것보다 훨씬 더 ~)'에서 안정의 반대 상황 추론. precarious(불안정한, 위태로운)가 정답. robust(견고한)는 안정의 동의어. lucrative(수익성 있는)는 재정 위기와 부합하지 않음. tranquil(고요한)은 재정 상황 표현에 부적절. 고난도 어휘 함정: '겉/속 대조'는 양보 구문에서 빈출."
+    },
+    {
+      "number": 2,
+      "question_text": "밑줄 친 부분에 들어갈 말로 가장 적절한 것을 고르시오.\n\nThe diplomat's _____________ remarks at the press conference were carefully crafted to avoid committing to any specific position while still appearing responsive to the journalists' questions.",
+      "choices": [
+        {
+          "number": 1,
+          "text": "vehement",
+          "is_correct": false
+        },
+        {
+          "number": 2,
+          "text": "evasive",
+          "is_correct": true
+        },
+        {
+          "number": 3,
+          "text": "candid",
+          "is_correct": false
+        },
+        {
+          "number": 4,
+          "text": "concise",
+          "is_correct": false
+        }
+      ],
+      "explanation": "[관련 기출: 2025년 지방직 2번 / 핵심 개념: 어휘 빈칸 - 동격 수식 단서로 추론] 정답은 ②번. 'carefully crafted to avoid committing to any specific position(특정 입장을 약속하지 않도록 세심히 만들어진)'은 회피적이라는 단서. evasive(회피적인)가 정답. candid(솔직한)는 회피와 정반대 함정. concise(간결한)는 길이만 표현. vehement(격렬한)는 정치인이 입장을 약속하지 않으려는 톤과 어긋남. evasive는 candid의 반의어로 종종 함정 선택지로 출제됨."
+    },
+    {
+      "number": 3,
+      "question_text": "밑줄 친 부분에 들어갈 말로 가장 적절한 것을 고르시오.\n\n_____________ the warning signs been heeded by the management, the factory accident could have been prevented entirely.",
+      "choices": [
+        {
+          "number": 1,
+          "text": "Should",
+          "is_correct": false
+        },
+        {
+          "number": 2,
+          "text": "If",
+          "is_correct": false
+        },
+        {
+          "number": 3,
+          "text": "Had",
+          "is_correct": true
+        },
+        {
+          "number": 4,
+          "text": "Were",
+          "is_correct": false
+        }
+      ],
+      "explanation": "[관련 기출: 2022년 지방직 6번(Had I realized), 2025년 국가직 3번 / 핵심 개념: 가정법 과거완료의 도치] 정답은 ③번. 'could have been prevented(예방되었을 수도)'는 가정법 과거완료 주절 형태(could/would/might + have + p.p.)이므로 if절도 가정법 과거완료여야 함. 'If the warning signs had been heeded'에서 If가 생략되며 had가 주어 앞으로 도치 → 'Had the warning signs been heeded'. If는 도치문에 함께 쓸 수 없음(중복). Were는 가정법 과거. Should는 가정법 미래(불확실 미래)로 문맥과 시제 불일치."
+    },
+    {
+      "number": 4,
+      "question_text": "밑줄 친 부분에 들어갈 말로 가장 적절한 것을 고르시오.\n\n[메신저 대화]\nDirector Park: Have you reviewed the budget proposal for the Q3 initiatives?\nManager Lee: Yes, but I have concerns about the marketing allocation. It seems excessive given our current projections.\nDirector Park: I understand. _____________?\nManager Lee: I'd suggest reducing it by 15% and redirecting those funds to R&D, which has shown stronger ROI in recent quarters.\nDirector Park: That makes sense. Could you prepare a revised version by Friday?\nManager Lee: Absolutely. I'll have it on your desk by Thursday afternoon.",
+      "choices": [
+        {
+          "number": 1,
+          "text": "Who is responsible for the marketing budget",
+          "is_correct": false
+        },
+        {
+          "number": 2,
+          "text": "Why did we increase R&D spending last year",
+          "is_correct": false
+        },
+        {
+          "number": 3,
+          "text": "When was the proposal originally submitted",
+          "is_correct": false
+        },
+        {
+          "number": 4,
+          "text": "What specific adjustments would you propose",
+          "is_correct": true
+        }
+      ],
+      "explanation": "[관련 기출: 2026년 국가직 4번, 2025년 지방직 5번 / 핵심 개념: 메신저 빈칸 - 직후 응답이 해법 제시] 정답은 ④번. 빈칸 직후 'I'd suggest reducing it by 15% and redirecting those funds to R&D(15% 감축하고 R&D로 재배분 제안)'라는 구체적 조정안을 제시하므로, '어떤 구체적 조정을 제안하겠는가'를 묻는 정답. 제출 시기, 책임자, 작년 R&D 증액 이유는 모두 응답의 구체적 조정안과 직접 연결되지 않음. 고난도: 비즈니스 어휘(ROI, allocation, projections) 함정."
+    },
+    {
+      "number": 5,
+      "question_text": "밑줄 친 부분에 들어갈 말로 가장 적절한 것을 고르시오.\n\nA: I heard you got the promotion! Congratulations!\nB: Thanks, but honestly, I'm having second thoughts about accepting it.\nA: Really? Why is that? It's a great opportunity.\nB: Well, _____________.\nA: I see your point. More responsibility doesn't always mean more happiness.\nB: Exactly. I need to weigh the financial benefits against the lifestyle changes carefully.",
+      "choices": [
+        {
+          "number": 1,
+          "text": "the position requires relocating my family and longer hours",
+          "is_correct": true
+        },
+        {
+          "number": 2,
+          "text": "my colleagues have congratulated me very generously",
+          "is_correct": false
+        },
+        {
+          "number": 3,
+          "text": "I've always dreamed of becoming a senior manager",
+          "is_correct": false
+        },
+        {
+          "number": 4,
+          "text": "the salary increase will solve all my financial problems",
+          "is_correct": false
+        }
+      ],
+      "explanation": "[관련 기출: 2022년 국가직 12번, 2025년 지방직 4번 / 핵심 개념: 'second thoughts' 망설임의 이유 빈칸] 정답은 ①번. 'second thoughts(재고)'와 A의 응답 'More responsibility doesn't always mean more happiness(책임 증가가 행복을 의미하진 않는다)'에서 단서. 또한 B의 마지막 'weigh the financial benefits against the lifestyle changes(재정적 이익과 생활 변화 비교)'에서 '생활 변화'에 해당하는 번이 정답. 급여 인상 만족은 망설임과 모순. 축하는 망설임의 이유가 아님. 꿈이었다면 거절을 고민하지 않음."
+    },
+    {
+      "number": 6,
+      "question_text": "[6~7] 다음 글을 읽고 물음에 답하시오. (공통 지문)\n\n[웹페이지: research.nationaluniv.edu]\n\n          (A)\n\nThe National University Research Center is now accepting applications for its 2026 Summer Research Fellowship Program. This intensive eight-week program offers undergraduate and graduate students the opportunity to work alongside leading researchers on cutting-edge projects.\n\nEligibility:\n- Undergraduate students in their junior or senior year\n- Graduate students enrolled in any accredited institution\n- Minimum GPA of 3.3 on a 4.0 scale\n\nResearch Areas:\n- Biomedical Sciences\n- Environmental Engineering\n- Data Science and AI\n- Public Policy\n- Cognitive Neuroscience\n\nBenefits:\n- $4,500 stipend for the full duration\n- On-campus housing provided\n- Travel reimbursement up to $500\n- Certificate of completion and faculty recommendation\n\nHow to Apply:\nSubmit your application through our online portal by March 15, 2026. Required documents include academic transcripts, two letters of recommendation, and a 500-word research statement. Interviews will be conducted virtually in early April.\n\n(A)에 들어갈 윗글의 제목으로 가장 적절한 것은?",
+      "choices": [
+        {
+          "number": 1,
+          "text": "University Tuition Reduction Initiative",
+          "is_correct": false
+        },
+        {
+          "number": 2,
+          "text": "Apply Now: Summer Research Fellowship 2026",
+          "is_correct": true
+        },
+        {
+          "number": 3,
+          "text": "Career Opportunities for New Graduates",
+          "is_correct": false
+        },
+        {
+          "number": 4,
+          "text": "How to Improve Your Academic Performance",
+          "is_correct": false
+        }
+      ],
+      "explanation": "[관련 기출: 2025년 국가직 6번, 2025년 지방직 6번 / 핵심 개념: 공통 지문 제목 - 명확한 행동 촉구] 정답은 ②번. 전체 글이 '여름 연구 펠로우십 프로그램 지원자 모집'을 안내하며 'now accepting applications(현재 지원서 접수 중)'으로 시작하므로 'Apply Now'가 핵심. 등록금 감면 내용은 없음. 신졸업자 채용이 아닌 학생 대상 연구 프로그램. 학업 성취 향상이 아닌 연구 기회. 함정: 'Eligibility'의 GPA 요건 때문에 ④(학업 성취 향상)로 오인할 수 있음."
+    },
+    {
+      "number": 7,
+      "question_text": "윗글의 내용과 일치하지 않는 것은? (6번 공통지문 문제)",
+      "choices": [
+        {
+          "number": 1,
+          "text": "프로그램 기간은 8주이다.",
+          "is_correct": false
+        },
+        {
+          "number": 2,
+          "text": "GPA 3.3 이상이어야 지원 가능하다.",
+          "is_correct": false
+        },
+        {
+          "number": 3,
+          "text": "면접은 4월 초에 대면으로 진행된다.",
+          "is_correct": true
+        },
+        {
+          "number": 4,
+          "text": "교통비는 최대 500달러까지 환급된다.",
+          "is_correct": false
+        }
+      ],
+      "explanation": "[관련 기출: 2025년 국가직 7번, 2025년 지방직 7번 / 핵심 개념: 공통 지문 내용 일치 - 형용사 함정] 정답은 ③번. 'Interviews will be conducted virtually in early April(면접은 4월 초에 가상으로 진행)'이므로 '대면'은 오류. virtually(가상으로)와 visually(시각적으로) 혼동도 함정. 'eight-week program'과 일치. 'Minimum GPA of 3.3'과 일치. 'Travel reimbursement up to $500'과 일치. 고난도 함정: virtually를 '실질적으로'로 오역하여 정답으로 인식하지 못할 수 있음."
+    },
+    {
+      "number": 8,
+      "question_text": "[8~9] 다음 글을 읽고 물음에 답하시오. (공통 지문)\n\n[웹페이지: openscience.org]\n\nOpen Science Collaboration\n\nThe Open Science Collaboration is a global network dedicated to making scientific research more transparent, accessible, and reproducible. We believe that science thrives when knowledge is shared openly across institutions, countries, and disciplines.\n\nOur work addresses critical challenges facing modern science. Many groundbreaking studies cannot be replicated, raising serious questions about the reliability of published findings. This 'reproducibility crisis' is particularly acute in fields like psychology, medicine, and economics, where billions of dollars in funding and countless policy decisions rely on research outcomes.\n\nTo combat these issues, we advocate for pre-registration of studies, open access to data, and transparent peer review processes. We also organize international workshops that bring together researchers, journal editors, and funding agencies to develop new standards for scientific integrity.\n\nOur members include over 5,000 scientists from 80 countries, working together to ensure that science remains a reliable foundation for human progress. By promoting these practices, we aim to restore public trust in scientific institutions and accelerate genuine discovery.\n\n밑줄 친 acute의 의미와 가장 가까운 것은?",
+      "choices": [
+        {
+          "number": 1,
+          "text": "obscure",
+          "is_correct": false
+        },
+        {
+          "number": 2,
+          "text": "ancient",
+          "is_correct": false
+        },
+        {
+          "number": 3,
+          "text": "trivial",
+          "is_correct": false
+        },
+        {
+          "number": 4,
+          "text": "severe",
+          "is_correct": true
+        }
+      ],
+      "explanation": "[관련 기출: 2025년 지방직 8번(critical=pivotal) / 핵심 개념: 공통 지문 다의어 - acute의 학술적 의미] 정답은 ④번. 'reproducibility crisis is particularly acute(재현성 위기가 특히 ~한)'에서 acute는 의학적 '급성'이 아닌 '심각한, 첨예한'의 의미. severe(심각한)가 정답. trivial(사소한)은 반대. obscure(모호한)는 위기의 명확성과 어긋남. ancient(고대의)는 시대와 무관. acute는 'acute pain(급성 통증)', 'acute shortage(심각한 부족)', 'acute observer(예리한 관찰자)' 등 다의어로 문맥 의존."
+    },
+    {
+      "number": 9,
+      "question_text": "윗글의 목적으로 가장 적절한 것은? (8번 공통지문 문제)",
+      "choices": [
+        {
+          "number": 1,
+          "text": "to introduce an organization promoting open science",
+          "is_correct": true
+        },
+        {
+          "number": 2,
+          "text": "to criticize specific researchers for misconduct",
+          "is_correct": false
+        },
+        {
+          "number": 3,
+          "text": "to request funding for psychology research",
+          "is_correct": false
+        },
+        {
+          "number": 4,
+          "text": "to recruit new members for scientific journals",
+          "is_correct": false
+        }
+      ],
+      "explanation": "[관련 기출: 2025년 국가직 9번, 2025년 지방직 9번 / 핵심 개념: 공통 지문 글의 목적 - 기관 소개] 정답은 ①번. 첫 문장 'The Open Science Collaboration is a global network dedicated to ~'에서 시작해 단체의 목적, 활동, 회원 규모를 소개하므로 '오픈 사이언스 단체 소개'가 목적. 학술지 회원 모집이 아닌 단체 소개. 특정 연구자 비판이 아닌 시스템 개선 옹호. 자금 요청 내용은 없음. 단체 소개문의 패턴: 명칭→목적→문제 인식→활동→규모로 구성."
+    },
+    {
+      "number": 10,
+      "question_text": "다음 글의 목적으로 가장 적절한 것은?\n\n[이메일]\nTo: dean.smith@university.edu\nFrom: rkim@university.edu\nDate: April 12, 2026\nSubject: Revision of Academic Calendar Proposal\n\nDear Dean Smith,\n\nI hope this email finds you well. I am writing in response to the draft academic calendar for the 2026-2027 academic year that was distributed to faculty members last week.\n\nWhile I appreciate the efforts of the planning committee, I have noticed several scheduling conflicts that may significantly impact our department's operations. Specifically, the proposed midterm examination period overlaps with the international conference that our department traditionally hosts in October. Additionally, the spring break dates conflict with the previously announced graduate student research symposium.\n\nI believe these scheduling overlaps were not intentional, but they would create substantial logistical challenges for both students and faculty. I would like to respectfully propose that the planning committee reconsider these specific dates and consult with department heads before finalizing the calendar.\n\nWould it be possible to arrange a brief meeting with the committee to discuss these concerns? I am available throughout the upcoming week and would be happy to provide additional details about our department's commitments.\n\nThank you for your consideration.\n\nBest regards,\nRobert Kim\nChair, Department of International Studies",
+      "choices": [
+        {
+          "number": 1,
+          "text": "to approve the draft academic calendar",
+          "is_correct": false
+        },
+        {
+          "number": 2,
+          "text": "to request reconsideration of scheduling conflicts",
+          "is_correct": true
+        },
+        {
+          "number": 3,
+          "text": "to cancel the international conference",
+          "is_correct": false
+        },
+        {
+          "number": 4,
+          "text": "to apply for additional research funding",
+          "is_correct": false
+        }
+      ],
+      "explanation": "[관련 기출: 2026년 국가직 10번(suggest more spacious venue), 2025년 국가직 11번 / 핵심 개념: 이메일 글의 목적 - 정중한 재고 요청] 정답은 ②번. 'I would like to respectfully propose that the planning committee reconsider these specific dates(특정 날짜 재고를 정중히 제안)'에서 명확. 일정 충돌(scheduling conflicts)을 지적하고 재논의(meeting)를 요청하는 구조. 승인이 아닌 재고 요청. 학회 취소가 아닌 일정 조정 요청. 연구비 신청 내용은 없음. 고난도 함정: 본문의 양보 표현('I appreciate the efforts')에 속아 ①(승인)으로 오인 가능."
+    },
+    {
+      "number": 11,
+      "question_text": "다음 글의 내용과 일치하지 않는 것은?\n\n[안내문]\nINTERNATIONAL FILM FESTIVAL 2026\n\nThe 28th International Film Festival will showcase over 200 films from 45 countries.\n\nFESTIVAL DATES\nMay 14 - May 24, 2026\nOpening Ceremony: May 14, 7:00 PM\nClosing Awards Gala: May 24, 8:00 PM\n\nVENUES\nMain screenings will be held at the Grand Cinema Complex (downtown) and the Riverside Arts Center. Special outdoor screenings will take place at Memorial Park (weather permitting).\n\nTICKETS\n- Single screening: $15\n- Daily pass: $40\n- Festival pass (all 11 days): $250\n- Students and seniors receive 30% discount with valid ID\n\nSPECIAL EVENTS\n- Director Q&A sessions after selected screenings\n- Industry workshops for emerging filmmakers (registration required)\n- International cuisine festival in the courtyard (free admission)\n\nAll films will be presented in their original language with English subtitles. Films rated for mature audiences will be clearly indicated in the program.",
+      "choices": [
+        {
+          "number": 1,
+          "text": "야외 상영은 날씨 상황에 따라 진행된다.",
+          "is_correct": false
+        },
+        {
+          "number": 2,
+          "text": "학생과 노인은 30% 할인을 받을 수 있다.",
+          "is_correct": false
+        },
+        {
+          "number": 3,
+          "text": "산업 워크숍은 사전 등록 없이 참가 가능하다.",
+          "is_correct": true
+        },
+        {
+          "number": 4,
+          "text": "축제 기간은 11일이다.",
+          "is_correct": false
+        }
+      ],
+      "explanation": "[관련 기출: 2025년 국가직 14번, 2025년 지방직 12번 / 핵심 개념: 안내문 내용 일치 - 작은 단서(괄호) 함정] 정답은 ③번. 'Industry workshops for emerging filmmakers (registration required)'에서 사전 등록이 필요함이 명시. May 14-24는 11일간(Festival pass: all 11 days로 확인). 'weather permitting(날씨가 허락하면)'과 일치. '30% discount with valid ID'와 일치. 함정: 영화제 본 행사는 자유 참가지만, 부대 행사인 워크숍은 별도 등록 필요 - 안내문에서 괄호 안 정보는 항상 정답 후보."
+    },
+    {
+      "number": 12,
+      "question_text": "다음 글에서 The Global Heritage Foundation에 대한 내용과 일치하는 것은?\n\n[웹페이지: ghf.org]\n\nThe Global Heritage Foundation\n\nThe Global Heritage Foundation is committed to preserving and protecting cultural and historical sites threatened by conflict, climate change, urbanization, and neglect. Established in 1998, we operate in over 60 countries with a network of archaeologists, historians, and conservation specialists.\n\nKey Initiatives\n\n- Emergency Response Program:\nWhen disasters strike heritage sites, we deploy rapid response teams within 72 hours to assess damage and implement urgent stabilization measures. Our work in earthquake-damaged regions has saved numerous irreplaceable monuments.\n\n- Community Engagement:\nWe believe that sustainable preservation requires local participation. Our programs train community members in conservation techniques and provide economic incentives through heritage tourism development.\n\n- Digital Documentation:\nUsing 3D scanning and photogrammetry, we create detailed digital records of vulnerable sites. These records serve both as research tools and as insurance against potential loss.\n\n- Policy Advocacy:\nWe work with UNESCO and national governments to strengthen legal protections for cultural sites and raise awareness through international campaigns.",
+      "choices": [
+        {
+          "number": 1,
+          "text": "Local community involvement is discouraged in its projects.",
+          "is_correct": false
+        },
+        {
+          "number": 2,
+          "text": "It operates exclusively in conflict zones.",
+          "is_correct": false
+        },
+        {
+          "number": 3,
+          "text": "It was founded in the 21st century.",
+          "is_correct": false
+        },
+        {
+          "number": 4,
+          "text": "Its emergency response teams arrive within three days of disasters.",
+          "is_correct": true
+        }
+      ],
+      "explanation": "[관련 기출: 2025년 국가직 15번(HHS), 2025년 지방직 11번 / 핵심 개념: 기관 소개 내용 일치 - 시간·숫자 환산] 정답은 ④번. 'we deploy rapid response teams within 72 hours(72시간 내 신속 대응팀 파견)' = 3일 이내. 'Established in 1998'은 20세기. 'We believe that sustainable preservation requires local participation(지역 참여 필요)'과 정반대. 'threatened by conflict, climate change, urbanization, and neglect'로 분쟁 외 다양한 위협 대응. 고난도 함정: 시간 단위 환산(72hrs=3일)을 즉시 파악해야 함."
+    },
+    {
+      "number": 13,
+      "question_text": "밑줄 친 부분 중 어법상 옳지 않은 것을 고르시오.\n\nThe philosopher's lectures, ①which were attended by hundreds of students, ②has been published in a multi-volume series last year. His central argument, ③that morality cannot be derived purely from reason, continues to influence contemporary debates in ethics and ④provokes responses from scholars around the world.",
+      "choices": [
+        {
+          "number": 1,
+          "text": "②",
+          "is_correct": true
+        },
+        {
+          "number": 2,
+          "text": "③",
+          "is_correct": false
+        },
+        {
+          "number": 3,
+          "text": "④",
+          "is_correct": false
+        },
+        {
+          "number": 4,
+          "text": "①",
+          "is_correct": false
+        }
+      ],
+      "explanation": "[관련 기출: 2025년 국가직 12번, 2025년 지방직 13번 / 핵심 개념: 어법 밑줄 - 주어 수일치 + 시제] 정답은 ①번. 'The philosopher's lectures(주어, 복수)'와 'has been published(단수 동사)'의 수일치 오류, 또한 'last year(과거 명백한 시점)'와 현재완료(have/has been)는 함께 쓸 수 없음. 'were published last year(단순 과거 수동태)'로 고쳐야 함. 두 가지 오류가 동시에 발생하는 함정. which는 lectures를 받는 주격 관계대명사. that은 동격절 접속사(His argument = that ~). provokes는 단수 주어 His central argument와 수일치."
+    },
+    {
+      "number": 14,
+      "question_text": "밑줄 친 부분 중 어법상 옳지 않은 것을 고르시오.\n\nClimate scientists ①warn policymakers about rising sea levels have faced increasing pressure to communicate their findings ②more effectively to the general public. The complexity of climate data, ③combined with the urgent need for action, makes scientific communication ④what one researcher called 'the defining challenge of our era.'",
+      "choices": [
+        {
+          "number": 1,
+          "text": "④",
+          "is_correct": false
+        },
+        {
+          "number": 2,
+          "text": "①",
+          "is_correct": true
+        },
+        {
+          "number": 3,
+          "text": "②",
+          "is_correct": false
+        },
+        {
+          "number": 4,
+          "text": "③",
+          "is_correct": false
+        }
+      ],
+      "explanation": "[관련 기출: 2024년 국가직 6번, 2025년 지방직 14번 / 핵심 개념: 어법 밑줄 - 본동사 중복(분사·관계대명사 누락)] 정답은 ①번. 문장 전체의 본동사는 'have faced'이므로, 주어 'Climate scientists' 뒤에는 이를 수식하는 분사구나 관계절이 와야 함. 그런데 'warn'은 정형동사(현재시제)라 'have faced'와 함께 한 절에 두 개의 본동사가 존재하게 되어 비문이 됨. 'warning'(현재분사) 또는 'who warn'(관계대명사)으로 고쳐야 함. ②more effectively는 동사 communicate를 수식하는 부사로 적절. ③combined는 과거분사로 주어 The complexity를 수식(분사구문)하며 적절. ④what은 선행사를 포함한 관계대명사로 makes의 목적격 보어절을 이끌어 적절. 주어를 수식하는 분사구와 본동사 자리를 혼동하지 않는 것이 핵심."
+    },
+    {
+      "number": 15,
+      "question_text": "다음 글의 주제로 가장 적절한 것은?\n\nThe phenomenon known as 'survivorship bias' systematically distorts our understanding of success and failure in numerous fields. During World War II, statistician Abraham Wald revolutionized military aircraft armor design by recognizing this bias. The military initially planned to reinforce the areas of returning planes that showed the most bullet damage. Wald pointed out a crucial flaw: they were only examining planes that had survived. The bullet damage on returning planes actually indicated areas where aircraft could sustain damage and still fly home. The truly vulnerable areas were those with no bullet holes on surviving planes, because aircraft hit in those locations never returned. This insight applies far beyond military strategy. Business books often analyze successful companies while ignoring countless failures with similar strategies. Self-help books profile high achievers without examining how many followed identical advice and failed. Understanding survivorship bias requires us to actively seek out information about what is missing from our data, not just what is visible.",
+      "choices": [
+        {
+          "number": 1,
+          "text": "the limitations of self-help literature in modern society",
+          "is_correct": false
+        },
+        {
+          "number": 2,
+          "text": "the historical importance of military aviation research",
+          "is_correct": false
+        },
+        {
+          "number": 3,
+          "text": "how invisible failures distort our analysis of success",
+          "is_correct": true
+        },
+        {
+          "number": 4,
+          "text": "strategies for improving aircraft design",
+          "is_correct": false
+        }
+      ],
+      "explanation": "[관련 기출: 2025년 지방직 15번, 2026년 국가직 15번 / 핵심 개념: 글의 주제 - 추상 개념의 사례 일반화] 정답은 ③번. 글 전체가 'survivorship bias(생존자 편향)'를 소개하고, 군용기 사례를 들어 '눈에 보이지 않는 실패(missing/non-survivors)가 성공 분석을 왜곡한다'는 일반화 결론에 도달. 군용기 연구는 도입 예시일 뿐. 항공기 설계 향상이 핵심 주제 아님. 자기계발서는 마지막 사례 중 하나일 뿐 주제 아님. 고난도: 구체 예시(군용기)에 매몰되지 않고 일반 원리(편향)를 잡아야 함."
+    },
+    {
+      "number": 16,
+      "question_text": "주어진 문장이 들어갈 위치로 가장 적절한 것은?\n\nYet this assumption overlooks a critical factor: the role of timing and context in determining innovation success.\n\nMany people believe that the best ideas naturally rise to the top in competitive markets. ( ① ) According to this view, superior products inevitably triumph over inferior ones, and successful entrepreneurs are simply those with the best concepts. ( ② ) Historical analysis tells a different story. ( ③ ) Sony's Betamax was technically superior to VHS, but it failed in the marketplace. Numerous breakthrough technologies have languished for decades before suddenly becoming commercially viable when surrounding conditions—infrastructure, consumer attitudes, complementary products—finally aligned. ( ④ ) Therefore, evaluating innovations requires examining not just their inherent qualities but the entire ecosystem in which they must succeed.",
+      "choices": [
+        {
+          "number": 1,
+          "text": "③",
+          "is_correct": false
+        },
+        {
+          "number": 2,
+          "text": "④",
+          "is_correct": false
+        },
+        {
+          "number": 3,
+          "text": "①",
+          "is_correct": false
+        },
+        {
+          "number": 4,
+          "text": "②",
+          "is_correct": true
+        }
+      ],
+      "explanation": "[관련 기출: 2025년 국가직 16번, 2024년 국가직 17번 / 핵심 개념: 문장 삽입 - 역접 접속사(Yet) + 지시어(this assumption)] 정답은 ④번. 주어진 문장 'Yet this assumption overlooks(그러나 가정은 ~을 간과)'에서 'this assumption'은 앞에서 언급된 가정을 받음. 앞까지 '좋은 아이디어가 자연히 성공한다'는 가정이 설명됨(this assumption의 선행 내용). 다음 'Historical analysis tells a different story(역사적 분석은 다른 이야기)'가 이어지며 베타맥스 등 반례를 제시. 따라서 ②자리가 정답. ③자리는 'different story'와 구체 예시(베타맥스) 사이라 흐름이 단절됨."
+    },
+    {
+      "number": 17,
+      "question_text": "다음 글의 흐름상 어색한 문장은?\n\nResearch on multilingual children reveals fascinating cognitive advantages that extend well beyond language ability. ①Children raised speaking two or more languages demonstrate enhanced executive function, particularly in tasks requiring attention switching and inhibiting distractions. ②This advantage stems from the constant practice of managing multiple linguistic systems and selecting the appropriate language for each context. ③Recent studies have shown that bilingual children develop these mental flexibility skills earlier than their monolingual peers. ④Many parents worry that exposing young children to multiple languages will delay their overall development and create confusion in their speech patterns. Even more remarkably, these cognitive benefits appear to persist throughout life, with bilingual seniors showing delayed onset of cognitive decline compared to monolingual peers.",
+      "choices": [
+        {
+          "number": 1,
+          "text": "④",
+          "is_correct": true
+        },
+        {
+          "number": 2,
+          "text": "①",
+          "is_correct": false
+        },
+        {
+          "number": 3,
+          "text": "②",
+          "is_correct": false
+        },
+        {
+          "number": 4,
+          "text": "③",
+          "is_correct": false
+        }
+      ],
+      "explanation": "[관련 기출: 2025년 국가직 17번, 2025년 지방직 18번 / 핵심 개념: 흐름상 어색한 문장 - 논조 역전] 정답은 ①번. 글 전체가 '다국어 사용의 인지적 이점'을 일관되게 주장하는데, '부모의 걱정(다국어 노출이 발달 지연·혼란 야기)'이라는 부정적 시각을 제시하여 논조가 정반대. 모두 다국어의 이점을 강화. 다음 'Even more remarkably(더욱 놀랍게도)'로 다시 이점을 이어가므로 문맥을 끊음. 고난도 함정: 일반인의 흔한 오해라는 점에서 사실적 진술처럼 보여 헷갈리지만 글의 흐름에서 이탈."
+    },
+    {
+      "number": 18,
+      "question_text": "주어진 글 다음에 이어질 글의 순서로 가장 적절한 것은?\n\nThe paradox of choice, first described by psychologist Barry Schwartz, challenges the common assumption that more options always lead to greater satisfaction.\n\n(A) Schwartz argues that this overload triggers two distinct problems. The first is decision paralysis, where the difficulty of comparison leads people to delay or avoid choosing altogether. The second is post-decision regret, as consumers wonder whether unchosen alternatives would have been better.\n\n(B) In one famous experiment, researchers set up two displays of gourmet jams at a supermarket—one offering 6 varieties and another offering 24. While the larger display attracted more browsers, the smaller display generated ten times more actual purchases.\n\n(C) The implications extend far beyond consumer goods. Modern life presents us with overwhelming choices in careers, relationships, and lifestyles. Recognizing the paradox of choice can help us deliberately limit options in low-stakes decisions, preserving mental energy for choices that truly matter.",
+      "choices": [
+        {
+          "number": 1,
+          "text": "(A) - (C) - (B)",
+          "is_correct": false
+        },
+        {
+          "number": 2,
+          "text": "(B) - (A) - (C)",
+          "is_correct": true
+        },
+        {
+          "number": 3,
+          "text": "(B) - (C) - (A)",
+          "is_correct": false
+        },
+        {
+          "number": 4,
+          "text": "(C) - (A) - (B)",
+          "is_correct": false
+        }
+      ],
+      "explanation": "[관련 기출: 2025년 국가직 18번, 2025년 지방직 16번 / 핵심 개념: 글의 순서 - 주장→예시→설명→일반화] 정답은 ②번. 주어진 글: Schwartz의 '선택의 역설' 소개. (B): 'In one famous experiment(한 유명 실험)'로 잼 매대 실험을 소개하며 6/24 비교로 선택의 역설을 보여줌(구체 예시). (A): 'Schwartz argues that this overload triggers two distinct problems(Schwartz는 과부하가 두 문제를 유발한다고 주장)'으로 실험에서 드러난 'overload(과부하)'를 받아 결정 마비·후회를 설명. (C): 'The implications extend far beyond consumer goods(소비재를 넘어 함의 확장)'로 일반화 결론. 따라서 (B)→(A)→(C)."
+    },
+    {
+      "number": 19,
+      "question_text": "밑줄 친 부분에 들어갈 말로 가장 적절한 것을 고르시오.\n\nThe scientific method has long been celebrated as humanity's most powerful tool for understanding reality, yet philosophers of science increasingly recognize that even this rigorous approach is shaped by the cultural and historical context of its practitioners. The questions scientists choose to investigate, the methodologies they consider valid, and the interpretations they find compelling all reflect prevailing assumptions of their time. This doesn't mean that science is merely subjective or that all theories are equally valid—rigorous testing still produces reliable knowledge about the natural world. However, it does suggest that scientific progress is not a simple linear accumulation of facts. Major shifts in scientific understanding, what historian Thomas Kuhn called 'paradigm shifts,' occur when accumulating anomalies finally force the abandonment of established frameworks. Newton's mechanics gave way to Einstein's relativity not because Newton was simply wrong, but because new questions demanded new frameworks. Understanding science as _____________ rather than as a fixed set of truths allows us to appreciate both its power and its limitations.",
+      "choices": [
+        {
+          "number": 1,
+          "text": "an entirely subjective interpretation",
+          "is_correct": false
+        },
+        {
+          "number": 2,
+          "text": "an unchanging body of objective facts",
+          "is_correct": false
+        },
+        {
+          "number": 3,
+          "text": "an evolving human enterprise",
+          "is_correct": true
+        },
+        {
+          "number": 4,
+          "text": "a purely mathematical discipline",
+          "is_correct": false
+        }
+      ],
+      "explanation": "[관련 기출: 2025년 국가직 19번, 2026년 국가직 19번 / 핵심 개념: 추상 빈칸 추론 - 글의 핵심 명제 압축] 정답은 ③번. 글 전체가 '과학도 문화·역사적 맥락에 영향을 받는 인간 활동이며 패러다임 전환을 통해 발전한다'는 주장. 빈칸은 'rather than as a fixed set of truths(고정된 진리가 아니라)'와 대조되므로 '진화하는 인간 활동(an evolving human enterprise)'이 정답. 변하지 않는 객관적 사실은 글이 반박하는 견해. 수학적 학문은 글의 초점 아님. 전적으로 주관적이라는 것은 글이 명시적으로 부정('This doesn't mean that science is merely subjective')."
+    },
+    {
+      "number": 20,
+      "question_text": "밑줄 친 부분에 들어갈 말로 가장 적절한 것을 고르시오.\n\nThe ancient Greek concept of phronesis—often translated as 'practical wisdom'—offers a powerful corrective to our contemporary obsession with technical expertise. Aristotle distinguished phronesis from sophia (theoretical wisdom) and techne (technical skill), arguing that it represented something more valuable than either alone. Phronesis is the capacity to deliberate well about matters that admit of no single correct answer, where rules and procedures cannot substitute for judgment. Consider a master physician facing an unusual case: textbook protocols cannot tell her how to weigh the specific patient's values against medical risks, or how to communicate difficult news to this particular family. Such situations demand _____________. Modern institutions, by contrast, increasingly try to eliminate judgment through standardized procedures, metrics, and algorithms. While this approach offers consistency and accountability, it can erode the very capacities needed for excellent practice. The most accomplished professionals in any field combine technical knowledge with this irreplaceable wisdom developed only through long experience and reflection.",
+      "choices": [
+        {
+          "number": 1,
+          "text": "the avoidance of all subjective evaluation",
+          "is_correct": false
+        },
+        {
+          "number": 2,
+          "text": "strict adherence to established procedures",
+          "is_correct": false
+        },
+        {
+          "number": 3,
+          "text": "complete reliance on algorithmic decisions",
+          "is_correct": false
+        },
+        {
+          "number": 4,
+          "text": "the cultivated judgment that experience produces",
+          "is_correct": true
+        }
+      ],
+      "explanation": "[관련 기출: 2025년 지방직 20번, 2026년 국가직 20번 / 핵심 개념: 추상 빈칸 추론 - 글의 대조 구조 파악] 정답은 ④번. 글의 대조 구조: phronesis(실천적 지혜, 판단력) vs 현대의 표준화/알고리즘. 빈칸 직후 'Modern institutions, by contrast, increasingly try to eliminate judgment(현대 기관은 판단을 제거하려 함)'에서 빈칸이 '판단'을 요구하는 상황임을 명시. 또한 마지막 문장 'this irreplaceable wisdom developed only through long experience and reflection(긴 경험과 성찰을 통해서만 발달하는 지혜)'에서 'experience produces'와 연결됨. 정해진 절차 준수는 정반대(modern institutions의 접근). 알고리즘 의존도 정반대. 주관적 평가 회피도 정반대."
+    }
+  ]
+}
