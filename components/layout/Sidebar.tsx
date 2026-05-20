@@ -10,13 +10,37 @@ import { cn } from '@/lib/utils'
 import { SUBJECT_META, SUBJECT_KEYS, type SubjectKey } from '@/lib/utils'
 
 const COMMON_NAV = [
-  { href: '/dashboard',  label: '대시보드', icon: LayoutDashboard },
+  { href: '/dashboard',    label: '대시보드',   icon: LayoutDashboard },
   { href: '/notes/master', label: '마스터 노트', icon: FileText },
   { href: '/notes/table',  label: '표중심 노트', icon: FileText },
-  { href: '/traps',        label: '함정 패턴', icon: AlertTriangle },
-  { href: '/search',       label: '검색', icon: Search },
-  { href: '/stats',        label: '통계', icon: BarChart2 },
+  { href: '/notes/json',   label: 'JSON 트리',  icon: FileText },
+  { href: '/traps',        label: '함정 패턴',  icon: AlertTriangle },
+  { href: '/search',       label: '검색',       icon: Search },
+  { href: '/stats',        label: '통계',       icon: BarChart2 },
 ]
+
+const SUBJECT_EXTRA_NAV: Record<string, { href: string; label: string }[]> = {
+  'korean-history': [
+    { href: '/korean-history/timeline',             label: '왕조 연표' },
+    { href: '/korean-history/historical-figures',   label: '인물 사전' },
+    { href: '/korean-history/historical-documents', label: '사료 모음' },
+  ],
+  'english': [
+    { href: '/english/vocabulary',      label: '어휘 카드' },
+    { href: '/english/grammar-patterns', label: '문법 패턴' },
+    { href: '/english/idioms',           label: '관용구' },
+  ],
+  'computer-general': [
+    { href: '/computer-general/flashcards', label: '플래시카드' },
+    { href: '/computer-general/code-trace', label: '코드 트레이싱' },
+  ],
+  'infosec': [
+    { href: '/infosec/crypto-lab',          label: '암호 실습실' },
+    { href: '/infosec/law-explorer',        label: '법규 탐색기' },
+    { href: '/infosec/ismsp-tree',          label: 'ISMS-P 트리' },
+    { href: '/infosec/access-control-sim',  label: '접근통제 시뮬' },
+  ],
+}
 
 interface SidebarProps {
   isOpen?: boolean
@@ -90,6 +114,32 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                     onClick={onClose}
                   >
                     <Icon className="h-4 w-4" />
+                    {item.label}
+                  </Link>
+                )
+              })}
+            </nav>
+          )}
+
+          {/* 과목 특화 메뉴 */}
+          {currentSubject && SUBJECT_EXTRA_NAV[currentSubject] && (
+            <nav className="px-3 space-y-1 mt-1 pt-2 border-t">
+              {SUBJECT_EXTRA_NAV[currentSubject].map(item => {
+                const isActive = pathname.startsWith(item.href)
+                const accentColor = SUBJECT_META[currentSubject].color
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      'flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors',
+                      isActive
+                        ? 'text-white font-medium'
+                        : 'hover:bg-accent text-muted-foreground hover:text-foreground'
+                    )}
+                    style={isActive ? { backgroundColor: accentColor } : undefined}
+                    onClick={onClose}
+                  >
                     {item.label}
                   </Link>
                 )

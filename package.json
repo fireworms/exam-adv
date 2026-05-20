@@ -32,6 +32,8 @@
     "remark-gfm": "^4.0.0",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
+    "vis-data": "^8.0.4",
+    "vis-timeline": "^8.5.1",
     "zustand": "^5.0.3"
   },
   "devDependencies": {
