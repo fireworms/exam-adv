@@ -7,72 +7,55 @@ const supabase = createClient(
   process.env.SUPABASE_SECRET_KEY!
 )
 
+const DOMAIN_HINTS: Record<string, string> = {
+  '2의_보수': '컴퓨터구조', 캐시_메모리: '컴퓨터구조', CPU_스케줄링: '운영체제',
+  페이지_교체: '운영체제', OSI_7계층: '네트워크', 정규화: '데이터베이스',
+}
+
 export async function seedComputerGeneral() {
-  const json = JSON.parse(
-    readFileSync(resolve('data/computer_general/요약노트_JSON.json'), 'utf-8')
-  )
+  const json = JSON.parse(readFileSync(resolve('data/computer_general/요약노트_JSON.json'), 'utf-8'))
 
-  // cs_concepts 적재 (key_concepts)
-  const conceptSource = json.key_concepts ?? json.concepts ?? []
-  if (conceptSource.length > 0) {
-    const concepts = (conceptSource as Record<string, unknown>[]).map(c => ({
-      domain:          c.domain ?? c.category ?? '기타',
-      name:            c.name,
-      description:     c.description ?? null,
-      formula:         c.formula ?? null,
-      example:         c.example ?? null,
-      exam_appeared_in: c.exam_appeared_in ?? null,
-      importance:      c.importance ?? 3,
-    }))
-    const { error } = await supabase.from('cs_concepts').upsert(concepts)
-    if (error) throw new Error(`cs_concepts 적재 실패: ${error.message}`)
-    console.log(`  ✓ 컴일 개념 ${concepts.length}개 적재`)
-  }
+  // ── 1. cs_concepts (key_concepts) ────────────────────────
+  const kc = json.key_concepts as Record<string, Record<string, unknown>>
+  const concepts = Object.entries(kc).map(([key, val]) => ({
+    domain:      DOMAIN_HINTS[key] ?? '기타',
+    name:        key.replace(/_/g, ' '),
+    description: String(val.definition ?? val.description ?? JSON.stringify(val)).slice(0, 500),
+    formula:     val.calculation ? String(val.calculation) : null,
+    example:     val.example ? String(val.example) : null,
+    importance:  Number(val.exam_frequency ?? 3),
+  }))
+  const { error: cErr } = await supabase.from('cs_concepts').upsert(concepts)
+  if (cErr) throw new Error(`cs_concepts 실패: ${cErr.message}`)
+  console.log(`  ✓ 컴일 개념 ${concepts.length}개 적재`)
 
-  // cs_algorithms 적재
-  if (json.algorithms) {
-    const algs = (json.algorithms as Record<string, unknown>[]).map(a => ({
-      name:             a.name,
-      category:         a.category ?? null,
-      time_complexity:  a.time_complexity ?? null,
-      space_complexity: a.space_complexity ?? null,
-      pseudocode:       a.pseudocode ?? null,
-      description:      a.description ?? null,
+  // ── 2. cs_algorithms ─────────────────────────────────────
+  const alg = json.algorithms_data_structures as Record<string, unknown>
+  const algorithms = Object.entries(alg).flatMap(([cat, val]) => {
+    if (typeof val !== 'object' || val === null) return []
+    return Object.entries(val as Record<string, unknown>).map(([name, data]) => ({
+      name,
+      category:         cat,
+      time_complexity:  ((data as Record<string, unknown>)?.complexity as Record<string, unknown>)?.avg as string ?? null,
+      space_complexity: null,
+      pseudocode:       null,
+      description:      typeof data === 'object' ? JSON.stringify(data).slice(0, 300) : String(data),
     }))
-    const { error } = await supabase.from('cs_algorithms').upsert(algs)
-    if (error) throw new Error(`cs_algorithms 적재 실패: ${error.message}`)
-    console.log(`  ✓ 알고리즘 ${algs.length}개 적재`)
-  }
+  })
+  const { error: aErr } = await supabase.from('cs_algorithms').upsert(algorithms)
+  if (aErr) throw new Error(`cs_algorithms 실패: ${aErr.message}`)
+  console.log(`  ✓ 알고리즘 ${algorithms.length}개 적재`)
 
-  // cs_protocols 적재
-  if (json.protocols) {
-    const protocols = (json.protocols as Record<string, unknown>[]).map(p => ({
-      name:        p.name,
-      osi_layer:   p.osi_layer ?? null,
-      rfc_number:  p.rfc_number ?? null,
-      description: p.description ?? null,
-    }))
-    const { error } = await supabase.from('cs_protocols').upsert(protocols)
-    if (error) throw new Error(`cs_protocols 적재 실패: ${error.message}`)
-    console.log(`  ✓ 프로토콜 ${protocols.length}개 적재`)
-  }
-
-  // trap_patterns 적재 (컴퓨터일반)
-  if (json.trap_patterns) {
-    const traps = (json.trap_patterns as Record<string, unknown>[]).map((t, i) => ({
-      subject:         '컴퓨터일반',
-      rank:            i + 1,
-      title:           t.title ?? t.name,
-      description:     t.description ?? null,
-      incorrect_form:  t.incorrect_form ?? null,
-      correct_form:    t.correct_form ?? null,
-      trap_category:   t.category ?? null,
-      frequency:       t.frequency ?? null,
-      countermeasure:  t.countermeasure ?? null,
-      exam_appeared_in: t.exam_appeared_in ?? null,
-    }))
-    const { error } = await supabase.from('trap_patterns').upsert(traps)
-    if (error) throw new Error(`컴일 trap_patterns 적재 실패: ${error.message}`)
-    console.log(`  ✓ 컴일 함정 ${traps.length}개 적재`)
-  }
+  // ── 3. trap_patterns (common_traps) ──────────────────────
+  const ct = json.common_traps as Record<string, unknown>
+  const traps = Object.entries(ct).map(([key, val], i) => ({
+    subject:        '컴퓨터일반',
+    rank:           i + 1,
+    title:          key.replace(/_/g, ' vs '),
+    description:    typeof val === 'string' ? val : JSON.stringify(val),
+    trap_category:  'concept_trap',
+  }))
+  const { error: tErr } = await supabase.from('trap_patterns').upsert(traps)
+  if (tErr) throw new Error(`컴일 trap_patterns 실패: ${tErr.message}`)
+  console.log(`  ✓ 컴일 함정 ${traps.length}개 적재`)
 }
