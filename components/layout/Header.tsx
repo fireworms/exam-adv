@@ -18,7 +18,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
   const router = useRouter()
   const [searchQ, setSearchQ] = useState('')
 
-  const currentSubject = SUBJECT_KEYS.find(k => pathname.startsWith(`/${k}`))
+  const currentSubject = SUBJECT_KEYS.find(k => pathname === `/${k}` || pathname.startsWith(`/${k}/`))
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
@@ -48,7 +48,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
         <nav className="hidden md:flex items-center gap-1 ml-4">
           {SUBJECT_KEYS.map(key => {
             const meta = SUBJECT_META[key]
-            const isActive = pathname.startsWith(`/${key}`)
+            const isActive = pathname === `/${key}` || pathname.startsWith(`/${key}/`)
             return (
               <Link
                 key={key}
