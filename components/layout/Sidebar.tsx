@@ -54,7 +54,7 @@ interface SidebarProps {
 
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const pathname = usePathname()
-  const currentSubject = SUBJECT_KEYS.find(k => pathname.startsWith(`/${k}`))
+  const currentSubject = SUBJECT_KEYS.find(k => pathname === `/${k}` || pathname.startsWith(`/${k}/`))
 
   return (
     <>
@@ -158,7 +158,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             <nav className="space-y-1">
               {SUBJECT_KEYS.map(key => {
                 const meta = SUBJECT_META[key]
-                const isActive = pathname.startsWith(`/${key}`)
+                const isActive = pathname === `/${key}` || pathname.startsWith(`/${key}/`)
                 return (
                   <Link
                     key={key}
