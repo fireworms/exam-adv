@@ -7,7 +7,7 @@ const supabase = createClient(
   process.env.SUPABASE_SECRET_KEY!
 )
 
-interface Word { word: string; meaning: string; example?: string; synonym?: string }
+interface Word { word: string; meaning?: string; common_meaning?: string; example?: string; synonym?: string; exam_synonym?: string }
 interface Pattern { id: number; name: string; form: string; equivalent?: string; example: string; korean: string; appeared_in?: string; key_point?: string }
 interface Idiom { phrase: string; meaning: string }
 interface Trap { id: number; trap: string; avoidance: string }
@@ -22,7 +22,7 @@ export async function seedEnglish() {
   const words = Object.entries(ve).flatMap(([category, list]) =>
     list.map(w => ({
       word:             w.word,
-      meaning_ko:       w.meaning,
+      meaning_ko:       w.meaning ?? w.common_meaning ?? '',
       category,
       difficulty:       1,
       example_sentence: w.example ?? null,

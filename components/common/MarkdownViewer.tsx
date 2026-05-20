@@ -42,7 +42,7 @@ function extractToc(markdown: string): TocItem[] {
 
 interface MarkdownViewerProps {
   subject: string
-  type: 'master' | 'table'
+  type: 'master' | 'table' | 'trends'
   pdfUrl?: string
 }
 

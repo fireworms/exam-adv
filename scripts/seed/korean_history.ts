@@ -87,7 +87,8 @@ export async function seedKoreanHistory() {
     for (const d of docList) {
       docs.push({
         name_ko: d.name, type: TYPE_MAP[cat] ?? 'other',
-        year: d.year ?? null, description: d.feature, importance: 3,
+        year: Number.isInteger(Number(d.year)) && d.year !== null ? Number(d.year) : null,
+        description: d.feature, importance: 3,
       })
     }
   }
