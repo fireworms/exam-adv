@@ -15,6 +15,7 @@ export interface TrapData {
   countermeasure?: string
   frequency?: string
   description?: string
+  example?: string
 }
 
 interface TrapCardProps {
@@ -88,6 +89,13 @@ export function TrapCard({ trap, accentColor = '#DC2626' }: TrapCardProps) {
             )}
             {trap.description && !trap.incorrect_form && (
               <p className="text-xs text-muted-foreground">{trap.description}</p>
+            )}
+            {trap.example && (
+              <div className="rounded bg-muted px-3 py-2 text-xs leading-relaxed whitespace-pre-line border-l-2 border-muted-foreground/30">
+                <span className="font-medium text-muted-foreground">예시</span>
+                <br />
+                {trap.example}
+              </div>
             )}
 
             <button
