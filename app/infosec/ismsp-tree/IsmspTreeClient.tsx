@@ -14,6 +14,14 @@ export interface IsmspItem {
 
 export type IsmspArea = Record<string, IsmspItem[]>
 
+export interface IsmspCertData {
+  유효기간_3년_법칙: { 항목: string; 값: string; 비고: string; exam_ref?: string }[]
+  심사_종류: { 종류: string; 설명: string }[]
+  심사원_등급: { 등급: string; 요건: string; exam_ref?: string }[]
+  응시_요건: { 총_경력: string; 필수_정보보호: string; 필수_개인정보보호: string; 예시: string }
+  주요_함정: string[]
+}
+
 interface Props {
   tree: Record<string, IsmspArea>
 }
