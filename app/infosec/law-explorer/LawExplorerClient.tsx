@@ -51,6 +51,18 @@ export function LawExplorerClient({ laws }: Props) {
   )
 }
 
+function renderValue(v: unknown): string {
+  if (v === null || v === undefined) return ''
+  if (typeof v !== 'object') return String(v)
+  if (Array.isArray(v)) {
+    if (v.length === 0) return ''
+    if (typeof v[0] !== 'object') return v.join(', ')
+    return `[${v.length}개 항목]`
+  }
+  const keys = Object.keys(v as object)
+  return `{${keys.length}개 키}`
+}
+
 function LawArticles({ articles, lawKey }: { articles: Record<string, unknown>; lawKey: string }) {
   const [openArticle, setOpenArticle] = useState<string | null>(null)
   const [quizArticle, setQuizArticle] = useState<string | null>(null)
@@ -96,12 +108,14 @@ function LawArticles({ articles, lawKey }: { articles: Record<string, unknown>; 
             {isOpen && (
               <div className="px-3 pb-3 text-xs text-muted-foreground leading-relaxed border-t pt-2">
                 {typeof val === 'object'
-                  ? Object.entries(val as Record<string, unknown>).map(([k, v]) => (
-                      <div key={k} className="mb-1">
-                        <span className="font-medium text-foreground">{k}: </span>
-                        {String(v)}
-                      </div>
-                    ))
+                  ? Object.entries(val as Record<string, unknown>)
+                      .filter(([k]) => k !== '인증기준' && k !== '인증제도')
+                      .map(([k, v]) => (
+                        <div key={k} className="mb-1">
+                          <span className="font-medium text-foreground">{k}: </span>
+                          {renderValue(v)}
+                        </div>
+                      ))
                   : String(val)}
               </div>
             )}
