@@ -130,8 +130,24 @@ export function MarkdownViewer({ subject, type }: MarkdownViewerProps) {
   const activeSection = sections.find(s => s.id === openId) ?? null
 
   return (
-    <div className="flex gap-6 h-full">
-      {/* 목차 사이드바 */}
+    <div className="flex flex-col md:flex-row gap-4 md:gap-6 h-full">
+      {/* 모바일: 섹션 선택 드롭다운 */}
+      {sections.length > 0 && (
+        <div className="md:hidden shrink-0">
+          <select
+            value={openId ?? ''}
+            onChange={e => setOpenId(e.target.value || null)}
+            className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-ring"
+          >
+            <option value="">— 항목 선택 —</option>
+            {sections.map(s => (
+              <option key={s.id} value={s.id}>{s.heading}</option>
+            ))}
+          </select>
+        </div>
+      )}
+
+      {/* 데스크탑: 목차 사이드바 */}
       {sections.length > 0 && (
         <nav className="hidden md:flex flex-col gap-1 w-52 shrink-0 overflow-y-auto pr-2">
           <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">목차</p>
@@ -153,7 +169,7 @@ export function MarkdownViewer({ subject, type }: MarkdownViewerProps) {
       )}
 
       {/* 본문 */}
-      <div className="flex-1 min-w-0 overflow-y-auto">
+      <div className="flex-1 min-w-0 min-h-0 overflow-y-auto">
         {type === 'table' && (
           <div className="flex items-center justify-end mb-4">
             <Button
@@ -175,8 +191,8 @@ export function MarkdownViewer({ subject, type }: MarkdownViewerProps) {
             </ReactMarkdown>
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center h-64 text-muted-foreground text-sm gap-2">
-            <span>왼쪽 목차에서 항목을 선택하세요.</span>
+          <div className="flex flex-col items-center justify-center h-40 text-muted-foreground text-sm">
+            <span>목차에서 항목을 선택하세요.</span>
           </div>
         )}
       </div>
