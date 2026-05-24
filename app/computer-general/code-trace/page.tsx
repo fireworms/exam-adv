@@ -2,14 +2,7 @@ import { readFileSync } from 'fs'
 import { resolve } from 'path'
 import { CodeTraceViewer } from './CodeTraceViewer'
 
-interface CodePattern {
-  C?: string
-  Python?: string
-  예시?: string
-  결과?: string
-  설명?: string
-  [key: string]: unknown
-}
+type CodePattern = Record<string, unknown>
 
 export interface TraceItem {
   title: string
@@ -18,16 +11,43 @@ export interface TraceItem {
   notes: string[]
 }
 
+const CODE_KEYS = ['C', 'Python', 'code', 'code_pattern']
+
+function detectLanguage(key: string, val: CodePattern): string {
+  if (key.includes('Java')) return 'Java'
+  if (key.includes('Python') || key.includes('리스트')) return 'Python'
+  if (key.includes('SQL')) return 'SQL'
+  if (val['code_pattern']) return 'Java'
+  return 'C'
+}
+
+function formatNoteValue(v: unknown): string {
+  if (typeof v === 'string') return v
+  if (Array.isArray(v)) return v.join(', ')
+  if (typeof v === 'object' && v !== null)
+    return Object.entries(v as Record<string, unknown>)
+      .map(([k, iv]) => `${k}: ${iv}`)
+      .join(' | ')
+  return String(v)
+}
+
 export default function CodeTracePage() {
   const json = JSON.parse(readFileSync(resolve('data/computer_general/요약노트_JSON.json'), 'utf-8'))
-  const patterns = json.code_patterns_formulas as Record<string, CodePattern>
+  const patterns = json.code_patterns_formulas as Record<string, CodePattern | string>
 
   const items: TraceItem[] = Object.entries(patterns).map(([key, val]) => {
-    const code = val.C ?? val.Python ?? ''
-    const lang = val.C ? 'C' : 'Python'
+    // SQL_실행_순서처럼 string인 경우
+    if (typeof val === 'string') {
+      return { title: key.replace(/_/g, ' '), language: 'SQL', code: val, notes: [] }
+    }
+
+    const codeKey = CODE_KEYS.find(k => typeof val[k] === 'string')
+    const code = codeKey ? String(val[codeKey]) : ''
+    const lang = detectLanguage(key, val)
     const notes = Object.entries(val)
-      .filter(([k]) => !['C', 'Python'].includes(k))
-      .map(([k, v]) => `${k}: ${v}`)
+      .filter(([k]) => !CODE_KEYS.includes(k))
+      .map(([k, v]) => `${k.replace(/_/g, ' ')}: ${formatNoteValue(v)}`)
+
     return { title: key.replace(/_/g, ' '), language: lang, code, notes }
   })
 
