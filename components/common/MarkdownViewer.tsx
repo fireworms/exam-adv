@@ -130,10 +130,10 @@ export function MarkdownViewer({ subject, type }: MarkdownViewerProps) {
   const activeSection = sections.find(s => s.id === openId) ?? null
 
   return (
-    <div className="flex gap-6 relative">
+    <div className="flex gap-6 h-full">
       {/* 목차 사이드바 */}
       {sections.length > 0 && (
-        <nav className="hidden md:flex flex-col gap-1 w-52 shrink-0 sticky top-20 self-start max-h-[calc(100vh-6rem)] overflow-y-auto pr-2">
+        <nav className="hidden md:flex flex-col gap-1 w-52 shrink-0 overflow-y-auto pr-2">
           <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">목차</p>
           {sections.map(s => (
             <button
@@ -153,7 +153,7 @@ export function MarkdownViewer({ subject, type }: MarkdownViewerProps) {
       )}
 
       {/* 본문 */}
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 min-w-0 overflow-y-auto">
         {type === 'table' && (
           <div className="flex items-center justify-end mb-4">
             <Button

@@ -12,9 +12,11 @@ export default async function TableNotePage({ params }: Props) {
   const meta = SUBJECT_META[subject as SubjectKey]
 
   return (
-    <div className="max-w-5xl mx-auto space-y-4">
-      <h1 className="text-xl font-bold">{meta.label} 표중심 노트</h1>
-      <MarkdownViewer subject={subject} type="table" />
+    <div className="max-w-5xl mx-auto flex flex-col h-[calc(100vh-6.5rem)]">
+      <h1 className="text-xl font-bold shrink-0 pb-4">{meta.label} 표중심 노트</h1>
+      <div className="flex-1 min-h-0">
+        <MarkdownViewer subject={subject} type="table" />
+      </div>
     </div>
   )
 }
