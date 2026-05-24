@@ -39,10 +39,18 @@ export function CodeTraceViewer({ items }: Props) {
                 <Badge variant="outline">{item.language}</Badge>
               </CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="space-y-3">
               <pre className="text-xs bg-muted rounded p-3 overflow-x-auto leading-relaxed font-mono whitespace-pre-wrap">
-                {item.code}
+                {item.code || '(코드 없음)'}
               </pre>
+              {item.output && (
+                <div>
+                  <p className="text-xs font-semibold text-muted-foreground mb-1">▶ 실행 결과</p>
+                  <pre className="text-xs bg-green-50 dark:bg-green-950 text-green-800 dark:text-green-300 rounded p-3 overflow-x-auto leading-relaxed font-mono whitespace-pre-wrap">
+                    {item.output}
+                  </pre>
+                </div>
+              )}
             </CardContent>
           </Card>
 
