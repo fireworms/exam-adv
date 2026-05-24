@@ -6,7 +6,7 @@ import { Progress } from '@/components/ui/progress'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { CheckCircle2, RotateCcw } from 'lucide-react'
-import type { Concept } from './page'
+import type { Concept, DetailGroup } from './page'
 
 interface Props { concepts: Concept[]; domains: string[] }
 
@@ -102,7 +102,21 @@ export function ConceptCardDeck({ concepts, domains }: Props) {
             }
             back={
               <div className="space-y-3 text-sm w-full text-left">
-                <p className="leading-relaxed">{current.description}</p>
+                {current.description && (
+                  <p className="leading-relaxed">{current.description}</p>
+                )}
+                {current.details?.map((group: DetailGroup) => (
+                  <div key={group.label}>
+                    <p className="text-xs font-semibold text-muted-foreground mb-1">{group.label}</p>
+                    <div className="flex flex-wrap gap-1">
+                      {group.items.map((item, i) => (
+                        <span key={i} className="inline-block bg-muted rounded px-2 py-0.5 text-xs leading-relaxed">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
                 {current.formula && (
                   <div className="bg-muted rounded px-3 py-2 font-mono text-xs">
                     {current.formula}
