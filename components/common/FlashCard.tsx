@@ -46,7 +46,7 @@ export function FlashCard({
     <div className="w-full max-w-xl mx-auto select-none">
       {/* 카드 */}
       <div
-        className="relative h-56 cursor-pointer"
+        className="relative h-64 cursor-pointer"
         style={{ perspective: '1000px' }}
         onClick={handleFlip}
       >
@@ -81,11 +81,16 @@ export function FlashCard({
 
           {/* 뒷면 */}
           <div
-            className="absolute inset-0 rounded-2xl border-2 bg-card flex flex-col items-center justify-center p-6 shadow-md"
+            className="absolute inset-0 rounded-2xl border-2 bg-card flex flex-col shadow-md overflow-hidden"
             style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)', borderColor: accentColor }}
           >
-            <div className="text-center w-full">{back}</div>
-            <p className="absolute bottom-3 right-4 text-xs text-muted-foreground">탭하여 돌아가기</p>
+            <div
+              className="flex-1 overflow-y-auto p-6 pb-2 w-full"
+              onClick={e => e.stopPropagation()}
+            >
+              <div className="w-full">{back}</div>
+            </div>
+            <p className="shrink-0 text-right text-xs text-muted-foreground px-4 py-1.5">탭하여 돌아가기</p>
           </div>
         </motion.div>
       </div>
