@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 import { Shuffle } from 'lucide-react'
+import { TTSButton } from '@/components/common/TTSButton'
 
 interface Idiom { phrase: string; meaning: string }
 
@@ -35,7 +36,10 @@ export function IdiomSection({ category, label, idioms }: Props) {
             {idioms.map((idiom, i) => (
               <Card key={i}>
                 <CardContent className="py-2 px-3">
-                  <p className="font-medium text-sm text-english">{idiom.phrase}</p>
+                  <div className="flex items-center gap-1">
+                    <p className="font-medium text-sm text-english flex-1">{idiom.phrase}</p>
+                    <TTSButton text={idiom.phrase} />
+                  </div>
                   <p className="text-xs text-muted-foreground mt-0.5">{idiom.meaning}</p>
                 </CardContent>
               </Card>
