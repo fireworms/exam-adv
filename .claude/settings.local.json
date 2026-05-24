@@ -46,7 +46,9 @@
       "Bash(sudo systemctl status exam-adv --no-pager)",
       "Bash(kill -9 26766)",
       "Bash(sudo systemctl restart exam-adv)",
-      "Bash(sudo systemctl is-active exam-adv)"
+      "Bash(sudo systemctl is-active exam-adv)",
+      "Bash(xargs ls -la)",
+      "Bash(xargs cat -n)"
     ]
   }
 }
