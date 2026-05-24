@@ -6,7 +6,7 @@ import remarkGfm from 'remark-gfm'
 import { cn } from '@/lib/utils'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Button } from '@/components/ui/button'
-import { Rows3, ChevronDown } from 'lucide-react'
+import { Rows3 } from 'lucide-react'
 
 interface Section {
   id: string
@@ -127,6 +127,8 @@ export function MarkdownViewer({ subject, type }: MarkdownViewerProps) {
     tableHighlight && '[&_p]:opacity-40 [&_ul]:opacity-40 [&_ol]:opacity-40 [&_blockquote]:opacity-40',
   )
 
+  const activeSection = sections.find(s => s.id === openId) ?? null
+
   return (
     <div className="flex gap-6 relative">
       {/* 목차 사이드바 */}
@@ -136,7 +138,7 @@ export function MarkdownViewer({ subject, type }: MarkdownViewerProps) {
           {sections.map(s => (
             <button
               key={s.id}
-              onClick={() => setOpenId(prev => prev === s.id ? null : s.id)}
+              onClick={() => setOpenId(s.id)}
               className={cn(
                 'text-left text-xs py-1.5 px-2 rounded transition-colors hover:text-foreground whitespace-normal break-words leading-snug',
                 openId === s.id
@@ -151,9 +153,9 @@ export function MarkdownViewer({ subject, type }: MarkdownViewerProps) {
       )}
 
       {/* 본문 */}
-      <div className="flex-1 min-w-0 space-y-2">
+      <div className="flex-1 min-w-0">
         {type === 'table' && (
-          <div className="flex items-center justify-end mb-2">
+          <div className="flex items-center justify-end mb-4">
             <Button
               variant={tableHighlight ? 'default' : 'outline'}
               size="sm"
@@ -166,42 +168,17 @@ export function MarkdownViewer({ subject, type }: MarkdownViewerProps) {
           </div>
         )}
 
-        {/* 헤더 앞 서문 */}
-        {preamble && (
+        {activeSection ? (
           <div className={proseClass}>
             <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
-              {preamble}
+              {activeSection.content}
             </ReactMarkdown>
           </div>
-        )}
-
-        {/* 아코디언 섹션 */}
-        {sections.map(s => (
-          <div key={s.id} className="border rounded-lg overflow-hidden">
-            <button
-              onClick={() => setOpenId(prev => prev === s.id ? null : s.id)}
-              className={cn(
-                'w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-left transition-colors',
-                openId === s.id
-                  ? 'bg-accent text-foreground'
-                  : 'hover:bg-accent/50 text-foreground'
-              )}
-            >
-              {s.heading}
-              <ChevronDown
-                className={cn('h-4 w-4 shrink-0 transition-transform', openId === s.id && 'rotate-180')}
-              />
-            </button>
-
-            {openId === s.id && (
-              <div className={cn(proseClass, 'px-4 py-4 border-t')}>
-                <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
-                  {s.content}
-                </ReactMarkdown>
-              </div>
-            )}
+        ) : (
+          <div className="flex flex-col items-center justify-center h-64 text-muted-foreground text-sm gap-2">
+            <span>왼쪽 목차에서 항목을 선택하세요.</span>
           </div>
-        ))}
+        )}
       </div>
     </div>
   )
