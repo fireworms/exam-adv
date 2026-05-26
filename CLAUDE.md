@@ -45,8 +45,8 @@ NEXT_PUBLIC_QUIZ_APP_URL=...             (없으면 딥링크 비활성)
 | Week 5 | 국어 + 전 과목 함정 패턴 + 통합 검색 + 기출 메타 주입 |
 | Week 6 | D-7 시험 직전 모드, QA, Vercel 배포 |
 
-## 현재 git 상태 (Week 6 완료)
-- `master` 브랜치: Week 1~6 전체 구현 완료
+## 현재 git 상태 (Week 6 완료 + 버그픽스)
+- `master` 브랜치: Week 1~6 전체 구현 완료, 이후 버그픽스 진행 중
 - 배포: `vercel.json` 준비됨 (Vercel 대시보드에서 env 설정 필요)
 
 ## 주요 구현 현황
@@ -60,7 +60,27 @@ NEXT_PUBLIC_QUIZ_APP_URL=...             (없으면 딥링크 비활성)
 | 공통 | /[subject]/traps, /[subject]/search, /[subject]/notes/{master,table,json} |
 
 ## 과목별 주의사항 요약
-- **국어/영어**: 트렌드분석.md 없음 → 해당 페이지 "준비 중" 처리
+- **국어**: 트렌드분석.md 없음 → 해당 페이지 "준비 중" 처리 (영어는 트렌드분석.md 존재)
 - **한국사**: BC 연대 = 음수 저장, 지도 GeoJSON = 공개 데이터만
 - **컴일**: KaTeX formula 필드는 raw LaTeX ($$래핑 없음), SVG 애니메이션은 핵심 5~6개만
 - **정보보호론**: RSA BigInt API 사용, ISMS-P 총 101개 항목
+
+## 주요 데이터 구조 주의사항
+- **영어 어휘 다의어 카테고리** (`multi_meaning_words_for_passage_questions`): JSON 필드가 `common_meaning`/`exam_synonym`이므로 `page.tsx`에서 `meaning`/`synonym`으로 정규화 후 전달
+- **함정 패턴 JSON 포맷**: 과목마다 다름 → `lib/traps.ts`의 `normalizeTrapData()`가 통일 처리
+  - 영어: `{id, trap, avoidance}` / 국어: `{rank, trap, frequency, countermeasure}` / 한국사: `string[]` / 컴일: `Record<string, unknown>` / 정보보호론: `{틀린생각, 정답}[]`
+
+## API 엔드포인트 현황
+| 경로 | 설명 |
+|------|------|
+| `GET /api/progress` | 과목별 학습 진도 (viewed/mastered/due 카운트), 비인증 시 `loggedIn: false` |
+| `GET /api/review/due` | 오늘 복습 대상 카드 목록, 비인증 시 `loggedIn: false` |
+| `POST /api/review/rate` | SM-2 업데이트 (`{table, id, quality}`) — vocab 제외 |
+| `POST /api/review/vocab-rate` | 영어 어휘 SM-2 업데이트 (`{word, meaning, category, quality}`) — word 기준 upsert |
+| `POST /api/quiz/attempt` | 미니퀴즈 시도 기록 |
+| `GET/POST/DELETE /api/bookmarks` | Supabase 북마크 동기 (로컬은 localStorage 우선) |
+
+## 대시보드 컴포넌트 구조
+- `SubjectProgressCard` — 클라이언트, `/api/progress` fetch, 캐시 공유
+- `ReviewQueue` — 클라이언트, `/api/review/due` fetch, 비인증 안내 분기
+- `RecentBookmarks` — 클라이언트, localStorage 직접 읽기 (최근 5개)
