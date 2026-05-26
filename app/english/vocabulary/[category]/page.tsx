@@ -3,7 +3,17 @@ import { resolve } from 'path'
 import { notFound } from 'next/navigation'
 import { VocabCardDeck } from './VocabCardDeck'
 
-interface Word { word: string; meaning: string; example?: string; synonym?: string }
+interface RawWord {
+  word: string
+  meaning?: string
+  common_meaning?: string
+  example?: string
+  synonym?: string
+  exam_synonym?: string
+  appeared_in?: string
+}
+
+interface Word { word: string; meaning: string; example?: string; synonym?: string; appeared_in?: string }
 
 const CATEGORY_LABELS: Record<string, string> = {
   environment_climate:                     '환경·기후',
@@ -21,11 +31,17 @@ interface Props {
 export default async function VocabCategoryPage({ params }: Props) {
   const { category } = await params
   const json = JSON.parse(readFileSync(resolve('data/english/요약노트_JSON.json'), 'utf-8'))
-  const ve = json.vocabulary_essentials as Record<string, Word[]>
+  const ve = json.vocabulary_essentials as Record<string, RawWord[]>
 
   if (!ve[category]) notFound()
 
-  const words = ve[category]
+  const words: Word[] = ve[category].map(w => ({
+    word: w.word,
+    meaning: w.meaning ?? w.common_meaning ?? '',
+    example: w.example,
+    synonym: w.synonym ?? w.exam_synonym,
+    appeared_in: w.appeared_in,
+  }))
   const label = CATEGORY_LABELS[category] ?? category
 
   return (

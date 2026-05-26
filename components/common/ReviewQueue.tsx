@@ -14,17 +14,21 @@ const TYPE_LABEL: Record<string, string> = {
 }
 const TYPE_HREF: Record<string, string> = {
   vocab: '/english/vocabulary', concept: '/computer-general/flashcards',
-  trap: '/korean-history/traps', idiom: '/english/idioms',
+  trap: '/english/traps', idiom: '/english/idioms',
 }
 
 export function ReviewQueue() {
   const [cards, setCards] = useState<DueCard[] | null>(null)
+  const [loggedIn, setLoggedIn] = useState<boolean | null>(null)
 
   useEffect(() => {
     fetch('/api/review/due')
       .then(r => r.json())
-      .then(d => setCards(d.cards ?? []))
-      .catch(() => setCards([]))
+      .then(d => {
+        setCards(d.cards ?? [])
+        setLoggedIn(d.loggedIn ?? false)
+      })
+      .catch(() => { setCards([]); setLoggedIn(false) })
   }, [])
 
   const grouped = cards
@@ -47,6 +51,10 @@ export function ReviewQueue() {
           <div className="flex gap-2">
             {[1,2,3].map(i => <Skeleton key={i} className="h-7 w-24 rounded-full" />)}
           </div>
+        ) : loggedIn === false ? (
+          <p className="text-sm text-muted-foreground text-center py-2">
+            로그인 후 복습 카드가 표시됩니다
+          </p>
         ) : cards.length === 0 ? (
           <p className="text-sm text-muted-foreground text-center py-2">
             오늘 복습 완료 🎉 다음 복습은 내일입니다

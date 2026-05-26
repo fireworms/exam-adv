@@ -7,7 +7,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { CheckCircle2, RotateCcw } from 'lucide-react'
 
-interface Word { word: string; meaning: string; example?: string; synonym?: string }
+interface Word { word: string; meaning: string; example?: string; synonym?: string; appeared_in?: string }
 
 interface Props {
   words: Word[]
@@ -29,10 +29,10 @@ export function VocabCardDeck({ words, category }: Props) {
 
     // SM-2 API 호출 (Supabase 있을 때)
     try {
-      await fetch('/api/review/rate', {
+      await fetch('/api/review/vocab-rate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ table: 'vocab_progress', category, wordIndex: index, quality }),
+        body: JSON.stringify({ word: current.word, meaning: current.meaning, category, quality }),
       })
     } catch { /* 비인증 무시 */ }
 
@@ -96,6 +96,9 @@ export function VocabCardDeck({ words, category }: Props) {
                 <span className="text-xs text-muted-foreground">유의어:</span>
                 <Badge variant="secondary" className="text-xs">{current.synonym}</Badge>
               </div>
+            )}
+            {current.appeared_in && (
+              <Badge variant="outline" className="text-xs">{current.appeared_in}</Badge>
             )}
           </div>
         }

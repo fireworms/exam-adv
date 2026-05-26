@@ -4,7 +4,7 @@ import { createClient } from '@/lib/supabase/server'
 export async function GET() {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
-  if (!user) return NextResponse.json({ cards: [] })
+  if (!user) return NextResponse.json({ cards: [], loggedIn: false })
 
   const now = new Date().toISOString()
 
@@ -30,5 +30,5 @@ export async function GET() {
     ...(idioms.data ?? []).map(r => ({ type: 'idiom',  ...r })),
   ]
 
-  return NextResponse.json({ cards, total: cards.length })
+  return NextResponse.json({ cards, total: cards.length, loggedIn: true })
 }

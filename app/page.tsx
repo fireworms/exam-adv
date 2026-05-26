@@ -1,10 +1,10 @@
 import Link from 'next/link'
-import { BookOpen, BookMarked } from 'lucide-react'
+import { BookOpen } from 'lucide-react'
 import { DDayBanner } from '@/components/common/DDayBanner'
 import { SubjectProgressCard } from '@/components/common/SubjectProgressCard'
 import { ReviewQueue } from '@/components/common/ReviewQueue'
+import { RecentBookmarks } from '@/components/common/RecentBookmarks'
 import { ExamDayPanel } from '@/components/common/ExamDayPanel'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { SUBJECT_KEYS, SUBJECT_META } from '@/lib/utils'
 
 export default function DashboardPage() {
@@ -24,22 +24,7 @@ export default function DashboardPage() {
 
       <ReviewQueue />
 
-      <section>
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-base flex items-center gap-2">
-              <BookMarked className="h-4 w-4" />
-              최근 북마크
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground text-center py-4">
-              북마크한 항목이 없습니다.{' '}
-              <Link href="/bookmarks" className="underline">북마크 관리</Link>
-            </p>
-          </CardContent>
-        </Card>
-      </section>
+      <RecentBookmarks />
 
       <section>
         <h2 className="text-lg font-semibold mb-3">바로가기</h2>
