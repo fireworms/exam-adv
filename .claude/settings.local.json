@@ -48,7 +48,9 @@
       "Bash(sudo systemctl restart exam-adv)",
       "Bash(sudo systemctl is-active exam-adv)",
       "Bash(xargs ls -la)",
-      "Bash(xargs cat -n)"
+      "Bash(xargs cat -n)",
+      "Bash(systemctl is-active *)",
+      "Bash(systemctl is-enabled *)"
     ]
   }
 }
