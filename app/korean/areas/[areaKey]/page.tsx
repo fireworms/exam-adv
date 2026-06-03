@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ChevronLeft } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { areaFieldLabel } from '@/lib/koreanAreaLabels'
 
 interface Props {
   params: Promise<{ areaKey: string }>
@@ -32,7 +33,7 @@ export default async function AreaDetailPage({ params }: Props) {
         return (
           <Card key={k}>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm">{k.replace(/_/g, ' ')}</CardTitle>
+              <CardTitle className="text-sm">{areaFieldLabel(k)}</CardTitle>
             </CardHeader>
             <CardContent>
               {Array.isArray(v) ? (
@@ -43,7 +44,7 @@ export default async function AreaDetailPage({ params }: Props) {
                         <div className="space-y-0.5">
                           {Object.entries(item as Record<string, unknown>).map(([ik, iv]) => (
                             <div key={ik} className="text-xs">
-                              <span className="font-medium">{ik}: </span>
+                              <span className="font-medium">{areaFieldLabel(ik)}: </span>
                               <span className="text-muted-foreground">
                                 {Array.isArray(iv) ? (iv as string[]).join(' · ') : String(iv)}
                               </span>
@@ -63,7 +64,7 @@ export default async function AreaDetailPage({ params }: Props) {
                 <div className="space-y-1">
                   {Object.entries(v as Record<string, unknown>).map(([ik, iv]) => (
                     <div key={ik} className="text-sm">
-                      <span className="font-medium">{ik}: </span>
+                      <span className="font-medium">{areaFieldLabel(ik)}: </span>
                       <span className="text-muted-foreground">
                         {Array.isArray(iv) ? (iv as string[]).join(', ') : String(iv)}
                       </span>
