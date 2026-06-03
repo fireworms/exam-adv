@@ -54,7 +54,10 @@
       "Bash(ps -eo pid,ppid,user,%cpu,%mem,etime,cmd --sort=-%mem)",
       "Skill(update-config)",
       "Bash(bash /home/fireworms/exam-adv/scripts/session-dev-server.sh *)",
-      "Bash(bash *)"
+      "Bash(bash *)",
+      "Bash(ps -eo pid,pgid,cmd)",
+      "Bash(kill 316722 318930 322432)",
+      "Bash(ps -eo pid,cmd)"
     ]
   },
   "hooks": {

@@ -17,6 +17,7 @@ set -uo pipefail
 PROJECT_DIR="/home/fireworms/exam-adv"
 RUN_DIR="$PROJECT_DIR/.claude/.session-server"
 PID_FILE="$RUN_DIR/dev.pgid"      # 서버 프로세스 그룹 리더 PID = PGID
+WATCH_FILE="$RUN_DIR/dev.watch.pid"  # 워치독 PID (누적 방지용)
 LOG_FILE="$RUN_DIR/dev.log"
 PORT="${PORT:-3030}"
 mkdir -p "$RUN_DIR"
@@ -25,6 +26,16 @@ mkdir -p "$RUN_DIR"
 is_running() {
   local pgid="${1:-}"
   [ -n "$pgid" ] && kill -0 "$pgid" 2>/dev/null
+}
+
+# 워치독 프로세스 정리 (누적 방지)
+stop_watchdog() {
+  if [ -f "$WATCH_FILE" ]; then
+    local wpid
+    wpid="$(cat "$WATCH_FILE" 2>/dev/null)"
+    [ -n "$wpid" ] && kill "$wpid" 2>/dev/null
+    rm -f "$WATCH_FILE"
+  fi
 }
 
 stop_server() {
@@ -42,6 +53,7 @@ stop_server() {
     fi
     rm -f "$PID_FILE"
   fi
+  stop_watchdog
 }
 
 case "${1:-}" in
@@ -54,6 +66,7 @@ case "${1:-}" in
         exit 0
       fi
     fi
+    stop_watchdog   # 이전 실행에서 남은 워치독이 있으면 먼저 정리
     cd "$PROJECT_DIR"
     # 프로덕션 빌드 서빙: dev HMR 웹소켓(/_next/webpack-hmr)이 없어 LAN 접속 시 ws 에러 안 남.
     # 빌드는 동기 실행하여 실패를 즉시 드러냄.
@@ -75,8 +88,9 @@ case "${1:-}" in
         kill -TERM -$SERVER_PID 2>/dev/null
         sleep 2
         kill -KILL -$SERVER_PID 2>/dev/null
-        rm -f '$PID_FILE'
+        rm -f '$PID_FILE' '$WATCH_FILE'
       " >/dev/null 2>&1 &
+      echo "$!" > "$WATCH_FILE"
     fi
     echo "started (pgid=$SERVER_PID, port=$PORT, watch=${WATCH_PID:-none})"
     ;;
