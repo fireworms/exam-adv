@@ -50,7 +50,23 @@
       "Bash(xargs ls -la)",
       "Bash(xargs cat -n)",
       "Bash(systemctl is-active *)",
-      "Bash(systemctl is-enabled *)"
+      "Bash(systemctl is-enabled *)",
+      "Bash(ps -eo pid,ppid,user,%cpu,%mem,etime,cmd --sort=-%mem)",
+      "Skill(update-config)",
+      "Bash(bash /home/fireworms/exam-adv/scripts/session-dev-server.sh *)",
+      "Bash(bash *)"
+    ]
+  },
+  "hooks": {
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /home/fireworms/exam-adv/scripts/session-dev-server.sh stop"
+          }
+        ]
+      }
     ]
   }
 }

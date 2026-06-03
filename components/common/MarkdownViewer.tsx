@@ -95,6 +95,20 @@ export function MarkdownViewer({ subject, type }: MarkdownViewerProps) {
       .catch(() => setError(true))
   }, [subject, type])
 
+  // URL 해시로 선택된 목차 복원 (새로고침·공유 시 유지)
+  useEffect(() => {
+    const hash = decodeURIComponent(window.location.hash.replace(/^#/, ''))
+    if (hash) setOpenId(hash)
+  }, [])
+
+  // 선택 변경 시 URL 해시 동기화
+  const selectSection = (id: string | null) => {
+    setOpenId(id)
+    const { pathname, search } = window.location
+    const url = id ? `${pathname}${search}#${encodeURIComponent(id)}` : `${pathname}${search}`
+    window.history.replaceState(null, '', url)
+  }
+
   if (error) {
     return (
       <div className="rounded-lg border p-6 text-center text-muted-foreground">
@@ -136,7 +150,7 @@ export function MarkdownViewer({ subject, type }: MarkdownViewerProps) {
         <div className="md:hidden shrink-0">
           <select
             value={openId ?? ''}
-            onChange={e => setOpenId(e.target.value || null)}
+            onChange={e => selectSection(e.target.value || null)}
             className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-ring"
           >
             <option value="">— 항목 선택 —</option>
@@ -154,7 +168,7 @@ export function MarkdownViewer({ subject, type }: MarkdownViewerProps) {
           {sections.map(s => (
             <button
               key={s.id}
-              onClick={() => setOpenId(s.id)}
+              onClick={() => selectSection(s.id)}
               className={cn(
                 'text-left text-xs py-1.5 px-2 rounded transition-colors hover:text-foreground whitespace-normal break-words leading-snug',
                 openId === s.id
