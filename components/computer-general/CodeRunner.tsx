@@ -20,7 +20,16 @@ export interface CodeRunnerHandle {
 export const CodeRunner = forwardRef<CodeRunnerHandle, { title?: string }>(
   function CodeRunner({ title = '웹 코드 실행기' }, ref) {
     const [lang, setLang] = useState<RunLangId>('c')
-    const [code, setCode] = useState(getLanguage('c')!.template)
+    // 언어별로 코드를 독립 보관 (언어 전환 시 각자 코드 유지)
+    const [codeByLang, setCodeByLang] = useState<Record<RunLangId, string>>(
+      () =>
+        Object.fromEntries(
+          RUN_LANGUAGES.map(l => [l.id, l.template]),
+        ) as Record<RunLangId, string>,
+    )
+    const code = codeByLang[lang]
+    const setCode = (next: string) =>
+      setCodeByLang(prev => ({ ...prev, [lang]: next }))
     const [stdin, setStdin] = useState('')
     const [running, setRunning] = useState(false)
     const [result, setResult] = useState<RunResult | null>(null)
@@ -28,16 +37,13 @@ export const CodeRunner = forwardRef<CodeRunnerHandle, { title?: string }>(
 
     function pickLang(id: RunLangId) {
       setLang(id)
-      // 기본 템플릿이 그대로면 새 언어 템플릿으로 교체, 사용자가 편집했으면 유지
-      const isTemplate = RUN_LANGUAGES.some(l => l.template === code)
-      if (isTemplate) setCode(getLanguage(id)!.template)
       setResult(null)
     }
 
     useImperativeHandle(ref, () => ({
       load(nextLang, nextCode) {
         setLang(nextLang)
-        setCode(nextCode)
+        setCodeByLang(prev => ({ ...prev, [nextLang]: nextCode }))
         setResult(null)
         // 실행기로 스크롤
         requestAnimationFrame(() => {
