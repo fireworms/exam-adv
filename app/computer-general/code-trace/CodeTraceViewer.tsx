@@ -4,11 +4,16 @@ import { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { traceLangToRunId } from '@/lib/codeRunner'
 import type { TraceItem } from './page'
 
-interface Props { items: TraceItem[] }
+interface Props {
+  items: TraceItem[]
+  /** "실행기로 보내기" 클릭 시 호출 (코드 트레이싱 → 웹 실행기 연동) */
+  onSend?: (item: TraceItem) => void
+}
 
-export function CodeTraceViewer({ items }: Props) {
+export function CodeTraceViewer({ items, onSend }: Props) {
   const [selected, setSelected] = useState(0)
   const item = items[selected]
 
@@ -37,6 +42,16 @@ export function CodeTraceViewer({ items }: Props) {
               <CardTitle className="text-sm flex items-center gap-2">
                 소스 코드
                 <Badge variant="outline">{item.language}</Badge>
+                {onSend && traceLangToRunId(item.language) && item.code && (
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="ml-auto h-7 text-xs"
+                    onClick={() => onSend(item)}
+                  >
+                    ▶ 실행기로 보내기
+                  </Button>
+                )}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">

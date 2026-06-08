@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs'
 import { resolve } from 'path'
-import { CodeTraceViewer } from './CodeTraceViewer'
+import { CodeLab } from './CodeLab'
 
 type CodePattern = Record<string, unknown>
 
@@ -233,9 +233,9 @@ export default function CodeTracePage() {
     <div className="max-w-4xl mx-auto space-y-4">
       <h1 className="text-xl font-bold">코드 트레이싱 학습</h1>
       <p className="text-sm text-muted-foreground">
-        코드를 보며 실행 흐름을 손으로 쫓는 연습
+        코드를 보며 실행 흐름을 손으로 쫓는 연습 · 하단 실행기로 바로 검증
       </p>
-      <CodeTraceViewer items={items} />
+      <CodeLab items={items} />
     </div>
   )
 }

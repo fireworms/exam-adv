@@ -28,3 +28,6 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# 세션 묶임 임시 dev 서버 런타임 산출물
+.claude/.session-server/
