@@ -120,7 +120,7 @@ export function normalizeTrapData(subject: string, json: Record<string, unknown>
     const raw = (json.common_traps ?? []) as { 틀린생각: string; 정답: string }[]
     const examples: string[] = [
       'Q: "디피-헬만 키 교환에 대한 설명으로 옳은 것은?"\n오답: "디피-헬만은 데이터를 직접 암호화하는 대칭키 알고리즘이다."\n→ 디피-헬만은 공개된 채널에서 비밀키를 교환하는 비대칭 방식 키 합의 프로토콜.',
-      'Q: "다음 중 기밀성을 보장하는 접근통제 모델은?"\n오답: "Biba 모델은 기밀성을 보장한다."\n→ BLP(Bell-LaPadula): 기밀성(상위→하위 읽기 금지), Biba: 무결성(하위→상위 쓰기 금지).',
+      'Q: "다음 중 기밀성을 보장하는 접근통제 모델은?"\n오답: "Biba 모델은 기밀성을 보장한다."\n→ BLP(Bell-LaPadula)=기밀성: No Read Up(상위 등급 읽기 금지)·No Write Down(하위 등급 쓰기 금지).\n→ Biba=무결성: No Read Down(하위 등급 읽기 금지)·No Write Up(상위 등급 쓰기 금지).',
       'Q: "타원곡선 암호(ECC)에 대한 설명으로 옳은 것은?"\n오답: "ECC는 동일한 키를 공유하는 대칭키 방식이다."\n→ ECC는 비대칭키. RSA보다 짧은 키로 동등한 보안 제공.',
       'Q: "생체인식에서 FRR이 낮아질수록 어떻게 되는가?"\n오답: "FRR이 낮으면 비인가자 수락 가능성이 낮아진다."\n→ FRR(False Rejection Rate)↓ = 정당한 사용자 거부율↓ = FAR(오수락율)↑ (트레이드오프).',
       'Q: "DNS 서버의 캐시를 조작하여 정상 사이트 접속 시 피싱 사이트로 유도하는 공격은?"\n오답: "Pharming은 이메일을 통해 링크를 클릭하게 만드는 공격이다."\n→ Pharming: DNS 캐시 오염 또는 hosts 파일 변조, Phishing: 이메일·메시지로 속임.',
