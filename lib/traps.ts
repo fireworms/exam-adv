@@ -140,11 +140,12 @@ export function normalizeTrapData(subject: string, json: Record<string, unknown>
       'Q: "IPv6에서 지원하지 않는 주소 유형은?"\n오답: "애니캐스트"\n→ IPv6: 유니캐스트·멀티캐스트·애니캐스트 지원. 브로드캐스트는 IPv6에서 폐지됨.',
       'Q: "대량의 HTTP GET 요청으로 웹 서버를 마비시키는 공격의 대응 방안은?"\n오답: "입력값 검증 강화"\n→ HTTP GET Flooding은 DoS 공격, 입력검증과 무관. 대응: 트래픽 임계값 설정·CDN·방화벽.',
     ]
+    // 대표(title)는 참인 문장(정답)을 둔다 — 틀린 문장이 먼저 각인되는 것을 방지.
+    // 틀린생각은 ❌로 아래에 흔한 오해로만 노출.
     return raw.map((t, i) => ({
       rank: i + 1,
-      title: t.틀린생각,
+      title: t.정답,
       incorrect_form: t.틀린생각,
-      correct_form: t.정답,
       example: examples[i],
     }))
   }
